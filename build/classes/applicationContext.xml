@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">	
+	
+	<bean id="userDao" class="com.dao.impl.UserDaoImpl" >
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="userService" class="com.service.impl.UserServiceImpl">
+		<property name="userDao">
+			<ref bean="userDao"/>
+		</property>
+	</bean>
+	
+	<bean id="userAction" class="com.action.UserAction">
+		<property name="userService">
+			<ref bean="userService"/>
+		</property>
+	</bean>
+	
+	
+	<bean id="productDao" class="com.dao.impl.ProductDaoImpl" >
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>	
+	<bean id="productService" class="com.service.impl.ProductServiceImpl">
+		<property name="productDao">
+			<ref bean="productDao"/>
+		</property>
+	</bean>	
+	<bean id="productAction" class="com.action.ProductAction">
+		<property name="productService">
+			<ref bean="productService"/>
+		</property>
+	</bean>
+	
+	<bean id="cartDao" class="com.dao.impl.CartDaoImpl" >
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="cartService" class="com.service.impl.CartServiceImpl">
+		<property name="cartDao">
+			<ref bean="cartDao"/>
+		</property>
+	</bean>
+	<bean id="cartAction" class="com.action.CartAction">
+		<property name="cartService">
+			<ref bean="cartService"/>
+		</property>
+	</bean>
+	
+	<bean id="onlineDao" class="com.dao.impl.onlineDaoImpl" >
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="onlineService" class="com.service.impl.onlineServiceImpl">
+		<property name="onlineDao">
+			<ref bean="onlineDao"/>
+		</property>
+	</bean>
+	<bean id="onlineAction" class="com.action.onlineAction">
+		<property name="onlineService">
+			<ref bean="onlineService"/>
+		</property>
+	</bean>
+	
+	
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+			<property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+			<property name="url"  value="jdbc:sqlserver://USER-20151012:1433;databaseName=shopping;"/>
+			<property name="username" value="sa"/>
+			<property name="password" value="sasasa"/>
+	</bean>
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+			<property name="dataSource">
+					<ref bean="dataSource"/>
+			</property>
+			
+			<property name="hibernateProperties">
+				<props>
+					<prop key="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</prop>
+					<prop key="show_sql">true</prop>
+				</props>
+			</property>
+			<property name="mappingResources">
+				<list>
+					<value>com/po/User.hbm.xml</value>
+					<value>com/po/Product.hbm.xml</value>
+					<value>com/po/Cart.hbm.xml</value>	
+					<value>com/po/Online.hbm.xml</value>						
+				</list>
+			</property>
+			
+	</bean>
+	
+</beans>
