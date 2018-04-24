@@ -1,4 +1,4 @@
-<%--
+<%@ page import="java.util.Calendar" %><%--
   Created by IntelliJ IDEA.
   User: Administrator
   Date: 2018/4/19 0019
@@ -16,13 +16,56 @@
     <tr>
         <td>
             <div id="left_login">
+                <%
+                    String userName =null;
+
+                    if( session.getAttribute("username")!= null)/* session.getAttribute("user")  */
+                        userName = session.getAttribute("username").toString();
+
+                    if(userName == null){
+                %>
                 <span style="font-size: 14px;font-family: 'Arabic Typesetting'">登录中心</span><br>
                 <font  style="font-size: 12px;" color="red"><s:property value="#request.mess" /></font><br><br>
                 <form action="loginAction.action" method="post">
                     <font style="font-size: 12px;font-family: 'Arabic Typesetting'">用户名：</font><input type="text" name="username" class="enter" placeholder="请输入用户名"><br><br>
+                    <font style="font-size: 12px;font-family: 'Arabic Typesetting'">用户类型：</font>
+                    <select name="userType" id="userType" style="height: 25px;font-size: 12px;width: 80px ">
+                        <option value="管理员">管理员</option>
+                        <option value="教师">教师</option>
+                        <option value="学生">学生</option>
+                    </select><br>
+                    <br>
                     <font style="font-size: 12px;font-family: 'Arabic Typesetting'">密&nbsp;&nbsp;&nbsp;码：</font><input type="password" name="password" class="enter" placeholder="请输入密码"><br><br>
                     <input name="imageField" type="image" src="./images/login_button.gif" />
                 </form>
+                <%
+                }else{
+                    byte a[]=userName.getBytes("utf-8");
+                    userName=new String(a);
+                    Calendar cal = Calendar.getInstance();
+                    int hour = cal.get(Calendar.HOUR_OF_DAY);
+                    if (hour >= 5 && hour < 8) {
+                        out.print("<span style='color:red'>早上好，&nbsp;&nbsp;"+userName +"</span>");
+                    }else if (hour >= 8 && hour < 11) {
+                        out.print("<span style='color:red'>上午好，&nbsp;&nbsp;"+userName+"</span>");
+                    }else if (hour >= 11 && hour < 13) {
+                        out.print("<span style='color:red'>中午好，&nbsp;&nbsp;"+userName+"</span>");
+                    }else if (hour >= 13 && hour < 18) {
+                        out.print("<span style='color:red'>下午好，&nbsp;&nbsp;"+userName+"</span>");
+                    }else if (hour >= 18 && hour < 23) {
+                        out.print("<span style='color:red'>晚上好，&nbsp;&nbsp;"+userName+"</span>");
+                    }else {
+                        out.print("<span style='color:red'>夜深啦，&nbsp;&nbsp;"+userName+"</span>");
+                    }
+                %>
+                <br><br>
+                <form action="exitAction.action" method="post">
+                    <input type="submit" name="exit" value="退出">
+                </form>
+
+                <%
+                    }
+                %>
             </div>
         </td>
     </tr>

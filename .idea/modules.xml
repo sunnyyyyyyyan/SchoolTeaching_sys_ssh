@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/work_ssh.iml" filepath="$PROJECT_DIR$/work_ssh.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SchoolTeaching_sys_ssh.iml" filepath="$PROJECT_DIR$/SchoolTeaching_sys_ssh.iml" />
     </modules>
   </component>
 </project>
