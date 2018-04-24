@@ -27,26 +27,24 @@ public class UserServiceImpl implements UserService {
 		if(list.size()>0){
 			return "loginSuccess";
 		}
-		ActionContext.getContext().put("mess", "用户名或密码不正确");
+		ActionContext.getContext().put("mess","用户名或密码不正确");
 		return "loginError";
 	}
 
 	@Override
-	public String regService(User user) {
+	public String addService(User user) {
 		// TODO Auto-generated method stub
-		String hql = "from User where username='" + user.getUsername() + "'";
-		//UserDao userDao = new UserDao();
-		List<User> list = this.userDao.getData(hql);
+		String sql = "from User where userId='" + user.getUserId() + "'";
+		List<User> list = this.userDao.getData(sql);
 		if (list.size() > 0) {
 			ActionContext.getContext().put("mess", "用户已存在");
-			return "regError";
+			return "addError";
 		}
 		if (userDao.addUser(user)) {
-			return "regSuccess";
+			return "addSuccess";
 		}
-		ActionContext.getContext().put("mess", "注册失败");
-		return "regError";
+		ActionContext.getContext().put("mess", "添加失败");
+		return "addError";
 	}
-	
 
 }

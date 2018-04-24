@@ -10,14 +10,14 @@
             <result name="loginSuccess">/index.jsp</result>
             <result name="loginError">/index.jsp</result>          
         </action>
-        
-        <action name="regAction" class="com.action.UserAction" method="register">
-            <result name="regSuccess">/success.jsp</result>  
-            <result name="regError">/register.jsp</result>          
-        </action>
 
         <action name="exitAction" class="com.action.UserAction" method="exit">
             <result name="exitSuccess">/index.jsp</result>
+        </action>
+
+        <action name="addUserAction" class="com.action.UserAction" method="addUser">
+            <result name="addSuccess">/addUser.jsp</result>
+            <result name="addError">/addUser.jsp</result>
         </action>
     </package>
 

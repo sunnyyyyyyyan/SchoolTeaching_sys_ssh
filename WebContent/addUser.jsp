@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="/struts-tags" prefix="s"%>
 <html>
 <head>
     <title>addUser</title>
@@ -27,12 +28,13 @@
         <div class="addUser">
                 <h2 align="center">添加用户</h2>
             <br>
-            <form action="#">
+            <font  style="font-size: 12px;" color="red"><s:property value="#request.mess" /></font>
+            <form action="addUserAction.action" method="post">
                 <table class="table table-bordered" style="margin:0 auto;width: 350px">
                     <tr>
                         <td>
                             用户编号：
-                            <input type="text" name="userId" placeholder="学号或教师编号">
+                            <input type="text" name="userId" placeholder="学号或教师或管理员编号">
                         </td>
                     </tr>
                     <tr>

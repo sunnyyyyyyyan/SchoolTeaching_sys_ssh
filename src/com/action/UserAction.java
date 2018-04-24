@@ -80,6 +80,7 @@ public class UserAction {
         this.email = email;
     }
 
+    //登录
     public String login() {
 		if (this.getUserId() == null || this.getUserId().equals("")
 				|| this.getPassword() == null || this.getPassword().equals("")) {
@@ -96,38 +97,35 @@ public class UserAction {
 		}
 		return "loginError";
 	}
-	
-	
-	public String register(){
-		
-		if (this.getUsername() == null || this.getUsername().equals("")
-				|| this.getPassword() == null || this.getPassword().equals("")
-				|| this.getPassword1() == null || this.getPassword1().equals("")
-				) {
-			ActionContext.getContext().put("mess", "不能为空");
-			return "regError";
 
-		}
-		if (!this.getPassword().equals(this.getPassword1())) {
-			ActionContext.getContext().put("mess", "两次密码不一致");
-			return "regError";
-		}
-
-		User usr = new User();
-		usr.setUsername(this.username);
-		usr.setPassword(this.password);
-		
-		String strMess = this.userService.regService(usr);
-		
-		if (strMess.equals("regSuccess")) {
-			return "regSuccess";
-		}
-		return "regError";
-	}
 	//退出
 	public String exit(){
 		ActionContext.getContext().getSession().remove("userId");
 		return "exitSuccess";
 	}
+
+	//添加
+	public String addUser(){
+		
+		if (this.getUserId() == null || this.getUserId().equals("")||
+				this.getUsername() == null || this.getUsername().equals("")
+				|| this.getPassword() == null || this.getPassword().equals("")
+				|| this.getPassword1() == null || this.getPassword1().equals("")
+				){
+			ActionContext.getContext().put("mess", "不能为空");
+			return "addError";
+
+		}
+		User user = new User();
+		user.setUserId(this.userId);
+		user.setUsername(this.username);
+		user.setPassword(this.password);
+		String strMess = this.userService.addService(user);
+		if (strMess.equals("addSuccess")) {
+			return "addSuccess";
+		}
+		return "addError";
+	}
+
 
 }

@@ -25,7 +25,7 @@ public class UserDaoImpl implements UserDao{
 
 	
 	@Override
-	public List<User> getData(String hql) {
+	public List<User> getData(String sql) {
 		List<User> list=new ArrayList<User>();//接口中只有方法和常量，没有构造方法；类是接口的实现类；隐式转换类型
 		try{
 			//读取spring配置文件
@@ -39,7 +39,7 @@ public class UserDaoImpl implements UserDao{
 			//创建会话
 			Session session=sfc.openSession();*/
 			//执行hql,将结果存入list
-			list=session.createQuery(hql).list();
+			list=session.createQuery(sql).list();
 			session.clear();
 			session.close();
 		}catch(Exception e){
