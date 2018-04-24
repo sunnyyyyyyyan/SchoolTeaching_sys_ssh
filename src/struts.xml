@@ -14,7 +14,11 @@
         <action name="regAction" class="com.action.UserAction" method="register">
             <result name="regSuccess">/success.jsp</result>  
             <result name="regError">/register.jsp</result>          
-        </action>     
-     </package>  
+        </action>
+
+        <action name="exitAction" class="com.action.UserAction" method="exit">
+            <result name="exitSuccess">/index.jsp</result>
+        </action>
+    </package>
 
 </struts>

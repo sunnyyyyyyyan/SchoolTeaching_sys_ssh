@@ -89,7 +89,7 @@ public class UserAction {
 		}
 		return "regError";
 	}
-	//ע��
+	//退出
 	public String exit(){
 		ActionContext.getContext().getSession().remove("username");
 		return "exitSuccess";
