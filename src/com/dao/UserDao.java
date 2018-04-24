@@ -5,7 +5,7 @@ import java.util.List;
 import com.po.User;
 
 public interface UserDao {
-	//查询，添加，删除，修改
+	//澧炲垹鏀规煡
 	public List<User> getData(String hql);
 	public boolean addUser(User user);
 	public boolean delUser(User user);

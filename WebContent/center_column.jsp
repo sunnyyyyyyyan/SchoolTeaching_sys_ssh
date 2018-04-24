@@ -1,180 +1,53 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
-<%@ page import="java.sql.*"%>
-<%@ taglib uri="/struts-tags" prefix="s"%>
-<link rel="stylesheet" rev="stylesheet" href="css/center_column.css"
-	type="text/css" media="all" />
-
-<script language="javascript">
-//选择器
-function $a(id,tag){var re=(id&&typeof id!="string")?id:document.getElementById(id);if(!tag){return re;}else{return re.getElementsByTagName(tag);}}
-
-//焦点滚动图 点击移动
-function movec()
-{
-	var o=$a("bd1lfimg","");
-	var oli=$a("bd1lfimg","dl");
-    var oliw=oli[0].offsetWidth; //每次移动的宽度	 
-	var ow=o.offsetWidth-2;
-	var dnow=0; //当前位置	
-	var olf=oliw-(ow-oliw+10)/2;
-		o["scrollLeft"]=olf+(dnow*oliw);
-	var rqbd=$a("bd1lfsj","ul")[0];
-	var extime;
-
-	<!--for(var i=1;i<oli.length;i++){rqbd.innerHTML+="<li>"+i+"</li>";}-->
-	var rq=$a("bd1lfsj","li");
-	for(var i=0;i<rq.length;i++){reg(i);};
-	oli[dnow].className=rq[dnow].className="show";
-	var wwww=setInterval(uu,2000);
-
-	function reg(i){rq[i].onclick=function(){oli[dnow].className=rq[dnow].className="";dnow=i;oli[dnow].className=rq[dnow].className="show";mv();}}
-	function mv(){clearInterval(extime);clearInterval(wwww);extime=setInterval(bc,15);wwww=setInterval(uu,5000);}
-	function bc()
-	{
-		var ns=((dnow*oliw+olf)-o["scrollLeft"]);
-		var v=ns>0?Math.ceil(ns/10):Math.floor(ns/10);
-		o["scrollLeft"]+=v;if(v==0){clearInterval(extime);oli[dnow].className=rq[dnow].className="show";v=null;}
-	}
-	function uu()
-	{
-		if(dnow<oli.length-2)
-		{
-			oli[dnow].className=rq[dnow].className="";
-			dnow++;
-			oli[dnow].className=rq[dnow].className="show";
-		}
-		else{oli[dnow].className=rq[dnow].className="";dnow=0;oli[dnow].className=rq[dnow].className="show";}
-		mv();
-	}
-	o.onmouseover=function(){clearInterval(extime);clearInterval(wwww);}
-	o.onmouseout=function(){extime=setInterval(bc,15);wwww=setInterval(uu,5000);}
-}
-</script>
-
-<!-------- content start --------->
-<div id="content">
-
-
-	<!-- ===================== header end ===================== -->
-
-
-	<!--------main begin--------->
-	<div id="main">
-
-		<!-----------图片切换  begin----------->
-		<div class="sub_box">
-			<div id="p-select" class="sub_nav">
-
-				<div class="sub_no" id="bd1lfsj">
-					<ul>
-						<li class="show">1</li>
-						<li class="">2</li>
-					</ul>
-				</div>
-			</div>
-			<div id="bd1lfimg">
-				<div>
-					<dl class="show"></dl>
-					<dl class="">
-						<dt>
-							<a href="#"><img src="images/asw.jpg" alt="爱尚网扇品"></a>
-						</dt>
-					</dl>
-					<dl class="">
-						<dt>
-							<a href="#"><img src="images/summer.jpg" alt="清爽夏日"></a>
-						</dt>
-					</dl>
-				</div>
-			</div>
-		</div>
-		<script type="text/javascript">movec();</script>
-		<!-----------图片切换  end----------->
-	</div>
-	<!--------main end--------->
-
-
-
+<%--
+  Created by IntelliJ IDEA.
+  User: Administrator
+  Date: 2018/4/19 0019
+  Time: 上午 10:35
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>center_column</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+<div class="top">
+    <div id="myCarousel" class="carousel slide">
+        <!-- 轮播（Carousel）指标 -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <!-- 轮播（Carousel）项目 -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <img src="./images/sky.jpg" alt="First slide" width="600px">
+                <div class="carousel-caption"> 1</div>
+            </div>
+            <div class="item">
+                <img src="./images/sky.jpg" alt="Second slide" width="600px">
+                <div class="carousel-caption"> 2</div>
+            </div>
+            <div class="item">
+                <img src="./images/sky.jpg" alt="Third slide" width="600px">
+                <div class="carousel-caption"> 3</div>
+            </div>
+        </div>
+        <!-- 轮播（Carousel）导航 -->
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
 </div>
 
-<div class="divBorder">
-	<div id="select_title">
-		<h3>
-			&nbsp;&nbsp;最新商品<img src="images/new.gif" />
-		</h3>
-		<hr size=1>
-	</div>
-
-
-
-	<div id="select_product">
-		<div id="select_img">
-			<a href="showProductByIDAction?id=1"><img width="205"
-				height="154" src="Picture/1.jpg"></a>
-		</div>
-		<div id="select_about">
-			<a class="a" href="showProductByIDAction?id=1">品名：油漆边双色龙骨扇_粉色 </a><br>
-			促销价：<span style="color: #FF6600; font-weight: bold;">￥18</span>元<br>
-			已售出：<span style="font-weight: bold;">86</span>&nbsp;笔
-		</div>
-	</div>
-
-
-
-<div id="select_product">
-	<div id="select_img">
-		<a href="showProductByIDAction?id=2"><img width="205" height="154"
-			src="Picture/2.jpg"></a>
-	</div>
-	<div id="select_about">
-		<a class="a" href="showProductByIDAction?id=2">品名：油漆边双色龙骨扇_红色 </a><br>
-		促销价：<span style="color: #FF6600; font-weight: bold;">￥18</span>元<br>
-		已售出：<span style="font-weight: bold;">5</span>&nbsp;笔
-	</div>
-</div>
-<div id="select_product">
-	<div id="select_img">
-		<a href="showProductByIDAction?id=3"><img width="205" height="154"
-			src="Picture/3.jpg"></a>
-	</div>
-	<div id="select_about">
-		<a class="a" href="showProductByIDAction?id=3">品名：油漆边双色龙骨扇_蓝色 </a><br>
-		促销价：<span style="color: #FF6600; font-weight: bold;">￥17</span>元<br>
-		已售出：<span style="font-weight: bold;">9</span>&nbsp;笔
-	</div>
-</div>
-<div id="select_product">
-	<div id="select_img">
-		<a href="showProductByIDAction?id=4"><img width="205" height="154"
-			src="Picture/4.jpg"></a>
-	</div>
-	<div id="select_about">
-		<a class="a" href="showProductByIDAction?id=4">品名：油漆边双色龙骨扇_紫色 </a><br>
-		促销价：<span style="color: #FF6600; font-weight: bold;">￥16</span>元<br>
-		已售出：<span style="font-weight: bold;">19</span>&nbsp;笔
-	</div>
-</div>
-<div id="select_product">
-	<div id="select_img">
-		<a href="showProductByIDAction?id=5"><img width="205" height="154"
-			src="Picture/5.jpg"></a>
-	</div>
-	<div id="select_about">
-		<a class="a" href="showProductByIDAction?id=5">品名：短梢手绘折扇_梅花 </a><br>
-		促销价：<span style="color: #FF6600; font-weight: bold;">￥18</span>元<br>
-		已售出：<span style="font-weight: bold;">29</span>&nbsp;笔
-	</div>
-</div>
-<div id="select_product">
-	<div id="select_img">
-		<a href="showProductByIDAction?id=6"><img width="205" height="154"
-			src="Picture/6.jpg"></a>
-	</div>
-	<div id="select_about">
-		<a class="a" href="showProductByIDAction?id=6">品名：短梢手绘折扇_桃花</a><br>
-		促销价：<span style="color: #FF6600; font-weight: bold;">￥18</span>元<br>
-		已售出：<span style="font-weight: bold;">86</span>&nbsp;笔
-	</div>
-</div>
-</div>
+<script src="bootstrap/js/jquery-2.0.2.min.js" type="text/javascript"></script>
+<script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+</body>
+</html>

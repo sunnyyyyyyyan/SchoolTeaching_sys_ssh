@@ -7,67 +7,14 @@
 
     <package name="default" extends="struts-default">        
      	<action name="loginAction" class="com.action.UserAction" method="login">
-            <result name="loginSuccess">/index.jsp</result>  
-            <result name="loginError">/login.jsp</result>          
+            <result name="loginSuccess">/success.jsp</result>  
+            <result name="loginError">/index.jsp</result>          
         </action>
         
-        <action name="regAction" class="com.action.UserAction" method="reg">
-            <result name="regSuccess">/login.jsp</result>  
-            <result name="regError">/reg.jsp</result>          
-        </action>
-        
-        <action name="exitAction" class="com.action.UserAction" method="exit">
-            <result name="exitSuccess">/index.jsp</result>  
-        </action>
-        
-        <action name="showAllProductAction" class="com.action.ProductAction" method="showAllProduct">
-        	<result name="showAllProduct">/product.jsp</result>
-        </action>
-        
-        <action name="showProductByIDAction" class="com.action.ProductAction" method="showProductByID">
-        	<result name="showProductByID">/item.jsp</result>
-        </action> 
-        
-        <action name="showProductBySortAction" class="com.action.ProductAction" method="showProductBySort">
-        	<result name="showProductBySort">/sort.jsp</result>
-        </action>   
-        
-        <action name="addCartAction" class="com.action.CartAction" method="addCart">
-       		<result name="login">/login.jsp</result>
-       		<result type="redirectAction" name="showCart">/showCartAction</result>
-       		<result name="error">/index.jsp</result>
-       </action>
-       
-       <action name="showCartAction" class="com.action.CartAction" method="showCart">
-       		<result name="login">/login.jsp</result>
-       		<result name="showCart">/cart_view.jsp</result>
-       </action>
-       
-       <action name="delByCartIdAction" class="com.action.CartAction" method="delByCartId">
-       		<result name="error">/cart_view.jsp</result>
-       		<result type="redirectAction" name="delByCartId">/showCartAction</result>
-       </action>
-       
-       <action name="delUserCartAction" class="com.action.CartAction" method="delUserCart">
-       		<result type="redirectAction" name="delUserCart">/showCartAction</result>
-       		<result name="error">/cart_view.jsp</result>
-       </action>
-       
-       <action name="getProductByKeyAction" class="com.action.ProductAction" method="getProductByKey">
-        	<result name="getProductByKey">/search_key.jsp</result>
-        	<result name="Error">/search_key.jsp</result>
-        </action>
-       
-       <action name="onlineAction" class="com.action.onlineAction" method="online">
-       	    <result name="login">/login.jsp</result>
-       		<result type="redirectAction" name="online">/getOnlineByNameAction</result>
-       		<result name="error">/online.jsp</result> 
-       </action>
-       
-       <action name="getOnlineByNameAction" class="com.action.onlineAction" method="getOnlineByName">
-       		<result name="login">/login.jsp</result>
-       		<result name="getOnline">/showOnline.jsp</result>
-       </action>
-    </package>  
+        <action name="regAction" class="com.action.UserAction" method="register">
+            <result name="regSuccess">/success.jsp</result>  
+            <result name="regError">/register.jsp</result>          
+        </action>     
+     </package>  
 
 </struts>

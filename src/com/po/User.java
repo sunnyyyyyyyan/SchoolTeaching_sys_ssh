@@ -4,8 +4,6 @@ public class User {
 	private Integer id;
 	private String username;
 	private String password;
-	private String sex;
-	private String interest;
 	
 	public Integer getId() {
 		return id;
@@ -24,17 +22,5 @@ public class User {
 	}
 	public void setPassword(String password) {
 		this.password = password;
-	}
-	public String getSex() {
-		return sex;
-	}
-	public void setSex(String sex) {
-		this.sex = sex;
-	}
-	public String getInterest() {
-		return interest;
-	}
-	public void setInterest(String interest) {
-		this.interest = interest;
 	}
 }

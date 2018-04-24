@@ -5,14 +5,10 @@ import com.po.User;
 import com.service.UserService;
 
 public class UserAction {
-	// ½ÓÊÕÓÃ»§Ìá½»µÄÊı¾İ
 	private String username;
 	private String password;
 	private String password1;
-	private String sex;
-	private String[] interest;
 	
-	// ½ÓÊÕ×¢ÈëµÄ¶ÔÏó
 	private UserService userService;
 
 	public UserService getUserService() {
@@ -48,38 +44,18 @@ public class UserAction {
 		this.password1 = password1;
 	}
 
-	public String getSex() {
-		return sex;
-	}
-
-	public void setSex(String sex) {
-		this.sex = sex;
-	}
-
-	public String[] getInterest() {
-		return interest;
-	}
-
-	public void setInterest(String[] interest) {
-		this.interest = interest;
-	}
-
-	// ÊµÏÖµÇÂ¼¹¦ÄÜ
 	public String login() {
-		// ÑéÖ¤Êı¾İ:1)¿Õ
 		if (this.getUsername() == null || this.getUsername().equals("")
 				|| this.getPassword() == null || this.getPassword().equals("")) {
-			ActionContext.getContext().put("mess", "²»ÄÜÎª¿Õ£¡");
+			ActionContext.getContext().put("mess", "ä¸èƒ½ä¸ºç©º");
 			return "loginError";
 		}
-		// ´´½¨User¶ÔÏó£¬µ÷ÓÃservice²ãµÄloginService·½·¨Íê³ÉÒµÎñ´¦Àí
 		User user = new User();
 		user.setUsername(this.username);
 		user.setPassword(this.password);
 
 		String strMess = this.userService.loginService(user);
 		if (strMess.equals("loginSuccess")) {
-			// ½«ÓÃ»§Ãû´æÈësession
 			ActionContext.getContext().getSession().put("username",user.getUsername());
 			return "loginSuccess";
 		}
@@ -87,38 +63,24 @@ public class UserAction {
 	}
 	
 	
-	//×¢²á
-	public String reg(){
+	public String register(){
 		
-		// ÑéÖ¤Êı¾İ£º1£©ÑéÖ¤¿Õ£»2£©ÃÜÂëÊÇ·ñÒ»ÖÂ£»3£©ÊÇ·ñÒÑ¾­´æÔÚ
 		if (this.getUsername() == null || this.getUsername().equals("")
 				|| this.getPassword() == null || this.getPassword().equals("")
 				|| this.getPassword1() == null || this.getPassword1().equals("")
-				|| this.getSex() == null || this.getSex().equals("")
-				|| this.getInterest() == null || this.getInterest().equals("")) {
-			ActionContext.getContext().put("mess", "²»ÄÜÎª¿Õ£¡");
+				) {
+			ActionContext.getContext().put("mess", "ä¸èƒ½ä¸ºç©º");
 			return "regError";
 
 		}
 		if (!this.getPassword().equals(this.getPassword1())) {
-			ActionContext.getContext().put("mess", "ÃÜÂë²»Ò»ÖÂ£¡");
+			ActionContext.getContext().put("mess", "ä¸¤æ¬¡å¯†ç ä¸ä¸€è‡´");
 			return "regError";
-		}
-		
-		String Interest = "";
-		for (int i = 0; i < this.getInterest().length; i++) {
-			Interest = Interest + this.getInterest()[i] + ",";
-		}
-		// ÈôInterest²»Îª¿Õ£¬È¥Ä©Î²¡°£¬¡±
-		if (!Interest.equals("")) {
-			Interest = Interest.substring(0, Interest.length() - 1);
 		}
 
 		User usr = new User();
 		usr.setUsername(this.username);
 		usr.setPassword(this.password);
-		usr.setSex(this.sex);
-		usr.setInterest(Interest);
 		
 		String strMess = this.userService.regService(usr);
 		
@@ -127,7 +89,7 @@ public class UserAction {
 		}
 		return "regError";
 	}
-	//×¢Ïú
+	//×¢ï¿½ï¿½
 	public String exit(){
 		ActionContext.getContext().getSession().remove("username");
 		return "exitSuccess";

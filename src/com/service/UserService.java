@@ -1,9 +1,8 @@
 package com.service;
 
-import com.po.Product;
 import com.po.User;
 
 public interface UserService {
-	public String loginService(User user); 	//µÇÂ¼
-	public String regService(User user); 	//×¢²á
+	public String loginService(User user); 	//ç™»å½•
+	public String regService(User user); 	//æ³¨å†Œ
 }

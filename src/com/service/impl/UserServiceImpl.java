@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.dao.UserDao;
 import com.opensymphony.xwork2.ActionContext;
-import com.po.Product;
 import com.po.User;
 import com.service.UserService;
 
@@ -28,7 +27,7 @@ public class UserServiceImpl implements UserService {
 		if(list.size()>0){
 			return "loginSuccess";
 		}
-			
+		ActionContext.getContext().put("mess", "用户名或密码不正确");
 		return "loginError";
 	}
 
@@ -39,13 +38,13 @@ public class UserServiceImpl implements UserService {
 		//UserDao userDao = new UserDao();
 		List<User> list = this.userDao.getData(hql);
 		if (list.size() > 0) {
-			ActionContext.getContext().put("mess", "�û��Ѵ��ڣ�");
+			ActionContext.getContext().put("mess", "用户已存在");
 			return "regError";
 		}
 		if (userDao.addUser(user)) {
-			// ע��ɹ�
 			return "regSuccess";
 		}
+		ActionContext.getContext().put("mess", "注册失败");
 		return "regError";
 	}
 	

@@ -1,69 +1,30 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%--
+  Created by IntelliJ IDEA.
+  User: Administrator
+  Date: 2018/4/19 0019
+  Time: 上午 10:34
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>header</title>
+</head>
+<body>
+    <div id="headerMenu">
+        <ul id="menu">
+            <li><a class="li" href="index.jsp"><img src="./images/index.png" alt="index">首页</a></li>
+            <li><a class="li" href="#"><img src="./images/gonggao.png" width="32px" alt="index">公告栏</a></li>
+            <li><a class="li" href="#"><img src="./images/download.png" width="32px" alt="index">资源下载</a></li>
+            <li><a class="li" href="#"><img src="./images/shequ.png" width="32px" alt="index">社区</a></li>
+        </ul>
+    </div>
+    <div id="search">
+        <form action="#">
+            <input type="text" style="width: 150px;height: 25px;vertical-align:middle;" name="textSearch" placeholder="请输入关键字">
+            <input type="image" name="imageSearch" src="./images/search.png" align="absmiddle" width="25px">
+        </form>
+    </div>
 
-<script>
-function openWin(url,width,height){
-var phxWin=window.open(url,'','width='+width+',height='+height+',left='+(screen.width-width)/2+',top='+(screen.height-height)/2+'');
-}
-</script>
-	
-	<div id="logo">
-		<a href="#"><img src="images/logo.png" border= "0 "/></a>
-	</div>
-	
-	<div id="header_right">
-		<%
-			String userName = null;
-      		if(session.getAttribute("username") != null)
-      			userName = session.getAttribute("username").toString();
-      		if(userName == null){
-      	%>
-		欢迎光临，<a href="reg.jsp">注册</a>/<a href="login.jsp">登陆</a>
-		<%
-      	}else{
-      		byte a[]=userName.getBytes("utf-8");
-      		userName=new String(a);
-      		out.print(""+userName+"，<span style='color:red'>欢迎光临!</span>");
-      	}
-      	%>
-		
-		<br>
-		<img src="images/chat.png" />&nbsp;<a onClick="openWin('contact.jsp',300,200)" style="cursor:hand" >联系我们</a> <img src="images/order.png" />&nbsp;<a href="showCartAction.action">购物车</a>
-	</div>
-
-	<div id="headermenu">
-
-		<ul id="menu">
-		<li>
-			<a class="li" href="index.jsp"><img src="images/dh_1.png" border= "0 "/>&nbsp首页</a>
-		</li>
-		<li>
-			<a class="li" href="#" ><img src="images/dh_2.png" border= "0 "/>&nbsp商店公告</a>
-		</li>
-		
-		<li>
-			<a class="li" href="showAllProductAction.action" ><img src="images/dh_3.png" border= "0 "/>&nbsp全部商品</a>
-		</li>
-		
-		<li>
-			<a class="li" href="#" ><img src="images/dh_4.png" border= "0 "/>&nbsp付款方式</a>
-		</li>
-		
-		<li>
-			<a class="li" href="#"><img src="images/dh_5.png" border= "0 "/>&nbsp关于我们</a>
-		</li>
-		
-		<li>
-			<a class="li" href="online.jsp" ><img src="images/dh_6.png" border= "0 "/>&nbsp在线留言</a>
-		</li>
-		
-
-		</ul>
-	</div>
-	
-	<div id="search">
-		<form id="form1" name="search" method="post" action="getProductByKeyAction.action">
-			<input type="text" name="textfield" style="color:#a4a4a4;vertical-align:middle;" value="请输入关键字"  onfocus="this.value=''" />&nbsp
-			<input name="imageField" type="image" align="absmiddle" src="images/search.gif" />
-		</form>
-	</div>
+</body>
+</html>

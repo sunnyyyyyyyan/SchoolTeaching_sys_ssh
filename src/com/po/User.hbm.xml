@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 2017-5-21 14:19:48 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.po.User" table="userinfo">
+    <class name="com.po.User" table="user">
         <id name="id" type="java.lang.Integer">
             <column name="ID" />
             <generator class="increment" />
@@ -13,12 +13,6 @@
         </property>
         <property name="password" type="java.lang.String">
             <column name="PASSWORD" />
-        </property>
-        <property name="sex" type="java.lang.String">
-            <column name="SEX" />
-        </property>
-        <property name="interest" type="java.lang.String">
-            <column name="INTEREST" />
         </property>
     </class>
 </hibernate-mapping>
