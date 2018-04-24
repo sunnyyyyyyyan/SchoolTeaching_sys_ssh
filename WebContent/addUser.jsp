@@ -28,7 +28,7 @@
                 <h2 align="center">添加用户</h2>
             <br>
             <form action="#">
-                <table class="table table-bordered" style="margin:0 auto; text-align: center;width: 300px">
+                <table class="table table-bordered" style="margin:0 auto;width: 350px">
                     <tr>
                         <td>
                             用户编号：
@@ -44,7 +44,7 @@
                     <tr>
                         <td>
                             用户类型：
-                            <select name="userType" id="userType">
+                            <select name="userType" id="userType" style="height: 30px">
                                 <option value="管理员">管理员</option>
                                 <option value="教师">教师</option>
                                 <option value="学生">学生</option>
@@ -70,8 +70,9 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>
-                            <button>提交</button>
+                        <td align="center">
+                            <button type="submit">提交</button>&nbsp;&nbsp;
+                            <button type="reset">重置</button>
                         </td>
                     </tr>
                     </tr>
