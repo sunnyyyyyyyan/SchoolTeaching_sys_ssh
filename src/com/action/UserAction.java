@@ -110,16 +110,17 @@ public class UserAction {
 		if (this.getUserId() == null || this.getUserId().equals("")||
 				this.getUsername() == null || this.getUsername().equals("")
 				|| this.getPassword() == null || this.getPassword().equals("")
-				|| this.getPassword1() == null || this.getPassword1().equals("")
 				){
-			ActionContext.getContext().put("mess", "不能为空");
+			ActionContext.getContext().put("addMess", "*不能为空！");
 			return "addError";
-
 		}
 		User user = new User();
 		user.setUserId(this.userId);
 		user.setUsername(this.username);
 		user.setPassword(this.password);
+		user.setUserType(this.userType);
+		user.setPhone(this.phone);
+		user.setEmail(this.email);
 		String strMess = this.userService.addService(user);
 		if (strMess.equals("addSuccess")) {
 			return "addSuccess";

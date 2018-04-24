@@ -28,24 +28,28 @@
         <div class="addUser">
                 <h2 align="center">添加用户</h2>
             <br>
-            <font  style="font-size: 12px;" color="red"><s:property value="#request.mess" /></font>
             <form action="addUserAction.action" method="post">
                 <table class="table table-bordered" style="margin:0 auto;width: 350px">
                     <tr>
                         <td>
-                            用户编号：
+                            <font  style="font-size: 12px;" color="red"><s:property value="#request.addMess" /></font>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <font color="red">*</font>用户编号：
                             <input type="text" name="userId" placeholder="学号或教师或管理员编号">
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            用户名：
+                            <font color="red">*</font>用户名：
                             <input type="text" name="username" placeholder="请输入用户名">
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            用户类型：
+                            <font color="red">*</font>用户类型：
                             <select name="userType" id="userType" style="height: 30px">
                                 <option value="管理员">管理员</option>
                                 <option value="教师">教师</option>
@@ -55,7 +59,7 @@
                     </tr>
                     <tr>
                         <td>
-                            密码：
+                            <font color="red">*</font>密码：
                             <input type="password" name="password" placeholder="请输入密码">
                         </td>
                     </tr>

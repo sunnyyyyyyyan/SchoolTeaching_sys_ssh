@@ -37,13 +37,14 @@ public class UserServiceImpl implements UserService {
 		String sql = "from User where userId='" + user.getUserId() + "'";
 		List<User> list = this.userDao.getData(sql);
 		if (list.size() > 0) {
-			ActionContext.getContext().put("mess","用户已存在");
+			ActionContext.getContext().put("addMess","用户已存在");
 			return "addError";
 		}
 		if (userDao.addUser(user)) {
+			ActionContext.getContext().put("addMess","添加成功！");
 			return "addSuccess";
 		}
-		ActionContext.getContext().put("mess", "添加失败");
+		ActionContext.getContext().put("addMess", "添加失败");
 		return "addError";
 	}
 
