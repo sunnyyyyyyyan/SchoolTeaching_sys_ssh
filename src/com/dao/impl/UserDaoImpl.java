@@ -13,7 +13,7 @@ import com.dao.UserDao;
 import com.po.User;
 
 public class UserDaoImpl implements UserDao{
-	private SessionFactory sessionFactory;//½ÓÊÕ×¢ÈësessonFactory£»
+	private SessionFactory sessionFactory;//æ¥æ”¶æ³¨å…¥sessonFactoryï¼›
 	//private ApplicationContext ctx;
 	public SessionFactory getSessionFactory() {
 		return sessionFactory;
@@ -26,19 +26,19 @@ public class UserDaoImpl implements UserDao{
 	
 	@Override
 	public List<User> getData(String sql) {
-		List<User> list=new ArrayList<User>();//½Ó¿ÚÖĞÖ»ÓĞ·½·¨ºÍ³£Á¿£¬Ã»ÓĞ¹¹Ôì·½·¨£»ÀàÊÇ½Ó¿ÚµÄÊµÏÖÀà£»ÒşÊ½×ª»»ÀàĞÍ
+		List<User> list=new ArrayList<User>();//æ¥å£ä¸­åªæœ‰æ–¹æ³•å’Œå¸¸é‡ï¼Œæ²¡æœ‰æ„é€ æ–¹æ³•ï¼›ç±»æ˜¯æ¥å£çš„å®ç°ç±»ï¼›éšå¼è½¬æ¢ç±»å‹
 		try{
-			//¶ÁÈ¡springÅäÖÃÎÄ¼ş
+			//è¯»å–springé…ç½®æ–‡ä»¶
 			//ctx=new ClassPathXmlApplicationContext("applicationContext.xml");
-			//»ñÈ¡springÖĞµÄsessionFactory
+			//è·å–springä¸­çš„sessionFactory
 			//sessionFactory=ctx.getBean("sessionFactory",SessionFactory.class);
 			Session session=sessionFactory.openSession();
 			
-			/*//¼ÓÔØhibernateÅäÖÃÎÄ¼ş
+			/*//åŠ è½½hibernateé…ç½®æ–‡ä»¶
 			SessionFactory sfc=new Configuration().configure().buildSessionFactory();
-			//´´½¨»á»°
+			//åˆ›å»ºä¼šè¯
 			Session session=sfc.openSession();*/
-			//Ö´ĞĞhql,½«½á¹û´æÈëlist
+			//æ‰§è¡Œhql,å°†ç»“æœå­˜å…¥list
 			list=session.createQuery(sql).list();
 			session.clear();
 			session.close();
@@ -53,20 +53,20 @@ public class UserDaoImpl implements UserDao{
 	public boolean addUser(User user) {
 		boolean isSuccess=false;
 		try{
-			//¶ÁÈ¡springÅäÖÃÎÄ¼ş
+			//è¯»å–springé…ç½®æ–‡ä»¶
 			//ctx=new ClassPathXmlApplicationContext("applicationContext.xml");
-			//»ñÈ¡springÖĞµÄsessionFactory
+			//è·å–springä¸­çš„sessionFactory
 			//sessionFactory=ctx.getBean("sessionFactory",SessionFactory.class);
 			Session session=sessionFactory.openSession();
-			/*//¼ÓÔØÅäÖÃÎÄ¼şhibernate.cfg.xml
+			/*//åŠ è½½é…ç½®æ–‡ä»¶hibernate.cfg.xml
 			SessionFactory sfc=new Configuration().configure().buildSessionFactory();
-			//´´½¨»á»°
+			//åˆ›å»ºä¼šè¯
 			Session session=sfc.openSession();*/			
-			//ÆôÓÃÊÂÎñ
+			//å¯ç”¨äº‹åŠ¡
 			Transaction transaction=session.beginTransaction();
-			//Ìí¼ÓÓÃ»§
+			//æ·»åŠ ç”¨æˆ·
 			session.save(user);
-			//Ìá½»ÊÂÎñ
+			//æäº¤äº‹åŠ¡
 			transaction.commit();
 			isSuccess=true;
 			session.clear();
@@ -81,20 +81,20 @@ public class UserDaoImpl implements UserDao{
 	public boolean delUser(User user) {
 		boolean isSuccess=false;
 		try{
-			//¶ÁÈ¡springÅäÖÃÎÄ¼ş
+			//è¯»å–springé…ç½®æ–‡ä»¶
 			//ctx=new ClassPathXmlApplicationContext("applicationContext.xml");
-			//»ñÈ¡springÖĞµÄsessionFactory
+			//è·å–springä¸­çš„sessionFactory
 			//sessionFactory=ctx.getBean("sessionFactory",SessionFactory.class);
 			Session session=sessionFactory.openSession();
-			/*//¼ÓÔØÅäÖÃÎÄ¼şhibernate.cfg.xml
+			/*//åŠ è½½é…ç½®æ–‡ä»¶hibernate.cfg.xml
 			SessionFactory sfc=new Configuration().configure().buildSessionFactory();
-			//´´½¨»á»°
+			//åˆ›å»ºä¼šè¯
 			Session session=sfc.openSession();	*/		
-			//ÆôÓÃÊÂÎñ
+			//å¯ç”¨äº‹åŠ¡
 			Transaction transaction=session.beginTransaction();
-			//É¾³ıÓÃ»§
+			//åˆ é™¤ç”¨æˆ·
 			session.delete(user);
-			//Ìá½»ÊÂÎñ
+			//æäº¤äº‹åŠ¡
 			transaction.commit();
 			isSuccess=true;
 			session.clear();
@@ -109,20 +109,20 @@ public class UserDaoImpl implements UserDao{
 	public boolean updateUser(User user) {
 		boolean isSuccess=false;
 		try{
-			//¶ÁÈ¡springÅäÖÃÎÄ¼ş
+			//è¯»å–springé…ç½®æ–‡ä»¶
 			//ctx=new ClassPathXmlApplicationContext("applicationContext.xml");
-			//»ñÈ¡springÖĞµÄsessionFactory
+			//è·å–springä¸­çš„sessionFactory
 			//sessionFactory=ctx.getBean("sessionFactory",SessionFactory.class);
 			Session session=sessionFactory.openSession();
-			/*//¼ÓÔØÅäÖÃÎÄ¼şhibernate.cfg.xml
+			/*//åŠ è½½é…ç½®æ–‡ä»¶hibernate.cfg.xml
 			SessionFactory sfc=new Configuration().configure().buildSessionFactory();
-			//´´½¨»á»°
+			//åˆ›å»ºä¼šè¯
 			Session session=sfc.openSession();	*/		
-			//ÆôÓÃÊÂÎñ
+			//å¯ç”¨äº‹åŠ¡
 			Transaction transaction=session.beginTransaction();
-			//ĞŞ¸ÄÓÃ»§
+			//ä¿®æ”¹ç”¨æˆ·
 			session.update(user);
-			//Ìá½»ÊÂÎñ
+			//æäº¤äº‹åŠ¡
 			transaction.commit();
 			isSuccess=true;
 			session.clear();
