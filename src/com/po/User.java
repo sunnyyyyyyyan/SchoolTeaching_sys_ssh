@@ -2,6 +2,7 @@ package com.po;
 
 public class User {
 	private Integer id;
+	private String userId;
 	private String username;
 	private String password;
 	private String userType;
@@ -11,6 +12,15 @@ public class User {
 	public Integer getId() {
 		return id;
 	}
+
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}

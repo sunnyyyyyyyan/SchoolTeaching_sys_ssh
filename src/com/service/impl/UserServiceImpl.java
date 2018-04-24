@@ -22,12 +22,12 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public String loginService(User user) {
 		// TODO Auto-generated method stub
-		String hql="from User where username='"+user.getUsername()+"' and userType='"+user.getUserType()+"' and password='"+user.getPassword()+"'";
+		String hql="from User where userId='"+user.getUserId()+"' and password='"+user.getPassword()+"'";
 		List<User> list=this.userDao.getData(hql);
 		if(list.size()>0){
 			return "loginSuccess";
 		}
-		ActionContext.getContext().put("mess", "用户名或密码或用户类型不正确");
+		ActionContext.getContext().put("mess", "用户名或密码不正确");
 		return "loginError";
 	}
 

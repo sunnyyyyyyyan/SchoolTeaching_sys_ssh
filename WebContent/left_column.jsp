@@ -17,45 +17,38 @@
         <td>
             <div id="left_login">
                 <%
-                    String userName =null;
+                    String userId =null;
 
-                    if( session.getAttribute("username")!= null)/* session.getAttribute("user")  */
-                        userName = session.getAttribute("username").toString();
+                    if( session.getAttribute("userId")!= null)/* session.getAttribute("user")  */
+                        userId = session.getAttribute("userId").toString();
 
-                    if(userName == null){
+                    if(userId == null){
                 %>
-                <span style="font-size: 14px;font-family: 'Arabic Typesetting'">登录中心</span><br>
-                <font  style="font-size: 12px;" color="red"><s:property value="#request.mess" /></font><br><br>
+                <span style="font-size: 14px;font-family: 'Arabic Typesetting';">登录中心</span><br>
+                <font  style="font-size: 12px;" color="red"><s:property value="#request.mess" /></font><br>
                 <form action="loginAction.action" method="post">
-                    <font style="font-size: 12px;font-family: 'Arabic Typesetting'">用户名：</font><input type="text" name="username" class="enter" placeholder="请输入用户名"><br><br>
-                    <font style="font-size: 12px;font-family: 'Arabic Typesetting'">用户类型：</font>
-                    <select name="userType" id="userType" style="height: 25px;font-size: 12px;width: 80px ">
-                        <option value="管理员">管理员</option>
-                        <option value="教师">教师</option>
-                        <option value="学生">学生</option>
-                    </select><br>
-                    <br>
-                    <font style="font-size: 12px;font-family: 'Arabic Typesetting'">密&nbsp;&nbsp;&nbsp;码：</font><input type="password" name="password" class="enter" placeholder="请输入密码"><br><br>
+                    <font style="font-size: 12px;font-family: 'Arabic Typesetting'">用户编号</font><input type="text" name="userId" class="enter" placeholder="请输入用户编号"><br><br>
+                    <font style="font-size: 12px;font-family: 'Arabic Typesetting'">密&nbsp;&nbsp;&nbsp;码</font><input type="password" name="password" class="enter" placeholder="请输入密码"><br><br>
                     <input name="imageField" type="image" src="./images/login_button.gif" />
                 </form>
                 <%
                 }else{
-                    byte a[]=userName.getBytes("utf-8");
-                    userName=new String(a);
+                    byte a[]=userId.getBytes("utf-8");
+                    userId=new String(a);
                     Calendar cal = Calendar.getInstance();
                     int hour = cal.get(Calendar.HOUR_OF_DAY);
                     if (hour >= 5 && hour < 8) {
-                        out.print("<span style='color:red'>早上好，&nbsp;&nbsp;"+userName +"</span>");
+                        out.print("<span style='color:red'>早上好，&nbsp;&nbsp;"+userId +"</span>");
                     }else if (hour >= 8 && hour < 11) {
-                        out.print("<span style='color:red'>上午好，&nbsp;&nbsp;"+userName+"</span>");
+                        out.print("<span style='color:red'>上午好，&nbsp;&nbsp;"+userId+"</span>");
                     }else if (hour >= 11 && hour < 13) {
-                        out.print("<span style='color:red'>中午好，&nbsp;&nbsp;"+userName+"</span>");
+                        out.print("<span style='color:red'>中午好，&nbsp;&nbsp;"+userId+"</span>");
                     }else if (hour >= 13 && hour < 18) {
-                        out.print("<span style='color:red'>下午好，&nbsp;&nbsp;"+userName+"</span>");
+                        out.print("<span style='color:red'>下午好，&nbsp;&nbsp;"+userId+"</span>");
                     }else if (hour >= 18 && hour < 23) {
-                        out.print("<span style='color:red'>晚上好，&nbsp;&nbsp;"+userName+"</span>");
+                        out.print("<span style='color:red'>晚上好，&nbsp;&nbsp;"+userId+"</span>");
                     }else {
-                        out.print("<span style='color:red'>夜深啦，&nbsp;&nbsp;"+userName+"</span>");
+                        out.print("<span style='color:red'>夜深啦，&nbsp;&nbsp;"+userId+"</span>");
                     }
                 %>
                 <br><br>

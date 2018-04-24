@@ -5,6 +5,7 @@ import com.po.User;
 import com.service.UserService;
 
 public class UserAction {
+    private String userId;
 	private String username;
 	private String password;
 	private String password1;
@@ -14,7 +15,15 @@ public class UserAction {
 	
 	private UserService userService;
 
-	public UserService getUserService() {
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public UserService getUserService() {
 		return userService;
 	}
 
@@ -72,18 +81,17 @@ public class UserAction {
     }
 
     public String login() {
-		if (this.getUsername() == null || this.getUsername().equals("")
+		if (this.getUserId() == null || this.getUserId().equals("")
 				|| this.getPassword() == null || this.getPassword().equals("")) {
 			ActionContext.getContext().put("mess", "不能为空");
 			return "loginError";
 		}
 		User user = new User();
-		user.setUsername(this.username);
+		user.setUsername(this.userId);
 		user.setPassword(this.password);
-        user.setUserType(this.userType);
 		String strMess = this.userService.loginService(user);
 		if (strMess.equals("loginSuccess")) {
-			ActionContext.getContext().getSession().put("username",user.getUsername());
+			ActionContext.getContext().getSession().put("userId",user.getUserId());
 			return "loginSuccess";
 		}
 		return "loginError";
@@ -118,7 +126,7 @@ public class UserAction {
 	}
 	//退出
 	public String exit(){
-		ActionContext.getContext().getSession().remove("username");
+		ActionContext.getContext().getSession().remove("userId");
 		return "exitSuccess";
 	}
 
