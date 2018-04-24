@@ -8,6 +8,9 @@ public class UserAction {
 	private String username;
 	private String password;
 	private String password1;
+    private String userType;
+    private String phone;
+    private String email;
 	
 	private UserService userService;
 
@@ -44,7 +47,31 @@ public class UserAction {
 		this.password1 = password1;
 	}
 
-	public String login() {
+    public String getUserType() {
+        return userType;
+    }
+
+    public void setUserType(String userType) {
+        this.userType = userType;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String login() {
 		if (this.getUsername() == null || this.getUsername().equals("")
 				|| this.getPassword() == null || this.getPassword().equals("")) {
 			ActionContext.getContext().put("mess", "不能为空");
@@ -53,7 +80,7 @@ public class UserAction {
 		User user = new User();
 		user.setUsername(this.username);
 		user.setPassword(this.password);
-
+        user.setUserType(this.userType);
 		String strMess = this.userService.loginService(user);
 		if (strMess.equals("loginSuccess")) {
 			ActionContext.getContext().getSession().put("username",user.getUsername());
