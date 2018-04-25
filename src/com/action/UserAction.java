@@ -88,7 +88,7 @@ public class UserAction {
 			return "loginError";
 		}
 		User user = new User();
-		user.setUsername(this.userId);
+		user.setUserId(this.userId);
 		user.setPassword(this.password);
 		String strMess = this.userService.loginService(user);
 		if (strMess.equals("loginSuccess")) {

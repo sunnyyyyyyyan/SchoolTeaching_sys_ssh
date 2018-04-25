@@ -2,12 +2,16 @@ package com.service.impl;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import com.dao.UserDao;
 import com.opensymphony.xwork2.ActionContext;
 import com.po.User;
 import com.service.UserService;
 
 public class UserServiceImpl implements UserService {
+    private static Logger logger =  Logger.getLogger(UserServiceImpl.class);
+    
 	private UserDao userDao;
 	
 	
@@ -21,13 +25,14 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public String loginService(User user) {
+	    System.out.println(user);
 		// TODO Auto-generated method stub
 		String hql="from User where userId='"+user.getUserId()+"' and password='"+user.getPassword()+"'";
 		List<User> list=this.userDao.getData(hql);
 		if(list.size()>0){
 			return "loginSuccess";
 		}
-		ActionContext.getContext().put("mess","用户名或密码不正确");
+		ActionContext.getContext().put("mess","用户编号或密码不正确");
 		return "loginError";
 	}
 
