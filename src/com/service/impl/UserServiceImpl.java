@@ -48,4 +48,15 @@ public class UserServiceImpl implements UserService {
 		return "addError";
 	}
 
+    @Override
+    public List<User> getAllUserData(int pageNow, int pageSize) {
+        List<User> list = this.userDao.getAllUserData(pageNow,pageSize);
+        return list;
+    }
+
+    @Override
+    public int findAUserSize() {
+        return this.userDao.findAUserSize();
+    }
+
 }

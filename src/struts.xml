@@ -19,6 +19,11 @@
             <result name="addSuccess">/addUser.jsp</result>
             <result name="addError">/addUser.jsp</result>
         </action>
+
+        <action name="allUserAction" class="com.action.UserAction" method="showAllUser">
+            <result name="showAllUserSuccess">/userList.jsp</result>
+            <result name="showAllUserError">/userList.jsp</result>
+        </action>
     </package>
 
 </struts>

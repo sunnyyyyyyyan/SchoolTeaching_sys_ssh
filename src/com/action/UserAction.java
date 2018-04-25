@@ -1,8 +1,11 @@
 package com.action;
 
 import com.opensymphony.xwork2.ActionContext;
+import com.po.PageShow;
 import com.po.User;
 import com.service.UserService;
+
+import java.util.List;
 
 public class UserAction {
     private String userId;
@@ -12,8 +15,36 @@ public class UserAction {
     private String userType;
     private String phone;
     private String email;
+
+    private int pageNow=1;//当前页
+    private int pageSize=9;//总条数
+    private int totalPage;//总页数
 	
 	private UserService userService;
+
+    public int getTotalPage() {
+        return totalPage;
+    }
+
+    public void setTotalPage(int totalPage) {
+        this.totalPage = totalPage;
+    }
+
+    public int getPageNow() {
+        return pageNow;
+    }
+
+    public void setPageNow(int pageNow) {
+        this.pageNow = pageNow;
+    }
+
+    public int getPageSize() {
+        return pageSize;
+    }
+
+    public void setPageSize(int pageSize) {
+        this.pageSize = pageSize;
+    }
 
     public String getUserId() {
         return userId;
@@ -128,5 +159,16 @@ public class UserAction {
 		return "addError";
 	}
 
+	public String showAllUser(){
+        List<User> list = this.userService.getAllUserData(pageNow,pageSize);
+        if (list.size() > 0){
+            ActionContext.getContext().put("allUser",list);
+            PageShow pageShow = new PageShow(this.pageNow,this.userService.findAUserSize(),this.pageSize);
+            ActionContext.getContext().put("page",pageShow);
+            return "showAllUserSuccess";
+        }
+        ActionContext.getContext().put("allUser","查询失败");
+        return "showAllUserError";
+    }
 
 }

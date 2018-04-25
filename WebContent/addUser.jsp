@@ -9,7 +9,7 @@
 <%@ taglib uri="/struts-tags" prefix="s"%>
 <html>
 <head>
-    <title>addUser</title>
+    <title>添加用户</title>
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">

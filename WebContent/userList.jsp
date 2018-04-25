@@ -6,9 +6,10 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="/struts-tags" prefix="s"%>
 <html>
 <head>
-    <title>userList</title>
+    <title>用户列表</title>
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
@@ -41,37 +42,39 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>cy000011110001</td>
-                            <td>sunny</td>
-                            <td>管理员</td>
-                            <td>1</td>
-                            <td>11112222</td>
-                            <td>993303027@qq.com</td>
-                            <td><a href="#">删除</a></td>
-                        </tr>
-                        <tr>
-                            <td>cy000011110002</td>
-                            <td>tom</td>
-                            <td>教师</td>
-                            <td>1</td>
-                            <td>33334444</td>
-                            <td>993303027@qq.com</td>
-                            <td><a href="#">删除</a></td>
-                        </tr>
-                        <tr>
-                            <td>cy000011110003</td>
-                            <td>lily</td>
-                            <td>学生</td>
-                            <td>1</td>
-                            <td>77778888</td>
-                            <td>993303027@qq.com</td>
-                            <td><a href="#">删除</a></td>
-                        </tr>
+                        <s:iterator value="#request.allUser">
+                            <tr>
+                                <td><s:property value="userId"/> </td>
+                                <td><s:property value="username"/> </td>
+                                <td><s:property value="password"/> </td>
+                                <td><s:property value="userType"/> </td>
+                                <td><s:property value="phone"/> </td>
+                                <td><s:property value="email"/> </td>
+                                <td><a href="#">删除</a></td>
+                            </tr>
+                        </s:iterator>
                     </tbody>
 
                 </table>
             </form>
+        </div>
+        <div id='page_next'>
+            当前是第<s:property value="#request.page.pageNow" />页，共<s:property value="#request.page.totalPage" />页
+            &nbsp;&nbsp;<s:if test="#request.page.hasFirst">
+            <a href="allUserAction.action?pageNow=1" target="main">首页</a>
+        </s:if>
+            <s:if test="#request.page.hasPre">
+                <a href="allUserAction.action?pageNow=<s:property value="#request.page.pageNow-1"/> "
+                   target="main">上一页</a>
+            </s:if>
+            <s:if test="#request.page.hasNext">
+                <a href="allUserAction.action?pageNow=<s:property value="#request.page.pageNow+1" />"
+                   target="main">下一页</a>
+            </s:if>
+            <s:if test="#request.page.hasLast">
+                <a href="allUserAction.action?pageNow=<s:property value="#request.page.totalPage"/>"
+                   target="main">尾页</a>
+            </s:if>
         </div>
     </div>
 

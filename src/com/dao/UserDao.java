@@ -10,4 +10,8 @@ public interface UserDao {
 	public boolean addUser(User user);
 	public boolean delUser(User user);
 	public boolean updateUser(User user);
+
+	//查询所有用户列表
+	public List<User> getAllUserData(int pageNow, int pageSize);
+	public int findAUserSize();
 }
