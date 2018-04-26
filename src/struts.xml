@@ -22,7 +22,16 @@
 
         <action name="allUserAction" class="com.action.UserAction" method="showAllUser">
             <result name="showAllUserSuccess">/userList.jsp</result>
-            <result name="showAllUserError">/userList.jsp</result>
+            <result name="showAllUserError">/index.jsp</result>
+        </action>
+
+        <action name="getUserIdAction" class="com.action.UserAction" method="getUser">
+            <result name="getUserSuccess">/changeUser.jsp</result>
+        </action>
+
+        <action name="updateUserAction" class="com.action.UserAction" method="updateUser">
+            <result name="updateUserSuccess">/changeUser.jsp</result>
+            <result name="updateUserError">/changeUser.jsp</result>
         </action>
     </package>
 

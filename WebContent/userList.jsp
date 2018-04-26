@@ -28,7 +28,7 @@
         <div class="userList">
             <h2 align="center">所有用户列表</h2>
             <br>
-            <form action="#">
+            <form action="allUserAction.action" method="post">
                 <table class="table table-bordered" style="text-align: center">
                     <thead>
                         <tr >
@@ -57,8 +57,15 @@
 
                 </table>
             </form>
+
         </div>
+
         <div id='page_next'>
+            <a class="pageLink" href="">上一页</a>&nbsp;
+            <a class="pageLink" href="">下一页</a>&nbsp;
+        </div>
+
+    <%--        <div id='page_next'>
             当前是第<s:property value="#request.page.pageNow" />页，共<s:property value="#request.page.totalPage" />页
             &nbsp;&nbsp;<s:if test="#request.page.hasFirst">
             <a href="allUserAction.action?pageNow=1" target="main">首页</a>
@@ -75,7 +82,7 @@
                 <a href="allUserAction.action?pageNow=<s:property value="#request.page.totalPage"/>"
                    target="main">尾页</a>
             </s:if>
-        </div>
+        </div>--%>
     </div>
 
     <div id="footer">

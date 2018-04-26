@@ -63,9 +63,9 @@ body {
     margin: 0 auto 10px auto;
 }
 .enter{
-    width: 100px;
+    width: 90px;
     height: 25px;
-    font-size: 12px;
+    font-size: 11px;
 }
 #left_sort {
     float: left;

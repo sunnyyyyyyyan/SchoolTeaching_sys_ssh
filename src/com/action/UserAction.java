@@ -8,6 +8,7 @@ import com.service.UserService;
 import java.util.List;
 
 public class UserAction {
+	private String id;
     private String userId;
 	private String username;
 	private String password;
@@ -19,7 +20,15 @@ public class UserAction {
     private int pageNow=1;//当前页
     private int pageSize=9;//总条数
     private int totalPage;//总页数
-	
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
 	private UserService userService;
 
     public int getTotalPage() {
@@ -115,7 +124,7 @@ public class UserAction {
     public String login() {
 		if (this.getUserId() == null || this.getUserId().equals("")
 				|| this.getPassword() == null || this.getPassword().equals("")) {
-			ActionContext.getContext().put("mess", "不能为空");
+			ActionContext.getContext().put("mess", "不能为空！");
 			return "loginError";
 		}
 		User user = new User();
@@ -159,16 +168,45 @@ public class UserAction {
 		return "addError";
 	}
 
+	//用户列表
 	public String showAllUser(){
-        List<User> list = this.userService.getAllUserData(pageNow,pageSize);
+        List<User> list = this.userService.getAllUserData();
         if (list.size() > 0){
             ActionContext.getContext().put("allUser",list);
-            PageShow pageShow = new PageShow(this.pageNow,this.userService.findAUserSize(),this.pageSize);
-            ActionContext.getContext().put("page",pageShow);
             return "showAllUserSuccess";
         }
-        ActionContext.getContext().put("allUser","查询失败");
-        return "showAllUserError";
+        ActionContext.getContext().put("allUser", "查询失败！");
+		return "showAllUserError";
     }
+
+    //根据用户id获取个人信息
+	public String getUser(){
+		List<User> list = this.userService.getUserId(id);
+		ActionContext.getContext().put("user",list);
+    	return "getUserSuccess";
+	}
+
+
+    //修改用户信息
+    public String updateUser(){
+		if(password.equals(password1)==false){
+			ActionContext.getContext().put("updateMess","两次密码输入不一致");
+			return "updateUserError";
+		}
+		User user = new User();
+		user.setUserId(this.userId);
+		user.setUsername(this.username);
+		user.setPassword(this.password);
+		user.setUserType(this.userType);
+		user.setPhone(this.phone);
+		user.setEmail(this.email);
+		String strMess = this.userService.updateUser(user);
+		if (strMess.equals("updateUserSuccess")) {
+			ActionContext.getContext().put("updateMess","修改成功！");
+			return "updateUserSuccess";
+		}
+		ActionContext.getContext().put("updateMess","修改失败！");
+		return "updateUserError";
+	}
 
 }

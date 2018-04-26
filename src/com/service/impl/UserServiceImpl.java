@@ -32,7 +32,7 @@ public class UserServiceImpl implements UserService {
 		if(list.size()>0){
 			return "loginSuccess";
 		}
-		ActionContext.getContext().put("mess","用户编号或密码不正确");
+		ActionContext.getContext().put("mess","学/编号或密码不正确！");
 		return "loginError";
 	}
 
@@ -42,26 +42,45 @@ public class UserServiceImpl implements UserService {
 		String sql = "from User where userId='" + user.getUserId() + "'";
 		List<User> list = this.userDao.getData(sql);
 		if (list.size() > 0) {
-			ActionContext.getContext().put("addMess","用户已存在");
+			ActionContext.getContext().put("addMess","用户已存在！");
 			return "addError";
 		}
 		if (userDao.addUser(user)) {
 			ActionContext.getContext().put("addMess","添加成功！");
 			return "addSuccess";
 		}
-		ActionContext.getContext().put("addMess", "添加失败");
+		ActionContext.getContext().put("addMess", "添加失败！");
 		return "addError";
 	}
 
     @Override
-    public List<User> getAllUserData(int pageNow, int pageSize) {
-        List<User> list = this.userDao.getAllUserData(pageNow,pageSize);
+    public List<User> getAllUserData() {
+        String sql = "from User";
+        List<User> list = userDao.getData(sql);
         return list;
     }
 
-    @Override
+	@Override
+	public String updateUser(User user) {
+		String sql = "from User where id='"+user.getId()+"'";
+		List<User> list = this.userDao.getData(sql);
+		if (list.size() > 0){
+			this.userDao.updateUser(user);
+			return "updateUserSuccess";
+		}
+		return "updateUserError";
+	}
+
+	@Override
+	public List<User> getUserId(String id) {
+		String sql = "from User where id="+id;
+		List<User> list = this.userDao.getData(sql);
+		return list;
+	}
+
+    /*@Override
     public int findAUserSize() {
         return this.userDao.findAUserSize();
-    }
+    }*/
 
 }

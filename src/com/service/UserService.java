@@ -9,6 +9,14 @@ public interface UserService {
 
 	public String addService(User user);    //添加
 
-	public List<User> getAllUserData(int pageNow, int pageSize);
-	public int findAUserSize();
+	public List<User> getAllUserData();
+
+	public String updateUser(User user);
+
+	public List<User> getUserId(String userId);
+
+
+
+	/*public List<User> getAllUserData(int pageNow, int pageSize);
+	public int findAUserSize();*/
 }

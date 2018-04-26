@@ -27,8 +27,8 @@
                 <span style="font-size: 14px;font-family: 'Arabic Typesetting';">登录中心</span><br>
                 <font  style="font-size: 12px;" color="red"><s:property value="#request.mess" /></font><br>
                 <form action="loginAction.action" method="post">
-                    <font style="font-size: 12px;font-family: 'Arabic Typesetting'">用户编号</font><input type="text" name="userId" class="enter" placeholder="请输入用户编号"><br><br>
-                    <font style="font-size: 12px;font-family: 'Arabic Typesetting'">密&nbsp;&nbsp;&nbsp;码</font><input type="password" name="password" class="enter" placeholder="请输入密码"><br><br>
+                    <font style="font-size: 12px;font-family: 'Arabic Typesetting';width: 60px;">学/编号&nbsp;</font><input type="text" name="userId" class="enter" placeholder="请输入学号或编号"><br><br>
+                    <font style="font-size: 12px;font-family: 'Arabic Typesetting';width: 60px;">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码&nbsp;</font><input type="password" name="password" class="enter" placeholder="请输入密码"><br><br>
                     <input name="imageField" type="image" src="./images/login_button.gif" />
                 </form>
                 <%
@@ -38,22 +38,22 @@
                     Calendar cal = Calendar.getInstance();
                     int hour = cal.get(Calendar.HOUR_OF_DAY);
                     if (hour >= 5 && hour < 8) {
-                        out.print("<span style='color:red'>早上好，&nbsp;&nbsp;"+userId +"</span>");
+                        out.print("<span style='color:red;font-size:12px;'>早上好，&nbsp;&nbsp;"+userId +"</span>");
                     }else if (hour >= 8 && hour < 11) {
-                        out.print("<span style='color:red'>上午好，&nbsp;&nbsp;"+userId+"</span>");
+                        out.print("<span style='color:red;font-size:12px;'>上午好，&nbsp;&nbsp;"+userId+"</span>");
                     }else if (hour >= 11 && hour < 13) {
-                        out.print("<span style='color:red'>中午好，&nbsp;&nbsp;"+userId+"</span>");
+                        out.print("<span style='color:red;font-size:12px;'>中午好，&nbsp;&nbsp;"+userId+"</span>");
                     }else if (hour >= 13 && hour < 18) {
-                        out.print("<span style='color:red'>下午好，&nbsp;&nbsp;"+userId+"</span>");
+                        out.print("<span style='color:red;font-size:12px;'>下午好，&nbsp;&nbsp;"+userId+"</span>");
                     }else if (hour >= 18 && hour < 23) {
-                        out.print("<span style='color:red'>晚上好，&nbsp;&nbsp;"+userId+"</span>");
+                        out.print("<span style='color:red;font-size:12px;'>晚上好，&nbsp;&nbsp;"+userId+"</span>");
                     }else {
-                        out.print("<span style='color:red'>夜深啦，&nbsp;&nbsp;"+userId+"</span>");
+                        out.print("<span style='color:red;font-size:12px;'>夜深啦，&nbsp;&nbsp;"+userId+"</span>");
                     }
                 %>
                 <br><br>
                 <form action="exitAction.action" method="post">
-                    <input type="submit" name="exit" value="退出">
+                    <button type="submit" style="font-size: 12px;margin-left: 50px">退出</button>
                 </form>
 
                 <%
@@ -64,12 +64,13 @@
     </tr>
 </table>
 <br>
+<s:property value="#request.allUser"/>
 <table border=0 cellpadding=0 cellspacing=0>
     <tr>
         <td>
             <div id="left_sort">
                 <ul id="sort_menu">
-                    <ul id="menu">
+                        <ul id="menu">
                         <li class="list">
                             <a id="tab_1" class="li_sort" href="#">
                                 <img src="./images/sort_menu.gif" width="26px" align="absmiddle" />
@@ -77,8 +78,8 @@
                             </a>
                             <ul class="tab" id="tab_1_content">
                                 <li><a class="li_sort_content" href="addUser.jsp">添加用户</a></li>
-                                <li><a class="li_sort_content" href="userList.jsp">查看用户</a></li>
-                                <li><a class="li_sort_content" href="changePassord.jsp">修改密码</a></li>
+                                <li><a class="li_sort_content" href="userList.jsp">用户列表</a></li>
+                                <li><a class="li_sort_content" href="getUserIdAction.action?userId=<s:property value="userId"/> ">修改信息</a></li>
                             </ul>
                         </li>
                         <li class="list">

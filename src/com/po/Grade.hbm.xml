@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-5-21 14:19:48 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.po.Grade" table="grade">
+        <property name="userId" type="java.lang.String">
+            <column name="userId" />
+        </property>
+        <property name="gradeType" type="java.lang.String">
+            <column name="gradeType" />
+        </property>
+        <property name="score" type="java.lang.String">
+            <column name="score" />
+        </property>
+    </class>
+</hibernate-mapping>
