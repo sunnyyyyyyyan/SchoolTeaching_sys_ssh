@@ -23,6 +23,7 @@ public class UserServiceImpl implements UserService {
 		this.userDao = userDao;
 	}
 
+	//登录
 	@Override
 	public String loginService(User user) {
 	    System.out.println(user);
@@ -36,6 +37,7 @@ public class UserServiceImpl implements UserService {
 		return "loginError";
 	}
 
+	//添加用户
 	@Override
 	public String addService(User user) {
 		// TODO Auto-generated method stub
@@ -53,6 +55,7 @@ public class UserServiceImpl implements UserService {
 		return "addError";
 	}
 
+	//获取所有用户
     @Override
     public List<User> getAllUserData() {
         String sql = "from User";
@@ -60,14 +63,19 @@ public class UserServiceImpl implements UserService {
         return list;
     }
 
+    //修改用户信息
 	@Override
 	public String updateUser(User user) {
-		if (this.userDao.updateUser(user)){
+		String sql = "from User where userId='"+user.getUserId()+"'";
+		List<User> list = this.userDao.getData(sql);
+		if (list.size()>0){
+			this.userDao.updateUser(user);
 			return "updateUserSuccess";
 		}
 		return "updateUserError";
 	}
 
+	//获取当前用户信息
 	@Override
 	public List<User> getUserId(String id) {
 		String sql = "from User where id="+id;

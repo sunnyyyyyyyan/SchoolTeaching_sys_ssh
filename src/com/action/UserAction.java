@@ -201,10 +201,8 @@ public class UserAction {
 			return "updateUserError";
 		}
 		User user = new User();
-		user.setUserId(this.userId);
 		user.setUsername(this.username);
 		user.setPassword(this.password);
-		user.setUserType(this.userType);
 		user.setPhone(this.phone);
 		user.setEmail(this.email);
 		String strMess = this.userService.updateUser(user);
