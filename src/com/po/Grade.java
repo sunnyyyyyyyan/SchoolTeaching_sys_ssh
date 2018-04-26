@@ -1,16 +1,35 @@
 package com.po;
 
 public class Grade {
-    private String userId;
+    private Integer id;
+    private String studentId;
     private String gradeType;
     private String score;
 
-    public String getUserId() {
-        return userId;
+    @Override
+    public String toString() {
+        return "Grade{" +
+                "id=" + id +
+                ", studentId='" + studentId + '\'' +
+                ", gradeType='" + gradeType + '\'' +
+                ", score='" + score + '\'' +
+                '}';
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(String studentId) {
+        this.studentId = studentId;
     }
 
     public String getGradeType() {

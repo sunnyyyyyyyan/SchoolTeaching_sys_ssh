@@ -57,9 +57,9 @@
                         </td>
                         <td>
                             <select name="userType" id="userType" style="height: 30px">
-                                <option value="管理员">admin</option>
-                                <option value="教师">teacher</option>
-                                <option value="学生">student</option>
+                                <option value="管理员">管理员</option>
+                                <option value="教师">教师</option>
+                                <option value="学生">学生</option>
                             </select>
                         </td>
                     </tr>

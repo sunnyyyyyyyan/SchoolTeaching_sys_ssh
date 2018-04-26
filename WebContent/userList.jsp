@@ -28,7 +28,7 @@
         <div class="userList">
             <h2 align="center">所有用户列表</h2>
             <br>
-            <form action="allUserAction.action" method="post">
+            <form action="#" method="post">
                 <table class="table table-bordered" style="text-align: center">
                     <thead>
                         <tr >

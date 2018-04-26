@@ -20,7 +20,23 @@
 			<ref bean="userService"/>
 		</property>
 	</bean>
-	
+
+
+	<bean id="gradeDao" class="com.dao.impl.GradeDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+	<bean id="gradeService" class="com.service.impl.GradeServiceImpl">
+		<property name="gradeDao">
+			<ref bean="gradeDao"/>
+		</property>
+	</bean>
+	<bean id="GradeAction" class="com.action.GradeAction">
+		<property name="gradeService">
+			<ref bean="gradeService"/>
+		</property>
+	</bean>
 	
 
 	
@@ -43,7 +59,8 @@
 			</property>
 			<property name="mappingResources">
 				<list>
-					<value>com/po/User.hbm.xml</value>					
+					<value>com/po/User.hbm.xml</value>
+					<value>com/po/Grade.hbm.xml</value>
 				</list>
 			</property>
 			

@@ -38,17 +38,17 @@
                     Calendar cal = Calendar.getInstance();
                     int hour = cal.get(Calendar.HOUR_OF_DAY);
                     if (hour >= 5 && hour < 8) {
-                        out.print("<span style='color:red;font-size:12px;'>早上好，&nbsp;&nbsp;"+userId +"</span>");
+                        out.print("<span style='color:red;font-size:12px;'>早上好，"+userId +"</span>");
                     }else if (hour >= 8 && hour < 11) {
-                        out.print("<span style='color:red;font-size:12px;'>上午好，&nbsp;&nbsp;"+userId+"</span>");
+                        out.print("<span style='color:red;font-size:12px;'>上午好，"+userId+"</span>");
                     }else if (hour >= 11 && hour < 13) {
-                        out.print("<span style='color:red;font-size:12px;'>中午好，&nbsp;&nbsp;"+userId+"</span>");
+                        out.print("<span style='color:red;font-size:12px;'>中午好，"+userId+"</span>");
                     }else if (hour >= 13 && hour < 18) {
-                        out.print("<span style='color:red;font-size:12px;'>下午好，&nbsp;&nbsp;"+userId+"</span>");
+                        out.print("<span style='color:red;font-size:12px;'>下午好，"+userId+"</span>");
                     }else if (hour >= 18 && hour < 23) {
-                        out.print("<span style='color:red;font-size:12px;'>晚上好，&nbsp;&nbsp;"+userId+"</span>");
+                        out.print("<span style='color:red;font-size:12px;'>晚上好，"+userId+"</span>");
                     }else {
-                        out.print("<span style='color:red;font-size:12px;'>夜深啦，&nbsp;&nbsp;"+userId+"</span>");
+                        out.print("<span style='color:red;font-size:12px;'>夜深啦，"+userId+"</span>");
                     }
                 %>
                 <br><br>
@@ -64,7 +64,6 @@
     </tr>
 </table>
 <br>
-<s:property value="#request.allUser"/>
 <table border=0 cellpadding=0 cellspacing=0>
     <tr>
         <td>
@@ -72,13 +71,13 @@
                 <ul id="sort_menu">
                         <ul id="menu">
                         <li class="list">
-                            <a id="tab_1" class="li_sort" href="#">
+                            <a id="tab_1" class="li_sort">
                                 <img src="./images/sort_menu.gif" width="26px" align="absmiddle" />
                                 系统管理
                             </a>
                             <ul class="tab" id="tab_1_content">
                                 <li><a class="li_sort_content" href="addUser.jsp">添加用户</a></li>
-                                <li><a class="li_sort_content" href="userList.jsp">用户列表</a></li>
+                                <li><a class="li_sort_content" href="allUserAction.action">用户列表</a></li>
                                 <li><a class="li_sort_content" href="getUserIdAction.action?userId=<s:property value="userId"/> ">修改信息</a></li>
                             </ul>
                         </li>
@@ -88,8 +87,8 @@
                                 教学管理
                             </a>
                             <ul class="tab" id="tab_2_content">
-                                <li><a class="li_sort_content" href="enterScore.jsp">录入成绩</a></li>
-                                <li><a class="li_sort_content" href="checkScore.jsp">查看成绩</a></li>
+                                <li><a class="li_sort_content" href="addGrade.jsp">录入成绩</a></li>
+                                <li><a class="li_sort_content" href="checkGrade.jsp">查看成绩</a></li>
                                 <li><a class="li_sort_content" href="testOnline.jsp">在线测评</a></li>
                             </ul>
                         </li>

@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib uri="/struts-tags" prefix="s"%>
 <html>
 <head>
     <title>录入成绩</title>
@@ -27,18 +28,26 @@
         <div class="enterScore">
             <h2 align="center">录入成绩</h2>
             <br>
-            <form action="#">
+            <p align="center" >
+                <font  style="font-size: 12px;" color="red"><s:property value="#request.addGradeMess"/> </font>
+            </p>
+            <br>
+            <form action="addGradeAction.action" method="post">
                 <table class="table table-bordered" style="margin:0 auto;text-align: center; width: 400px;">
                     <tr>
                         <td>
                             学号：
-                            <input type="text">
+                        </td>
+                        <td>
+                            <input type="text" name="studentId">
                         </td>
                     </tr>
                     <tr>
                         <td>
                             成绩类型：
-                            <select name="scoreType" id="scoreType">
+                        </td>
+                        <td>
+                            <select name="gradeType" id="gradeType">
                                 <option value="大作业">大作业</option>
                                 <option value="报告">报告</option>
                                 <option value="课堂互动">课堂互动</option>
@@ -49,13 +58,15 @@
                     </tr>
                     <tr>
                         <td>
-                            分数：
-                            <input type="text">
+                            成绩：
+                        </td>
+                        <td>
+                            <input type="text" name="score">
                         </td>
                     </tr>
                     <tr>
-                        <td>
-                            <button>录入</button>
+                        <td colspan="2" align="center">
+                            <button type="submit">录入</button>
                         </td>
                     </tr>
                 </table>

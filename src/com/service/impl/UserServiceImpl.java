@@ -62,10 +62,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public String updateUser(User user) {
-		String sql = "from User where id='"+user.getId()+"'";
-		List<User> list = this.userDao.getData(sql);
-		if (list.size() > 0){
-			this.userDao.updateUser(user);
+		if (this.userDao.updateUser(user)){
 			return "updateUserSuccess";
 		}
 		return "updateUserError";

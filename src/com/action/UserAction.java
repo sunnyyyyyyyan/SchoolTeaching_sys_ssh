@@ -20,6 +20,7 @@ public class UserAction {
     private int pageNow=1;//当前页
     private int pageSize=9;//总条数
     private int totalPage;//总页数
+	private UserService userService;
 
 	public String getId() {
 		return id;
@@ -29,7 +30,6 @@ public class UserAction {
 		this.id = id;
 	}
 
-	private UserService userService;
 
     public int getTotalPage() {
         return totalPage;
@@ -124,7 +124,7 @@ public class UserAction {
     public String login() {
 		if (this.getUserId() == null || this.getUserId().equals("")
 				|| this.getPassword() == null || this.getPassword().equals("")) {
-			ActionContext.getContext().put("mess", "不能为空！");
+			ActionContext.getContext().put("mess", "学/编号或密码不能为空！");
 			return "loginError";
 		}
 		User user = new User();
@@ -189,8 +189,15 @@ public class UserAction {
 
     //修改用户信息
     public String updateUser(){
+        if (this.getUsername()==null&&this.getUsername().equals("")&&
+                this.getPassword()==null&&this.getPassword().equals("")&&
+                this.getPhone()==null&&this.getPhone().equals("")&&
+                this.getEmail()==null&&this.getEmail().equals("")){
+            ActionContext.getContext().put("updateMess","无修改！");
+            return "updateUserError";
+        }
 		if(password.equals(password1)==false){
-			ActionContext.getContext().put("updateMess","两次密码输入不一致");
+			ActionContext.getContext().put("updateMess","两次密码输入不一致！");
 			return "updateUserError";
 		}
 		User user = new User();
