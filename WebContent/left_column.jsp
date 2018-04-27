@@ -88,7 +88,7 @@
                             </a>
                             <ul class="tab" id="tab_2_content">
                                 <li><a class="li_sort_content" href="addGrade.jsp">录入成绩</a></li>
-                                <li><a class="li_sort_content" href="checkGrade.jsp">查看成绩</a></li>
+                                <li><a class="li_sort_content" href="checkGradeAction.action">查看成绩</a></li>
                                 <li><a class="li_sort_content" href="testOnline.jsp">在线测评</a></li>
                             </ul>
                         </li>

@@ -30,7 +30,7 @@
             <result name="deleteUserError">/userList.jsp</result>
         </action>
 
-        <action name="getUserIdAction" class="com.action.UserAction" method="getUser">
+        <action name="getUserIdAction" class="com.action.UserAction" method="getUserid">
             <result name="getUserSuccess">/changeUser.jsp</result>
         </action>
 
@@ -44,6 +44,16 @@
         <action name="addGradeAction" class="com.action.GradeAction" method="addGrade">
             <result name="addGradeSuccess">/addGrade.jsp</result>
             <result name="addGradeError">/addGrade.jsp</result>
+        </action>
+
+        <action name="checkGradeAction" class="com.action.GradeAction" method="checkGrade">
+            <result name="checkGradeSuccess">/checkGrade.jsp</result>
+            <result name="checkGradeError">/checkGrade.jsp</result>
+        </action>
+
+        <action name="deleteScoreAction" class="com.action.GradeAction" method="deleteScore">
+            <result name="deleteScoreSuccess">/checkGrade.jsp</result>
+            <result name="deleteScoreError">/checkGrade.jsp</result>
         </action>
 
     </package>

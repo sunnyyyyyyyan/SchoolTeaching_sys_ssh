@@ -62,4 +62,27 @@ public class GradeAction {
         ActionContext.getContext().put("addGradeMess","录入失败！");
         return "addGradeError";
     }
+
+    //查询所有成绩
+    public String checkGrade(){
+        List<Grade> list = this.gradeService.getGradeData();
+        if (list.size()>0){
+            ActionContext.getContext().put("checkGradeMess",list);
+            return "checkGradeSuccess";
+        }
+        return "checkGradeError";
+    }
+
+    //删除单条成绩
+    public String deleteScore(){
+        String strMess = this.gradeService.deleteGrade(this.studentId);
+        if (strMess.equals("deleteScoreSuccess")){
+            ActionContext.getContext().put("deleteGradeMess","删除成功！");
+            checkGrade();
+            return "deleteScoreSuccess";
+        }
+        ActionContext.getContext().put("deleteGradeMess","删除失败！");
+        return "deleteScoreSuccess";
+    }
+
 }

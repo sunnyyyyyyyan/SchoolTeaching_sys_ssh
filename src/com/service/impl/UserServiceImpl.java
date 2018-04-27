@@ -59,7 +59,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> getAllUserData() {
         String sql = "from User";
-        List<User> list = userDao.getData(sql);
+        List<User> list = this.userDao.getData(sql);
         return list;
     }
 

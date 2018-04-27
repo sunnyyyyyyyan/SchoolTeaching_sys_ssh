@@ -70,4 +70,22 @@ public class GradeDaoImpl implements GradeDao {
         }
         return list;
     }
+
+    @Override
+    public boolean delGrade(Grade grade) {
+        boolean isSuccess=false;
+        try{
+            Session session=sessionFactory.openSession();
+            Transaction transaction=session.beginTransaction();
+            //删除用户
+            session.delete(grade);
+            transaction.commit();
+            isSuccess=true;
+            session.clear();
+            session.close();
+        }catch(Exception e){
+            System.err.println(e);
+        }
+        return isSuccess;
+    }
 }

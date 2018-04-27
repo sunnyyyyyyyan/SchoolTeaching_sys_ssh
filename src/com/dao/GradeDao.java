@@ -5,7 +5,9 @@ import com.po.Grade;
 import java.util.List;
 
 public interface GradeDao {
+    //增删改查
     public boolean addGrade(Grade grade);
     public boolean updateGrade(Grade grade);
     public List<Grade> getGrade(String sql);
+    public boolean delGrade(Grade grade);
 }

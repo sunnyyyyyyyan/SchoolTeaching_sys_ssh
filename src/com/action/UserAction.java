@@ -175,7 +175,6 @@ public class UserAction {
 
 	//用户列表
 	public String showAllUser(){
-
         List<User> list = this.userService.getAllUserData();
         if (list.size() > 0){
             ActionContext.getContext().put("allUser",list);
@@ -190,6 +189,7 @@ public class UserAction {
         String strMess = this.userService.deleteUser(this.userId);
         if (strMess.equals("deleteUserSuccess")){
             ActionContext.getContext().put("deleteUserMess","删除成功！");
+            showAllUser();
             return "deleteUserSuccess";
         }
         ActionContext.getContext().put("deleteUserMess","删除失败！");
@@ -197,7 +197,7 @@ public class UserAction {
 	}
 
     //根据用户id获取个人信息
-	public String getUser(){
+	public String getUserid(){
 
 		List<User> list = this.userService.getUserId(id);
 		ActionContext.getContext().put("user",list);

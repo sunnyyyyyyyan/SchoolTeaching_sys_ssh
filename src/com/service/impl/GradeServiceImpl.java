@@ -19,7 +19,9 @@ public class GradeServiceImpl implements GradeService {
 
     @Override
     public List<Grade> getGradeData() {
-        return null;
+        String sql = "from Grade";
+        List<Grade> list = this.gradeDao.getGrade(sql);
+        return list;
     }
 
     @Override
@@ -33,5 +35,17 @@ public class GradeServiceImpl implements GradeService {
     @Override
     public String updateGrade(String grade) {
         return null;
+    }
+
+    //根据studentId删除单条成绩
+    @Override
+    public String deleteGrade(String studentId) {
+        String sql = "from Grade where studentId='"+studentId+"'";
+        List<Grade> list = this.gradeDao.getGrade(sql);
+        Grade grade = list.get(0);
+        if (this.gradeDao.delGrade(grade)){
+            return "deleteScoreSuccess";
+        }
+        return "deleteScoreError";
     }
 }

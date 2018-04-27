@@ -28,13 +28,12 @@
         <div class="addUser">
                 <h2 align="center">添加用户</h2>
             <br>
+            <p align="center">
+                    <font  style="font-size: 12px;" color="red"><s:property value="#request.addMess" /></font>
+            </p>
             <form action="addUserAction.action" method="post">
                 <table class="table table-bordered" style="margin:0 auto;width: 350px">
-                    <tr align="center">
-                        <td colspan="2">
-                            <font  style="font-size: 12px;" color="red"><s:property value="#request.addMess" /></font>
-                        </td>
-                    </tr>
+
                     <tr>
                         <td>
                             <font color="red">*</font>学号/编号：
