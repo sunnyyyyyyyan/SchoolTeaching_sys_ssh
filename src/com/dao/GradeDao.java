@@ -10,4 +10,8 @@ public interface GradeDao {
     public boolean updateGrade(Grade grade);
     public List<Grade> getGrade(String sql);
     public boolean delGrade(Grade grade);
+
+    //查询所有成绩列表
+    public List<Grade> getAllGradeData(int pageNow, int pageSize);
+    public int findAllGradeSize();
 }

@@ -26,12 +26,11 @@
 
     <div id="center_column">
         <div class="enterScore">
-            <h2 align="center">录入成绩</h2>
+            <h3 align="center">录入成绩</h3>
             <br>
             <p align="center" >
                 <font  style="font-size: 12px;" color="red"><s:property value="#request.addGradeMess"/> </font>
             </p>
-            <br>
             <form action="addGradeAction.action" method="post">
                 <table class="table table-bordered" style="margin:0 auto;text-align: center; width: 400px;">
                     <tr>

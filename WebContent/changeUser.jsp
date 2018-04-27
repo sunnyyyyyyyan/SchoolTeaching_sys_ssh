@@ -26,49 +26,95 @@
 
     <div id="center_column">
         <div class="changeUser">
-            <h2 align="center">修改用户</h2><br>
+            <h3 align="center">修改用户</h3><br>
             <p align="center" >
                 <font color="red"><s:property value="#request.updateMess" /></font>
             </p>
+<s:iterator value="#request.user">
+            <table  class="table table-bordered" style="margin:0 auto;width: 350px">
+                <tr>
+                    <td colspan="2">
+                        学/编号：
+                        <s:property value="userId"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        原用户名：
+                    </td>
+                    <td>
+                        <s:property value="username"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        原密码：
+                    </td>
+                    <td>
+                        <s:property value="password"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        原电话号码：
+                    </td>
+                    <td>
+                        <s:property value="phone"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        原邮箱：
+                    </td>
+                    <td>
+                        <s:property value="email"/>
+                    </td>
+                </tr>
+            </table>
+            </s:iterator>
 
             <form action="updateUserAction.action?userId=<s:property value="userId"/>" method="post">
+
                 <table  class="table table-bordered" style="margin:0 auto;width: 350px">
+
                     <tr>
-                        <s:iterator value="#request.user" >
-                            <td>学/编号：
-                            </td>
-                            <td><input type="text" value="<s:property value="userId"/> ">
-                            </td>
-                        </s:iterator>
-                    </tr>
-                    <tr>
-                        <td>新用户名：
+                        <td>
+                            新用户名：
                         </td>
-                        <td><input type="text" name="username" >
+                        <td>
+                            <input type="text" name="username" >
                         </td>
                     </tr>
                     <tr>
-                        <td>新密码：
+                        <td>
+                            新密码：
                         </td>
-                        <td><input type="password" name="password">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>确认密码：
-                        </td>
-                        <td><input type="password" name="password1">
+                        <td>
+                            <input type="password" name="password">
                         </td>
                     </tr>
                     <tr>
-                        <td>电话号码：
+                        <td>
+                            确认密码：
                         </td>
-                        <td><input type="text" name="phone">
+                        <td>
+                            <input type="password" name="password1">
                         </td>
                     </tr>
                     <tr>
-                        <td>邮箱：
+                          <td>
+                            电话号码：
+                          </td>
+                        <td>
+                            <input type="text" name="phone">
                         </td>
-                        <td><input type="text" name="email">
+                    </tr>
+                    <tr>
+                        <td>
+                            邮箱：
+                        </td>
+                        <td>
+                            <input type="text" name="email">
                         </td>
                     </tr>
                     <tr align="center">

@@ -78,7 +78,7 @@
                             <ul class="tab" id="tab_1_content">
                                 <li><a class="li_sort_content" href="addUser.jsp">添加用户</a></li>
                                 <li><a class="li_sort_content" href="allUserAction.action">用户列表</a></li>
-                                <li><a class="li_sort_content" href="getUserIdAction.action?userId=<s:property value="userId"/> ">修改信息</a></li>
+                                <li><a class="li_sort_content" href="getUserIdAction.action?userId=<%=userId%> ">修改信息</a></li>
                             </ul>
                         </li>
                         <li class="list">
@@ -88,7 +88,7 @@
                             </a>
                             <ul class="tab" id="tab_2_content">
                                 <li><a class="li_sort_content" href="addGrade.jsp">录入成绩</a></li>
-                                <li><a class="li_sort_content" href="checkGradeAction.action">查看成绩</a></li>
+                                <li><a class="li_sort_content" href="checkAllGradeAction.action">查看成绩</a></li>
                                 <li><a class="li_sort_content" href="testOnline.jsp">在线测评</a></li>
                             </ul>
                         </li>

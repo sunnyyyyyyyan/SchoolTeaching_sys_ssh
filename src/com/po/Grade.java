@@ -5,6 +5,7 @@ public class Grade {
     private String studentId;
     private String gradeType;
     private String score;
+    private String changeScore;
 
     @Override
     public String toString() {
@@ -13,6 +14,7 @@ public class Grade {
                 ", studentId='" + studentId + '\'' +
                 ", gradeType='" + gradeType + '\'' +
                 ", score='" + score + '\'' +
+                ", changeScore='" + changeScore + '\'' +
                 '}';
     }
 
@@ -46,5 +48,13 @@ public class Grade {
 
     public void setScore(String score) {
         this.score = score;
+    }
+
+    public String getChangeScore() {
+        return changeScore;
+    }
+
+    public void setChangeScore(String changeScore) {
+        this.changeScore = changeScore;
     }
 }

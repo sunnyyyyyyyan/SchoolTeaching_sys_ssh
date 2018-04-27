@@ -12,6 +12,6 @@ public interface UserDao {
 	public boolean updateUser(User user);
 
 	//查询所有用户列表
-	/*public List<User> getAllUserData(int pageNow, int pageSize);
-	public int findAUserSize();*/
+	public List<User> getAllUserData(int pageNow, int pageSize);
+	public int findAllUserSize();
 }

@@ -18,7 +18,7 @@ public class UserAction {
     private String email;
 
     private int pageNow=1;//当前页
-    private int pageSize=9;//总条数
+    private int pageSize=20;//总条数
     private int totalPage;//总页数
 	private UserService userService;
 
@@ -30,48 +30,14 @@ public class UserAction {
 		this.id = id;
 	}
 
-
-    public int getTotalPage() {
-        return totalPage;
-    }
-
-    public void setTotalPage(int totalPage) {
-        this.totalPage = totalPage;
-    }
-
-    public int getPageNow() {
-        return pageNow;
-    }
-
-    public void setPageNow(int pageNow) {
-        this.pageNow = pageNow;
-    }
-
-    public int getPageSize() {
-        return pageSize;
-    }
-
-    public void setPageSize(int pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public UserService getUserService() {
-		return userService;
+	public String getUserId() {
+		return userId;
 	}
 
-	public void setUserService(UserService userService) {
-		this.userService = userService;
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 
-	
 	public String getUsername() {
 		return username;
 	}
@@ -96,31 +62,63 @@ public class UserAction {
 		this.password1 = password1;
 	}
 
-    public String getUserType() {
-        return userType;
-    }
+	public String getUserType() {
+		return userType;
+	}
 
-    public void setUserType(String userType) {
-        this.userType = userType;
-    }
+	public void setUserType(String userType) {
+		this.userType = userType;
+	}
 
-    public String getPhone() {
-        return phone;
-    }
+	public String getPhone() {
+		return phone;
+	}
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
 
-    public String getEmail() {
-        return email;
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    //登录
+	public int getPageNow() {
+		return pageNow;
+	}
+
+	public void setPageNow(int pageNow) {
+		this.pageNow = pageNow;
+	}
+
+	public int getPageSize() {
+		return pageSize;
+	}
+
+	public void setPageSize(int pageSize) {
+		this.pageSize = pageSize;
+	}
+
+	public int getTotalPage() {
+		return totalPage;
+	}
+
+	public void setTotalPage(int totalPage) {
+		this.totalPage = totalPage;
+	}
+
+	public UserService getUserService() {
+		return userService;
+	}
+
+	public void setUserService(UserService userService) {
+		this.userService = userService;
+	}
+
+	//登录
     public String login() {
 		if (this.getUserId() == null || this.getUserId().equals("")
 				|| this.getPassword() == null || this.getPassword().equals("")) {
@@ -175,12 +173,13 @@ public class UserAction {
 
 	//用户列表
 	public String showAllUser(){
-        List<User> list = this.userService.getAllUserData();
-        if (list.size() > 0){
-            ActionContext.getContext().put("allUser",list);
-            return "showAllUserSuccess";
-        }
-        ActionContext.getContext().put("allUser", "查询失败！");
+        List<User> list = this.userService.getAllUserData(this.pageNow,this.pageSize);
+        if (list.size()>0) {
+			ActionContext.getContext().put("allUser", list);
+			PageShow page=new PageShow(pageNow, this.userService.findAllUserSize(), pageSize);
+			ActionContext.getContext().put("userPage", page);
+			return "showAllUserSuccess";
+		}
 		return "showAllUserError";
     }
 
@@ -198,10 +197,10 @@ public class UserAction {
 
     //根据用户id获取个人信息
 	public String getUserid(){
-
-		List<User> list = this.userService.getUserId(id);
+		System.out.println(this.userId);
+		List<User> list = this.userService.getUserId(this.userId);
 		ActionContext.getContext().put("user",list);
-    	return "getUserSuccess";
+		return "getUserIdSuccess";
 	}
 
 

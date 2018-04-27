@@ -24,6 +24,30 @@ public class UserDaoImpl implements UserDao{
 		this.sessionFactory = sessionFactory;
 	}
 
+	@Override
+	public List<User> getAllUserData(int pageNow, int pageSize) {
+		Session session = this.sessionFactory.openSession();
+		String sql = "from User";
+		Query query = session.createQuery(sql);
+		query.setFirstResult((pageNow - 1) * pageSize);
+		query.setMaxResults(pageSize);
+		List list = query.list();
+		session.close();
+		session=null;
+		if (list.size() > 0) {
+			return list;
+		}
+		return null;
+	}
+
+	@Override
+	public int findAllUserSize() {
+		Session session = this.sessionFactory.openSession();
+		String sql = "from User";
+		int size = session.createQuery(sql).list().size();
+		session.close();
+		return size;
+	}
 	
 	@Override
 	public List<User> getData(String sql) {
@@ -95,28 +119,4 @@ public class UserDaoImpl implements UserDao{
 		return isSuccess;
 	}
 
-	/*@Override
-	public List<User> getAllUserData(int pageNow, int pageSize) {
-		Session session = this.sessionFactory.openSession();
-		String sql = "from User";
-		Query query = session.createQuery(sql);
-		query.setFirstResult((pageNow - 1) * pageSize);
-		query.setMaxResults(pageSize);
-		List list = query.list();
-		session.close();
-		session=null;
-		if (list.size() > 0) {
-			return list;
-		}
-		return null;
-	}
-
-	@Override
-	public int findAUserSize() {
-		Session session = this.sessionFactory.openSession();
-		String sql = "from User";
-		int size = session.createQuery(sql).list().size();
-		session.close();
-		return size;
-	}*/
 }

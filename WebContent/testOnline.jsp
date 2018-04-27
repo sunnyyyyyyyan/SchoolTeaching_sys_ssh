@@ -10,6 +10,7 @@
 <head>
     <title>testOnline</title>
     <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 </head>
 <body>
 <div id="page">
@@ -22,7 +23,9 @@
     </div>
 
     <div id="center_column">
-        testOnline
+        <div class="testOnline">
+            testOnline
+        </div>
     </div>
 
     <div id="footer">

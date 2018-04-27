@@ -2,15 +2,30 @@ package com.action;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.po.Grade;
+import com.po.PageShow;
 import com.service.GradeService;
 
 import java.util.List;
 
 public class GradeAction {
+    private String id;
     private String studentId;
     private String gradeType;
     private String score;
+    private String changeScore;
     private GradeService gradeService;
+
+    private int pageNow=1;//当前页
+    private int pageSize=20;//总条数
+    private int totalPage;//总页数
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getStudentId() {
         return studentId;
@@ -36,12 +51,44 @@ public class GradeAction {
         this.score = score;
     }
 
+    public String getChangeScore() {
+        return changeScore;
+    }
+
+    public void setChangeScore(String changeScore) {
+        this.changeScore = changeScore;
+    }
+
     public GradeService getGradeService() {
         return gradeService;
     }
 
     public void setGradeService(GradeService gradeService) {
         this.gradeService = gradeService;
+    }
+
+    public int getPageNow() {
+        return pageNow;
+    }
+
+    public void setPageNow(int pageNow) {
+        this.pageNow = pageNow;
+    }
+
+    public int getPageSize() {
+        return pageSize;
+    }
+
+    public void setPageSize(int pageSize) {
+        this.pageSize = pageSize;
+    }
+
+    public int getTotalPage() {
+        return totalPage;
+    }
+
+    public void setTotalPage(int totalPage) {
+        this.totalPage = totalPage;
     }
 
     public String addGrade(){
@@ -64,13 +111,15 @@ public class GradeAction {
     }
 
     //查询所有成绩
-    public String checkGrade(){
-        List<Grade> list = this.gradeService.getGradeData();
+    public String checkAllGrade(){
+        List<Grade> list = this.gradeService.getAllGradeData(this.pageNow,this.pageSize);
         if (list.size()>0){
-            ActionContext.getContext().put("checkGradeMess",list);
-            return "checkGradeSuccess";
+            ActionContext.getContext().put("checkAllGradeMess",list);
+            PageShow page=new PageShow(pageNow, this.gradeService.findAllGradeSize(), pageSize);
+            ActionContext.getContext().put("checkPage", page);
+            return "checkAllGradeSuccess";
         }
-        return "checkGradeError";
+        return "checkAllGradeError";
     }
 
     //删除单条成绩
@@ -78,11 +127,33 @@ public class GradeAction {
         String strMess = this.gradeService.deleteGrade(this.studentId);
         if (strMess.equals("deleteScoreSuccess")){
             ActionContext.getContext().put("deleteGradeMess","删除成功！");
-            checkGrade();
+            checkAllGrade();
             return "deleteScoreSuccess";
         }
         ActionContext.getContext().put("deleteGradeMess","删除失败！");
         return "deleteScoreSuccess";
+    }
+
+    //修改成绩
+    public String changeScore(){
+        if (this.getChangeScore()==null||this.getChangeScore().equals("")){
+            ActionContext.getContext().put("changeScoreMess","不能为空！");
+            checkAllGrade();
+            return "changeScoreError";
+        }
+        Grade grade = new Grade();
+        grade.setStudentId(this.studentId);
+        grade.setGradeType(this.gradeType);
+        grade.setChangeScore(this.changeScore);
+        String strMess = this.gradeService.updateGrade(grade);
+        if (strMess.equals("changeScoreSuccess")){
+            ActionContext.getContext().put("changeScoreMess","修改成功！");
+            checkAllGrade();
+            return "changeScoreSuccess";
+        }
+        ActionContext.getContext().put("changeScoreMess","修改失败！");
+        checkAllGrade();
+        return "changeScoreError";
     }
 
 }

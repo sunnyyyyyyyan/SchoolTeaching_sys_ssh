@@ -26,7 +26,7 @@
 
     <div id="center_column">
         <div class="addUser">
-                <h2 align="center">添加用户</h2>
+                <h3 align="center">添加用户</h3>
             <br>
             <p align="center">
                     <font  style="font-size: 12px;" color="red"><s:property value="#request.addMess" /></font>

@@ -26,7 +26,7 @@
 
     <div id="center_column">
         <div class="userList">
-            <h2 align="center">所有用户列表</h2>
+            <h3 align="center">所有用户列表</h3>
             <br>
             <p align="center" >
                 <font  style="font-size: 12px;" color="red"><s:property value="userId"/> <s:property value="#request.deleteUserMess"/> </font>
@@ -64,28 +64,24 @@
         </div>
 
         <div id='page_next'>
-            <a class="pageLink" href="">上一页</a>&nbsp;
-            <a class="pageLink" href="">下一页</a>&nbsp;
+        当前是第<s:property value="#request.userPage.pageNow" />页，共<s:property value="#request.userPage.totalPage" />页
+        &nbsp;&nbsp;
+            <s:if test="#request.userPage.hasFirst">
+                <a href="allUserAction.action?pageNow=1" target="_parent">首页</a>
+            </s:if>
+            <s:if test="#request.userPage.hasPre">
+                <a href="allUserAction.action?pageNow=<s:property value="#request.userPage.pageNow-1"/> "
+                   target="_parent">上一页</a>
+            </s:if>
+            <s:if test="#request.userPage.hasNext">
+                <a href="allUserAction.action?pageNow=<s:property value="#request.userPage.pageNow+1" />"
+                   target="_parent">下一页</a>
+            </s:if>
+            <s:if test="#request.userPage.hasLast">
+                <a href="allUserAction.action?pageNow=<s:property value="#request.userPage.totalPage"/>"
+                   target="_parent">尾页</a>
+            </s:if>
         </div>
-
-    <%--        <div id='page_next'>
-            当前是第<s:property value="#request.page.pageNow" />页，共<s:property value="#request.page.totalPage" />页
-            &nbsp;&nbsp;<s:if test="#request.page.hasFirst">
-            <a href="allUserAction.action?pageNow=1" target="main">首页</a>
-        </s:if>
-            <s:if test="#request.page.hasPre">
-                <a href="allUserAction.action?pageNow=<s:property value="#request.page.pageNow-1"/> "
-                   target="main">上一页</a>
-            </s:if>
-            <s:if test="#request.page.hasNext">
-                <a href="allUserAction.action?pageNow=<s:property value="#request.page.pageNow+1" />"
-                   target="main">下一页</a>
-            </s:if>
-            <s:if test="#request.page.hasLast">
-                <a href="allUserAction.action?pageNow=<s:property value="#request.page.totalPage"/>"
-                   target="main">尾页</a>
-            </s:if>
-        </div>--%>
     </div>
 
     <div id="footer">

@@ -55,13 +55,13 @@ public class UserServiceImpl implements UserService {
 		return "addError";
 	}
 
-	//获取所有用户
+	/*//获取所有用户
     @Override
     public List<User> getAllUserData() {
         String sql = "from User";
         List<User> list = this.userDao.getData(sql);
         return list;
-    }
+    }*/
 
     //修改用户信息
 	@Override
@@ -77,8 +77,8 @@ public class UserServiceImpl implements UserService {
 
 	//获取当前用户信息
 	@Override
-	public List<User> getUserId(String id) {
-		String sql = "from User where id="+id;
+	public List<User> getUserId(String userId) {
+		String sql = "from User where userId="+userId+"'";
 		List<User> list = this.userDao.getData(sql);
 		return list;
 	}
@@ -94,9 +94,15 @@ public class UserServiceImpl implements UserService {
 		return "deleteUserError";
 	}
 
-    /*@Override
-    public int findAUserSize() {
-        return this.userDao.findAUserSize();
-    }*/
+	@Override
+	public List<User> getAllUserData(int pageNow, int pageSize) {
+		List<User> list = this.userDao.getAllUserData(pageNow,pageSize);
+		return list;
+	}
+
+	@Override
+    public int findAllUserSize() {
+        return this.userDao.findAllUserSize();
+    }
 
 }

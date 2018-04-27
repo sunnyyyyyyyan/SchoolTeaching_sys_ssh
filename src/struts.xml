@@ -22,7 +22,6 @@
 
         <action name="allUserAction" class="com.action.UserAction" method="showAllUser">
             <result name="showAllUserSuccess">/userList.jsp</result>
-            <result name="showAllUserError">/userList.jsp</result>
         </action>
 
         <action name="deleteUserAction" class="com.action.UserAction" method="deleteUser">
@@ -31,7 +30,7 @@
         </action>
 
         <action name="getUserIdAction" class="com.action.UserAction" method="getUserid">
-            <result name="getUserSuccess">/changeUser.jsp</result>
+            <result name="getUserIdSuccess">/changeUser.jsp</result>
         </action>
 
         <action name="updateUserAction" class="com.action.UserAction" method="updateUser">
@@ -46,14 +45,19 @@
             <result name="addGradeError">/addGrade.jsp</result>
         </action>
 
-        <action name="checkGradeAction" class="com.action.GradeAction" method="checkGrade">
-            <result name="checkGradeSuccess">/checkGrade.jsp</result>
-            <result name="checkGradeError">/checkGrade.jsp</result>
+        <action name="checkAllGradeAction" class="com.action.GradeAction" method="checkAllGrade">
+            <result name="checkAllGradeSuccess">/checkGrade.jsp</result>
+            <result name="checkAllGradeError">/checkGrade.jsp</result>
         </action>
 
         <action name="deleteScoreAction" class="com.action.GradeAction" method="deleteScore">
             <result name="deleteScoreSuccess">/checkGrade.jsp</result>
             <result name="deleteScoreError">/checkGrade.jsp</result>
+        </action>
+
+        <action name="changeScoreAction" class="com.action.GradeAction" method="changeScore">
+            <result name="changeScoreSuccess">/checkGrade.jsp</result>
+            <result name="changeScoreError">/checkGrade.jsp</result>
         </action>
 
     </package>

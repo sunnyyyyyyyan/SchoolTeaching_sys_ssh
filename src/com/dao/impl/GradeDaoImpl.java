@@ -2,6 +2,7 @@ package com.dao.impl;
 
 import com.dao.GradeDao;
 import com.po.Grade;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -87,5 +88,30 @@ public class GradeDaoImpl implements GradeDao {
             System.err.println(e);
         }
         return isSuccess;
+    }
+
+    @Override
+    public List<Grade> getAllGradeData(int pageNow, int pageSize) {
+        Session session = this.sessionFactory.openSession();
+        String sql = "from Grade";
+        Query query = session.createQuery(sql);
+        query.setFirstResult((pageNow - 1) * pageSize);
+        query.setMaxResults(pageSize);
+        List list = query.list();
+        session.close();
+        session=null;
+        if (list.size() > 0) {
+            return list;
+        }
+        return null;
+    }
+
+    @Override
+    public int findAllGradeSize() {
+        Session session = this.sessionFactory.openSession();
+        String sql = "from Grade";
+        int size = session.createQuery(sql).list().size();
+        session.close();
+        return size;
     }
 }
