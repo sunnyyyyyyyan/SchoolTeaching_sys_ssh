@@ -28,11 +28,14 @@
         <div class="userList">
             <h2 align="center">所有用户列表</h2>
             <br>
+            <p align="center" >
+                <font  style="font-size: 12px;" color="red"><s:property value="userId"/> <s:property value="#request.deleteUserMess"/> </font>
+            </p>
             <form action="#" method="post">
                 <table class="table table-bordered" style="text-align: center">
                     <thead>
                         <tr >
-                            <td>用户编号</td>
+                            <td>学/编号</td>
                             <td>姓名</td>
                             <td>用户类型</td>
                             <td>密码</td>
@@ -50,7 +53,7 @@
                                 <td><s:property value="userType"/> </td>
                                 <td><s:property value="phone"/> </td>
                                 <td><s:property value="email"/> </td>
-                                <td><a href="#">删除</a></td>
+                                <td><a href="deleteUserAction.action?userId=<s:property value="userId"/> ">删除</a></td>
                             </tr>
                         </s:iterator>
                     </tbody>

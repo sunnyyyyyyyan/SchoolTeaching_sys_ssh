@@ -146,7 +146,12 @@ public class UserAction {
 
 	//添加
 	public String addUser(){
-		
+		/*//验证用户是否登录
+		String username = (String)ActionContext.getContext().getSession().get("username");
+		if (username==null){//没有登录
+			ActionContext.getContext().put("addMess","请先登录！");
+			return "addError";
+		}*/
 		if (this.getUserId() == null || this.getUserId().equals("")||
 				this.getUsername() == null || this.getUsername().equals("")
 				|| this.getPassword() == null || this.getPassword().equals("")
@@ -170,6 +175,7 @@ public class UserAction {
 
 	//用户列表
 	public String showAllUser(){
+
         List<User> list = this.userService.getAllUserData();
         if (list.size() > 0){
             ActionContext.getContext().put("allUser",list);
@@ -179,8 +185,20 @@ public class UserAction {
 		return "showAllUserError";
     }
 
+    //单条删除用户列表
+	public String deleteUser(){
+        String strMess = this.userService.deleteUser(this.userId);
+        if (strMess.equals("deleteUserSuccess")){
+            ActionContext.getContext().put("deleteUserMess","删除成功！");
+            return "deleteUserSuccess";
+        }
+        ActionContext.getContext().put("deleteUserMess","删除失败！");
+		return "deleteUserError";
+	}
+
     //根据用户id获取个人信息
 	public String getUser(){
+
 		List<User> list = this.userService.getUserId(id);
 		ActionContext.getContext().put("user",list);
     	return "getUserSuccess";
@@ -189,6 +207,7 @@ public class UserAction {
 
     //修改用户信息
     public String updateUser(){
+
         if (this.getUsername()==null&&this.getUsername().equals("")&&
                 this.getPassword()==null&&this.getPassword().equals("")&&
                 this.getPhone()==null&&this.getPhone().equals("")&&

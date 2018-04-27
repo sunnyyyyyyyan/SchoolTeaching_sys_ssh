@@ -83,6 +83,17 @@ public class UserServiceImpl implements UserService {
 		return list;
 	}
 
+	@Override
+	public String deleteUser(String userId) {
+		String sql = "from User where userId='"+userId+"'";
+		List<User> list = this.userDao.getData(sql);
+		User user = list.get(0);
+		if (this.userDao.delUser(user)){
+			return "deleteUserSuccess";
+		}
+		return "deleteUserError";
+	}
+
     /*@Override
     public int findAUserSize() {
         return this.userDao.findAUserSize();
