@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.opensymphony.xwork2.ActionContext" %><%--
   Created by IntelliJ IDEA.
   User: Administrator
   Date: 2018/4/19 0019
@@ -35,30 +35,59 @@
                 <font  style="font-size: 12px;" color="red"><s:property value="#request.changeScoreMess" /></font>
             </p>
             <table class="table table-bordered" style="text-align: center;">
-                <tr>
-                    <td>学号</td>
-                    <td>成绩类型</td>
-                    <td>成绩</td>
-                    <td>修改成绩</td>
-                    <td>操作</td>
-                </tr>
-                <s:iterator value="#request.checkAllGradeMess">
-                    <tr>
-                        <td><s:property value="studentId"/> </td>
-                        <td><s:property value="gradeType"/></td>
-                        <td><s:property value="score"/></td>
-                        <td>
-                            <form action="changeScoreAction.action" method="post">
-                                <input type="text" name="changeScore">
-                                <button type="submit">修改</button>
-                            </form>
+                <%
+                    String userType = (String)ActionContext.getContext().getSession().get("userType");
+                    if (userType.equals("管理员")||userType.equals("教师"))
+                    {
+                %>
+                        <tr>
+                            <td>学号</td>
+                            <td>成绩类型</td>
+                            <td>成绩</td>
+                            <td>修改成绩</td>
+                            <td>操作</td>
+                        </tr>
+                        <s:iterator value="#request.checkAllGradeMess">
+                            <tr>
+                                <td><s:property value="studentId"/> </td>
+                                <td><s:property value="gradeType"/></td>
+                                <td><s:property value="score"/></td>
+                                <td>
+                                    <form action="changeScoreAction.action" method="post">
+                                        <input type="text" name="changeScore">
+                                        <button type="submit">修改</button>
+                                    </form>
 
-                        </td>
-                        <td>
-                            <a href="deleteScoreAction.action?studentId=<s:property value="studentId"/> ">删除</a>
-                        </td>
-                    </tr>
-                </s:iterator>
+                                </td>
+                                <td>
+                                    <a href="deleteScoreAction.action?studentId=<s:property value="studentId"/> ">删除</a>
+                                </td>
+                            </tr>
+                        </s:iterator>
+                <%
+                    }
+                    if (userType.equals("学生"))
+                    {
+                %>
+                        <tr>
+                            <td>学号</td>
+                            <td>成绩类型</td>
+                            <td>成绩</td>
+                            <td>操作</td>
+                        </tr>
+                        <s:iterator value="#request.checkAllGradeByIdMess">
+                            <tr>
+                                <td><s:property value="studentId"/> </td>
+                                <td><s:property value="gradeType"/></td>
+                                <td><s:property value="score"/></td>
+                                <td>
+                                    <a href="deleteScoreAction.action?studentId=<s:property value="studentId"/> ">删除</a>
+                                </td>
+                            </tr>
+                        </s:iterator>
+                <%
+                    }
+                %>
             </table>
         </div>
         <div id='page_next'>

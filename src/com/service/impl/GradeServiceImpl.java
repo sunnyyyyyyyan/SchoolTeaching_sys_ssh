@@ -17,13 +17,9 @@ public class GradeServiceImpl implements GradeService {
         this.gradeDao = gradeDao;
     }
 
-/*    @Override
-    public List<Grade> getGradeData() {
-        String sql = "from Grade";
-        List<Grade> list = this.gradeDao.getGrade(sql);
-        return list;
-    }*/
 
+
+    //添加成绩
     @Override
     public String addGrade(Grade grade) {
         if (this.gradeDao.addGrade(grade)){
@@ -32,6 +28,7 @@ public class GradeServiceImpl implements GradeService {
         return "addGradeError";
     }
 
+    //修改成绩
     @Override
     public String updateGrade(Grade grade) {
         if (this.gradeDao.updateGrade(grade)){
@@ -52,6 +49,15 @@ public class GradeServiceImpl implements GradeService {
         return "deleteScoreError";
     }
 
+    //根据studentId获取成绩
+    @Override
+    public List<Grade> getGradeByIdData(String studentId) {
+        String sql = "from Grade where studentId='"+studentId+"'";
+        List<Grade> list = this.gradeDao.getGrade(sql);
+        return list;
+    }
+
+    //获取所有成绩
     @Override
     public List<Grade> getAllGradeData(int pageNow, int pageSize) {
         List<Grade> list = this.gradeDao.getAllGradeData(pageNow,pageSize);

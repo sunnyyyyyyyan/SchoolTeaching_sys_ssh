@@ -50,6 +50,11 @@
             <result name="checkAllGradeError">/checkGrade.jsp</result>
         </action>
 
+        <action name="checkAllGradeByIdAction" class="com.action.GradeAction" method="checkAllGradeById">
+            <result name="checkAllGradeByIdSuccess">/checkGrade.jsp</result>
+            <result name="checkAllGradeByIdError">/checkGrade.jsp</result>
+        </action>
+
         <action name="deleteScoreAction" class="com.action.GradeAction" method="deleteScore">
             <result name="deleteScoreSuccess">/checkGrade.jsp</result>
             <result name="deleteScoreError">/checkGrade.jsp</result>

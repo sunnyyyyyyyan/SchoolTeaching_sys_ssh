@@ -16,7 +16,7 @@ public class GradeAction {
     private GradeService gradeService;
 
     private int pageNow=1;//当前页
-    private int pageSize=20;//总条数
+    private int pageSize=15;//总条数
     private int totalPage;//总页数
 
     public String getId() {
@@ -120,6 +120,17 @@ public class GradeAction {
             return "checkAllGradeSuccess";
         }
         return "checkAllGradeError";
+    }
+
+    //根据学生编号查询该学生所有成绩
+    public String checkAllGradeById(){
+        List<Grade> list = this.gradeService.getGradeByIdData(this.studentId);
+        if (list.size()>0) {
+            ActionContext.getContext().put("checkAllGradeByIdMess", list);
+            return "checkAllGradeByIdSuccess";
+        }
+        ActionContext.getContext().put("checkAllGradeByIdMess", "查询失败！");
+        return "checkAllGradeByIdError";
     }
 
     //删除单条成绩

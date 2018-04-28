@@ -13,7 +13,7 @@
     <title>left_column</title>
 </head>
 <body>
-<table class="table table-bordered">
+<table>
     <tr>
         <td>
             <div id="left_login">
@@ -61,7 +61,7 @@
     </tr>
 </table>
 <br>
-
+<hr style="width: 170px;">
 <table border=0 cellpadding=0 cellspacing=0>
    <tr>
         <td>
@@ -197,7 +197,7 @@
                                     系统管理
                                 </a>
                                 <ul class="tab" id="student_tab_1_content">
-                                    <li><a class="li_sort_content" href="getUserIdAction.action?userId=<%=userId%> " target="_parent">修改信息</a></li>
+                                    <li><a class="li_sort_content" href="getUserIdAction.action?userId=<%=userId %> " target="_parent">修改信息</a></li>
                                 </ul>
                             </li>
                             <li class="list">
@@ -206,7 +206,7 @@
                                     教学管理
                                 </a>
                                     <ul class="tab" id="student_tab_2_content">
-                                    <li><a class="li_sort_content" href="checkAllGradeAction.action" target="_parent">查看成绩</a></li>
+                                    <li><a class="li_sort_content" href="checkAllGradeByIdAction.action?userId=<%=userId %>" target="_parent">查看成绩</a></li>
                                     <li><a class="li_sort_content" href="testOnline.jsp" target="_parent">在线测评</a></li>
                                 </ul>
                             </li>

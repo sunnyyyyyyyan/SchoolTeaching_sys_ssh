@@ -6,7 +6,7 @@ public class PageShow {
     private int totalPage;//总页数
 
 
-    private int pageSize=20;//每页显示条数
+    private int pageSize=15;//每页显示条数
     private boolean hasPre;//是否有上一页
     private  boolean hasNext;//是否有下一页
     private  boolean hasFirst;//是否有首页
