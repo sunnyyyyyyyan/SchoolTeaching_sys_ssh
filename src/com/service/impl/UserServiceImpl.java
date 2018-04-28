@@ -28,12 +28,11 @@ public class UserServiceImpl implements UserService {
 	public String loginService(User user) {
 	    System.out.println(user);
 		// TODO Auto-generated method stub
-		String hql="from User where userId='"+user.getUserId()+"' and password='"+user.getPassword()+"'";
+		String hql="from User where userId='"+user.getUserId()+"' and password='"+user.getPassword()+"' and userType='"+user.getUserType()+"'";
 		List<User> list=this.userDao.getData(hql);
 		if(list.size()>0){
 			return "loginSuccess";
 		}
-		ActionContext.getContext().put("mess","学/编号或密码不正确！");
 		return "loginError";
 	}
 

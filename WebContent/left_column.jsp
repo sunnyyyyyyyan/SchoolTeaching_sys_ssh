@@ -1,4 +1,5 @@
-<%@ page import="java.util.Calendar" %><%--
+<%@ page import="java.util.Calendar" %>
+<%@ page import="com.opensymphony.xwork2.ActionContext" %><%--
   Created by IntelliJ IDEA.
   User: Administrator
   Date: 2018/4/19 0019
@@ -17,18 +18,14 @@
         <td>
             <div id="left_login">
                 <%
-                    String userId =null;
-
-                    if( session.getAttribute("userId")!= null)/* session.getAttribute("user")  */
-                        userId = session.getAttribute("userId").toString();
-
+                    String userId = (String)ActionContext.getContext().getSession().get("userId");
                     if(userId == null){
                 %>
                 <span style="font-size: 14px;font-family: 'Arabic Typesetting';">登录中心</span><br>
-                <font  style="font-size: 12px;" color="red"><s:property value="#request.mess" /></font><br>
+                <font  style="font-size: 12px;" color="red"><s:property value="#request.loginMess" /></font><br>
                 <form action="loginAction.action" method="post">
-                    <font style="font-size: 12px;font-family: 'Arabic Typesetting';width: 60px;">学/编号&nbsp;</font><input type="text" name="userId" class="enter" placeholder="请输入学号或编号"><br><br>
-                    <font style="font-size: 12px;font-family: 'Arabic Typesetting';width: 60px;">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码&nbsp;</font><input type="password" name="password" class="enter" placeholder="请输入密码"><br><br>
+                    <font style="font-size: 12px;font-family: 'Arabic Typesetting';width: 60px;">编号&nbsp;</font><input type="text" name="userId" class="enter" placeholder="请输入编号"><br><br>
+                    <font style="font-size: 12px;font-family: 'Arabic Typesetting';width: 60px;">密&nbsp;&nbsp;&nbsp;码&nbsp;</font><input type="password" name="password" class="enter" placeholder="请输入密码"><br><br>
                     <input name="imageField" type="image" src="./images/login_button.gif" />
                 </form>
                 <%
@@ -64,71 +61,193 @@
     </tr>
 </table>
 <br>
+
 <table border=0 cellpadding=0 cellspacing=0>
-    <tr>
+   <tr>
         <td>
             <div id="left_sort">
                 <ul id="sort_menu">
-                        <ul id="menu">
+                    <%
+                        String userType = (String)ActionContext.getContext().getSession().get("userType");
+                        if (userType.equals("管理员"))
+                        {
+                    %>
+                    <ul id="menu">
                         <li class="list">
-                            <a id="tab_1" class="li_sort">
+                            <a id="admin_tab_1" class="li_sort">
                                 <img src="./images/sort_menu.gif" width="26px" align="absmiddle" />
                                 系统管理
                             </a>
-                            <ul class="tab" id="tab_1_content">
-                                <li><a class="li_sort_content" href="addUser.jsp">添加用户</a></li>
-                                <li><a class="li_sort_content" href="allUserAction.action">用户列表</a></li>
-                                <li><a class="li_sort_content" href="getUserIdAction.action?userId=<%=userId%> ">修改信息</a></li>
+                            <ul class="tab" id="admin_tab_1_content">
+                                <li><a class="li_sort_content" href="addUser.jsp" target="_parent">添加用户</a></li>
+                                <li><a class="li_sort_content" href="allUserAction.action" target="_parent">用户列表</a></li>
+                                <li><a class="li_sort_content" href="getUserIdAction.action?userId=<%=userId%> " target="_parent">修改信息</a></li>
                             </ul>
                         </li>
                         <li class="list">
-                            <a id="tab_2" class="li_sort" href="#">
+                            <a id="admin_tab_2" class="li_sort" href="#">
                                 <img src="./images/sort_menu.gif" width="26px" align="absmiddle" />
                                 教学管理
                             </a>
-                            <ul class="tab" id="tab_2_content">
-                                <li><a class="li_sort_content" href="addGrade.jsp">录入成绩</a></li>
-                                <li><a class="li_sort_content" href="checkAllGradeAction.action">查看成绩</a></li>
-                                <li><a class="li_sort_content" href="testOnline.jsp">在线测评</a></li>
+                            <ul class="tab" id="admin_tab_2_content">
+                                <li><a class="li_sort_content" href="addGrade.jsp" target="_parent">录入成绩</a></li>
+                                <li><a class="li_sort_content" href="checkAllGradeAction.action" target="_parent">查看成绩</a></li>
+                                <li><a class="li_sort_content" href="testOnline.jsp" target="_parent">在线测评</a></li>
                             </ul>
                         </li>
                         <li class="list">
-                            <a id="tab_3" class="li_sort" href="#">
+                            <a id="admin_tab_3" class="li_sort" href="#">
                                 <img src="./images/sort_menu.gif" width="26px" align="absmiddle" />
                                 教学评价
                             </a>
-                            <ul class="tab" id="tab_3_content">
-                                <li><a class="li_sort_content" href="teaching.jsp">教学评价</a></li>
-                                <li><a class="li_sort_content" href="checkTeaching.jsp">查看评价</a></li>
+                            <ul class="tab" id="admin_tab_3_content">
+                                <li><a class="li_sort_content" href="teaching.jsp" target="_parent">教学评价</a></li>
+                                <li><a class="li_sort_content" href="checkTeaching.jsp" target="_parent">查看评价</a></li>
                             </ul>
                         </li>
                         <li class="list">
-                            <a id="tab_4" class="li_sort" href="#">
+                            <a id="admin_tab_4" class="li_sort" href="#">
                                 <img src="./images/sort_menu.gif" width="26px" align="absmiddle" />
                                 通知管理
                             </a>
-                            <ul class="tab" id="tab_4_content">
-                                <li><a class="li_sort_content" href="sendMessage.jsp">发布通知</a></li>
-                                <li><a class="li_sort_content" href="checkMessage.jsp">查看通知</a></li>
+                            <ul class="tab" id="admin_tab_4_content">
+                                <li><a class="li_sort_content" href="sendMessage.jsp" target="_parent">发布通知</a></li>
+                                <li><a class="li_sort_content" href="checkMessage.jsp" target="_parent">查看通知</a></li>
                             </ul>
                         </li>
                         <li class="list">
-                            <a id="tab_5" class="li_sort" href="#">
+                            <a id="admin_tab_5" class="li_sort" href="#">
                                 <img src="./images/sort_menu.gif" width="26px" align="absmiddle" />
                                 资源管理
                             </a>
-                            <ul class="tab" id="tab_5_content">
-                                <li><a class="li_sort_content" href="uploadFile.jsp">上传文件</a></li>
-                                <li><a class="li_sort_content" href="checkFile.jsp">查看文件</a></li>
+                            <ul class="tab" id="admin_tab_5_content">
+                                <li><a class="li_sort_content" href="uploadFile.jsp" target="_parent">上传文件</a></li>
+                                <li><a class="li_sort_content" href="checkFile.jsp" target="_parent">查看文件</a></li>
                             </ul>
                         </li>
                     </ul>
+                    <%
+                        }
+                        if (userType.equals("教师"))
+                        {
+                    %>
+                        <ul id="menu">
+                            <li class="list">
+                                <a id="teacher_tab_1" class="li_sort">
+                                    <img src="./images/sort_menu.gif" width="26px" align="absmiddle" />
+                                    系统管理
+                                </a>
+                                <ul class="tab" id="teacher_tab_1_content">
+                                    <li><a class="li_sort_content" href="addUser.jsp" target="_parent">添加用户</a></li>
+                                    <li><a class="li_sort_content" href="allUserAction.action" target="_parent">用户列表</a></li>
+                                    <li><a class="li_sort_content" href="getUserIdAction.action?userId=<%=userId%> " target="_parent">修改信息</a></li>
+                                </ul>
+                            </li>
+                            <li class="list">
+                                <a id="teacher_tab_2" class="li_sort" href="#">
+                                    <img src="./images/sort_menu.gif" width="26px" align="absmiddle" />
+                                    教学管理
+                                </a>
+                                <ul class="tab" id="teacher_tab_2_content">
+                                    <li><a class="li_sort_content" href="addGrade.jsp" target="_parent">录入成绩</a></li>
+                                    <li><a class="li_sort_content" href="checkAllGradeAction.action" target="_parent">查看成绩</a></li>
+                                    <li><a class="li_sort_content" href="testOnline.jsp" target="_parent">在线测评</a></li>
+                                </ul>
+                            </li>
+                            <li class="list">
+                                <a id="teacher_tab_3" class="li_sort" href="#">
+                                    <img src="./images/sort_menu.gif" width="26px" align="absmiddle" />
+                                    教学评价
+                                </a>
+                                <ul class="tab" id="teacher_tab_3_content">
+                                    <li><a class="li_sort_content" href="teaching.jsp" target="_parent">教学评价</a></li>
+                                    <li><a class="li_sort_content" href="checkTeaching.jsp" target="_parent">查看评价</a></li>
+                                </ul>
+                            </li>
+                            <li class="list">
+                                <a id="teacher_tab_4" class="li_sort" href="#">
+                                    <img src="./images/sort_menu.gif" width="26px" align="absmiddle" />
+                                    通知管理
+                                </a>
+                                <ul class="tab" id="teacher_tab_4_content">
+                                    <li><a class="li_sort_content" href="sendMessage.jsp" target="_parent">发布通知</a></li>
+                                    <li><a class="li_sort_content" href="checkMessage.jsp" target="_parent">查看通知</a></li>
+                                </ul>
+                            </li>
+                            <li class="list">
+                                <a id="teacher_tab_5" class="li_sort" href="#">
+                                    <img src="./images/sort_menu.gif" width="26px" align="absmiddle" />
+                                    资源管理
+                                </a>
+                                <ul class="tab" id="teacher_tab_5_content">
+                                    <li><a class="li_sort_content" href="uploadFile.jsp" target="_parent">上传文件</a></li>
+                                    <li><a class="li_sort_content" href="checkFile.jsp" target="_parent">查看文件</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    <%
+                        }
+                        if (userType.equals("学生"))
+                        {
+                    %>
+                        <ul id="menu">
+                            <li class="list">
+                                <a id="student_tab_1" class="li_sort">
+                                    <img src="./images/sort_menu.gif" width="26px" align="absmiddle" />
+                                    系统管理
+                                </a>
+                                <ul class="tab" id="student_tab_1_content">
+                                    <li><a class="li_sort_content" href="getUserIdAction.action?userId=<%=userId%> " target="_parent">修改信息</a></li>
+                                </ul>
+                            </li>
+                            <li class="list">
+                                <a id="student_tab_2" class="li_sort" href="#">
+                                    <img src="./images/sort_menu.gif" width="26px" align="absmiddle" />
+                                    教学管理
+                                </a>
+                                    <ul class="tab" id="student_tab_2_content">
+                                    <li><a class="li_sort_content" href="checkAllGradeAction.action" target="_parent">查看成绩</a></li>
+                                    <li><a class="li_sort_content" href="testOnline.jsp" target="_parent">在线测评</a></li>
+                                </ul>
+                            </li>
+                            <li class="list">
+                                <a id="student_tab_3" class="li_sort" href="#">
+                                    <img src="./images/sort_menu.gif" width="26px" align="absmiddle" />
+                                    教学评价
+                                </a>
+                                <ul class="tab" id="student_tab_3_content">
+                                    <li><a class="li_sort_content" href="teaching.jsp" target="_parent">教学评价</a></li>
+                                </ul>
+                            </li>
+                            <li class="list">
+                                <a id="student_tab_4" class="li_sort" href="#">
+                                    <img src="./images/sort_menu.gif" width="26px" align="absmiddle" />
+                                    通知管理
+                                </a>
+                                <ul class="tab" id="student_tab_4_content">
+                                    <li><a class="li_sort_content" href="checkMessage.jsp" target="_parent">查看通知</a></li>
+                                </ul>
+                            </li>
+                            <li class="list">
+                                <a id="student_tab_5" class="li_sort" href="#">
+                                    <img src="./images/sort_menu.gif" width="26px" align="absmiddle" />
+                                    资源管理
+                                </a>
+                                <ul class="tab" id="student_tab_5_content">
+                                    <li><a class="li_sort_content" href="uploadFile.jsp" target="_parent">上传文件</a></li>
+                                    <li><a class="li_sort_content" href="checkFile.jsp" target="_parent">查看文件</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    <%
+                        }
+                    %>
                 </ul>
             </div>
         </td>
     </tr>
-
 </table>
+
 
 <script src="js/left_column_tab.js" type="text/javascript"></script>
 </body>

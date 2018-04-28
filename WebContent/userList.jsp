@@ -35,10 +35,10 @@
                 <table class="table table-bordered" style="text-align: center">
                     <thead>
                         <tr >
-                            <td>学/编号</td>
+                            <td>编号</td>
                             <td>姓名</td>
-                            <td>用户类型</td>
                             <td>密码</td>
+                            <td>身份</td>
                             <td>电话号码</td>
                             <td>邮箱</td>
                             <td>操作</td>

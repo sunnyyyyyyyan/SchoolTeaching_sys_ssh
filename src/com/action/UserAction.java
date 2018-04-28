@@ -120,19 +120,35 @@ public class UserAction {
 
 	//登录
     public String login() {
-		if (this.getUserId() == null || this.getUserId().equals("")
-				|| this.getPassword() == null || this.getPassword().equals("")) {
-			ActionContext.getContext().put("mess", "学/编号或密码不能为空！");
+		/*if (this.getUserId() == null&&this.getUserId().equals("")&&
+				this.getPassword() == null&&this.getPassword().equals("")&&
+				this.getUserType()==null&&this.getUserType().equals("")){
+			ActionContext.getContext().put("loginMess", "不能为空！");
+			return "loginError";
+		}*/
+		if (this.getUserId() == null || this.getUserId().equals("")) {
+			ActionContext.getContext().put("loginMess", "编号不能为空！");
+			return "loginError";
+		}
+		if (this.getPassword() == null || this.getPassword().equals("")){
+			ActionContext.getContext().put("loginMess", "密码不能为空！");
+			return "loginError";
+		}
+		if (this.getUserType()==null||this.getUserType().equals("")){
+			ActionContext.getContext().put("loginMess", "身份请选择！");
 			return "loginError";
 		}
 		User user = new User();
 		user.setUserId(this.userId);
+		user.setUserType(this.userType);
 		user.setPassword(this.password);
 		String strMess = this.userService.loginService(user);
 		if (strMess.equals("loginSuccess")) {
 			ActionContext.getContext().getSession().put("userId",user.getUserId());
+			ActionContext.getContext().getSession().put("userType",user.getUserType());
 			return "loginSuccess";
 		}
+		ActionContext.getContext().put("loginMess","编号或密码或身份不正确！");
 		return "loginError";
 	}
 
@@ -145,8 +161,8 @@ public class UserAction {
 	//添加
 	public String addUser(){
 		/*//验证用户是否登录
-		String username = (String)ActionContext.getContext().getSession().get("username");
-		if (username==null){//没有登录
+		String user = (String)ActionContext.getContext().getSession().get("userId");
+		if (user==null){//没有登录
 			ActionContext.getContext().put("addMess","请先登录！");
 			return "addError";
 		}*/
