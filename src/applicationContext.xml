@@ -32,9 +32,26 @@
 			<ref bean="gradeDao"/>
 		</property>
 	</bean>
-	<bean id="GradeAction" class="com.action.GradeAction">
+	<bean id="gradeAction" class="com.action.GradeAction">
 		<property name="gradeService">
 			<ref bean="gradeService"/>
+		</property>
+	</bean>
+
+
+	<bean id="subjectDao" class="com.dao.impl.SubjectDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+	<bean id="subjectService" class="com.service.impl.SubjectServiceImpl">
+		<property name="subjectDao">
+			<ref bean="subjectDao"/>
+		</property>
+	</bean>
+	<bean id="subjectAction" class="com.action.SubjectAction">
+		<property name="subjectService">
+			<ref bean="subjectService"/>
 		</property>
 	</bean>
 	
@@ -61,6 +78,7 @@
 				<list>
 					<value>com/po/User.hbm.xml</value>
 					<value>com/po/Grade.hbm.xml</value>
+					<value>com/po/Subject.hbm.xml</value>
 				</list>
 			</property>
 			

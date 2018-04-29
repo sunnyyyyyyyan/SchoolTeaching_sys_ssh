@@ -65,6 +65,21 @@
             <result name="changeScoreError">/checkGrade.jsp</result>
         </action>
 
+
+        <action name="addSubjectAction" class="com.action.SubjectAction" method="addSubjectData">
+            <result name="addSubjectSuccess">/addSubject.jsp</result>
+            <result name="addSubjectError">/addSubject.jsp</result>
+        </action>
+
+        <action name="checkSubjectAction" class="com.action.SubjectAction" method="checkSubjectData">
+            <result name="checkSubjectSuccess">/checkSubject.jsp</result>
+        </action>
+
+        <action name="changeUserSubjectAction" class="com.action.SubjectAction" method="changeUserSubjectData">
+            <result name="changeUserSubjectSuccess">/checkSubject.jsp</result>
+            <result name="changeUserSubjectError">/checkSubject.jsp</result>
+        </action>
+
     </package>
 
 </struts>

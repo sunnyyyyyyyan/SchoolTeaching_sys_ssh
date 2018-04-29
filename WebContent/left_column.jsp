@@ -87,7 +87,7 @@
                         <li class="list">
                             <a id="admin_tab_2" class="li_sort" href="#">
                                 <img src="./images/sort_menu.gif" width="26px" align="absmiddle" />
-                                教学管理
+                                成绩管理
                             </a>
                             <ul class="tab" id="admin_tab_2_content">
                                 <li><a class="li_sort_content" href="addGrade.jsp" target="_parent">录入成绩</a></li>
@@ -108,12 +108,11 @@
                         <li class="list">
                             <a id="admin_tab_4" class="li_sort" href="#">
                                 <img src="./images/sort_menu.gif" width="26px" align="absmiddle" />
-                                通知管理
+                                课程管理
                             </a>
                             <ul class="tab" id="admin_tab_4_content">
-                                <li><a class="li_sort_content" href="sendMessage.jsp" target="_parent">发布通知</a></li>
-                                <li><a class="li_sort_content" href="checkMessage.jsp" target="_parent">查看通知</a></li>
-                            </ul>
+                                <li><a class="li_sort_content" href="checkSubjectAction.action" target="_parent">查看课程</a></li>
+                                </ul>
                         </li>
                         <li class="list">
                             <a id="admin_tab_5" class="li_sort" href="#">
@@ -121,6 +120,8 @@
                                 资源管理
                             </a>
                             <ul class="tab" id="admin_tab_5_content">
+                                <li><a class="li_sort_content" href="sendMessage.jsp" target="_parent">发布通知</a></li>
+                                <li><a class="li_sort_content" href="checkMessage.jsp" target="_parent">查看通知</a></li>
                                 <li><a class="li_sort_content" href="uploadFile.jsp" target="_parent">上传文件</a></li>
                                 <li><a class="li_sort_content" href="checkFile.jsp" target="_parent">查看文件</a></li>
                             </ul>
@@ -146,7 +147,7 @@
                             <li class="list">
                                 <a id="teacher_tab_2" class="li_sort" href="#">
                                     <img src="./images/sort_menu.gif" width="26px" align="absmiddle" />
-                                    教学管理
+                                    成绩管理
                                 </a>
                                 <ul class="tab" id="teacher_tab_2_content">
                                     <li><a class="li_sort_content" href="addGrade.jsp" target="_parent">录入成绩</a></li>
@@ -167,11 +168,12 @@
                             <li class="list">
                                 <a id="teacher_tab_4" class="li_sort" href="#">
                                     <img src="./images/sort_menu.gif" width="26px" align="absmiddle" />
-                                    通知管理
+                                    课程管理
                                 </a>
                                 <ul class="tab" id="teacher_tab_4_content">
-                                    <li><a class="li_sort_content" href="sendMessage.jsp" target="_parent">发布通知</a></li>
-                                    <li><a class="li_sort_content" href="checkMessage.jsp" target="_parent">查看通知</a></li>
+                                    <li><a class="li_sort_content" href="addSubject.jsp" target="_parent">添加课程</a></li>
+                                    <li><a class="li_sort_content" href="checkSubjectAction.action " target="_parent">查看课程</a></li>
+                                    <li><a class="li_sort_content" href="addQuestion.jsp" target="_parent">添加题目</a></li>
                                 </ul>
                             </li>
                             <li class="list">
@@ -180,6 +182,8 @@
                                     资源管理
                                 </a>
                                 <ul class="tab" id="teacher_tab_5_content">
+                                    <li><a class="li_sort_content" href="sendMessage.jsp" target="_parent">发布通知</a></li>
+                                    <li><a class="li_sort_content" href="checkMessage.jsp" target="_parent">查看通知</a></li>
                                     <li><a class="li_sort_content" href="uploadFile.jsp" target="_parent">上传文件</a></li>
                                     <li><a class="li_sort_content" href="checkFile.jsp" target="_parent">查看文件</a></li>
                                 </ul>
@@ -203,7 +207,7 @@
                             <li class="list">
                                 <a id="student_tab_2" class="li_sort" href="#">
                                     <img src="./images/sort_menu.gif" width="26px" align="absmiddle" />
-                                    教学管理
+                                    成绩管理
                                 </a>
                                     <ul class="tab" id="student_tab_2_content">
                                     <li><a class="li_sort_content" href="checkAllGradeByIdAction.action?userId=<%=userId %>" target="_parent">查看成绩</a></li>
@@ -222,10 +226,10 @@
                             <li class="list">
                                 <a id="student_tab_4" class="li_sort" href="#">
                                     <img src="./images/sort_menu.gif" width="26px" align="absmiddle" />
-                                    通知管理
+                                    课程管理
                                 </a>
                                 <ul class="tab" id="student_tab_4_content">
-                                    <li><a class="li_sort_content" href="checkMessage.jsp" target="_parent">查看通知</a></li>
+                                    <li><a class="li_sort_content" href="checkSubjectAction.action" target="_parent">查看课程</a></li>
                                 </ul>
                             </li>
                             <li class="list">
@@ -234,6 +238,7 @@
                                     资源管理
                                 </a>
                                 <ul class="tab" id="student_tab_5_content">
+                                    <li><a class="li_sort_content" href="checkMessage.jsp" target="_parent">查看通知</a></li>
                                     <li><a class="li_sort_content" href="uploadFile.jsp" target="_parent">上传文件</a></li>
                                     <li><a class="li_sort_content" href="checkFile.jsp" target="_parent">查看文件</a></li>
                                 </ul>

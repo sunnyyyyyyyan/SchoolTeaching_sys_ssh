@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-5-21 14:19:48 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.po.Test" table="test">
+        <id name="testId" type="java.lang.Integer">
+            <column name="testId" />
+            <generator class="increment" />
+        </id>
+        <property name="testName" type="java.lang.String">
+            <column name="testName" />
+        </property>
+        <property name="subName" type="java.lang.String">
+            <column name="subName" />
+        </property>
+        <property name="subNo" type="java.lang.String">
+            <column name="subNo" />
+        </property>
+        <property name="questionType" type="java.lang.String">
+            <column name="questionType" />
+        </property>
+        <property name="questionId" type="java.lang.String">
+            <column name="questionId" />
+        </property>
+        <property name="questionContent" type="java.lang.String">
+            <column name="questionContent" />
+        </property>
+        <property name="answer" type="java.lang.String">
+            <column name="answer" />
+        </property>
+        <property name="setGrade" type="java.lang.String">
+            <column name="setGrade" />
+        </property>
+    </class>
+</hibernate-mapping>

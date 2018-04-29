@@ -166,3 +166,12 @@ function onSearchGrade(obj){//js函数开始
         }
     },200);//200为延时时间
 }
+
+function clickType(type){
+    if(type=="select"){
+        document.getElementById("selection").style.display="block";
+    }
+    if(type=="judge"){
+        document.getElementById("selection").style.display="none";
+    }
+}
