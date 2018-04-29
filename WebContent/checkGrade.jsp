@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <script src="js/left_column_tab.js" type="text/javascript"></script>
 </head>
 <body>
 <div id="page">
@@ -29,12 +30,16 @@
             <h3 align="center">成绩列表</h3>
             <br>
             <p align="center">
+                可输入成绩类型进行筛选
+                <input name="key" type="text" id="key" style="width: 80px" onkeydown="onSearchGrade(this)" value="" />
+            </p>
+            <p align="center">
                 <font  style="font-size: 12px;" color="red"><s:property value="#request.deleteGradeMess" /></font>
             </p>
             <p align="center">
                 <font  style="font-size: 12px;" color="red"><s:property value="#request.changeScoreMess" /></font>
             </p>
-            <table class="table table-bordered" style="text-align: center;">
+            <table id="store" class="table table-bordered" style="text-align: center;">
                 <%
                     String userType = (String)ActionContext.getContext().getSession().get("userType");
                     if (userType.equals("管理员")||userType.equals("教师"))
@@ -53,7 +58,7 @@
                                 <td><s:property value="gradeType"/></td>
                                 <td><s:property value="score"/></td>
                                 <td>
-                                    <form action="changeScoreAction.action" method="post">
+                                    <form action="changeScoreAction.action?studentId=<s:property value="studentId"/>" method="post">
                                         <input type="text" name="changeScore">
                                         <button type="submit">修改</button>
                                     </form>

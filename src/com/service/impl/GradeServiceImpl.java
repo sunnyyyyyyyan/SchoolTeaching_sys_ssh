@@ -31,8 +31,13 @@ public class GradeServiceImpl implements GradeService {
     //修改成绩
     @Override
     public String updateGrade(Grade grade) {
-        if (this.gradeDao.updateGrade(grade)){
-            return "changeScoreSuccess";
+        String sql = "from Grade where studentId='"+grade.getStudentId()+"'";
+        List<Grade> list = this.gradeDao.getGrade(sql);
+        if (list.size()>0) {
+            boolean mess = this.gradeDao.updateGrade(grade);
+            if (mess) {
+                return "changeScoreSuccess";
+            }
         }
         return "changeScoreError";
     }

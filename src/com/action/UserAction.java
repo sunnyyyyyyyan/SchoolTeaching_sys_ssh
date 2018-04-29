@@ -120,12 +120,6 @@ public class UserAction {
 
 	//登录
     public String login() {
-		/*if (this.getUserId() == null&&this.getUserId().equals("")&&
-				this.getPassword() == null&&this.getPassword().equals("")&&
-				this.getUserType()==null&&this.getUserType().equals("")){
-			ActionContext.getContext().put("loginMess", "不能为空！");
-			return "loginError";
-		}*/
 		if (this.getUserId() == null || this.getUserId().equals("")) {
 			ActionContext.getContext().put("loginMess", "编号不能为空！");
 			return "loginError";
@@ -160,12 +154,6 @@ public class UserAction {
 
 	//添加
 	public String addUser(){
-		/*//验证用户是否登录
-		String user = (String)ActionContext.getContext().getSession().get("userId");
-		if (user==null){//没有登录
-			ActionContext.getContext().put("addMess","请先登录！");
-			return "addError";
-		}*/
 		if (this.getUserId() == null || this.getUserId().equals("")||
 				this.getUsername() == null || this.getUsername().equals("")
 				|| this.getPassword() == null || this.getPassword().equals("")

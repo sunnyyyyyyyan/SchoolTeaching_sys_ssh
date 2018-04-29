@@ -123,7 +123,10 @@
                                     <font color="red">*</font>类型：
                                 </td>
                                 <td>
-                                    <input type="text" name="userType" value="学生"/>
+                                    <select name="userType" id="userType">
+                                        <option value="学生">学生</option>
+                                    </select>
+                                    <%--<input type="text" name="userType" value="学生"/>--%>
                                 </td>
                             </tr>
                             <tr>

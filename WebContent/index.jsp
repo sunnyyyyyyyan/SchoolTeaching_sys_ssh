@@ -9,7 +9,7 @@
 <%@taglib uri="/struts-tags" prefix="s"%>
 <html>
 <head>
-    <title>登录</title>
+    <title>教学质量监控系统</title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 </head>
 <body background="images/sky.jpg" style="font-family: Times, TimesNR, 'New Century Schoolbook',Georgia, 'New York', serif;">

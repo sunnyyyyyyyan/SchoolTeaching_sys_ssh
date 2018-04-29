@@ -65,7 +65,7 @@ public class UserServiceImpl implements UserService {
     //修改用户信息
 	@Override
 	public String updateUser(User user) {
-		String sql = "from User where userId='"+user.getUserId()+"'";
+		String sql = "update User set username="+user.getUsername()+",password="+user.getPassword()+",phone="+user.getPhone()+",email="+user.getEmail()+" where userId='"+user.getUserId()+"'";
 		List<User> list = this.userDao.getData(sql);
 		if (list.size()>0){
 			this.userDao.updateUser(user);
@@ -93,6 +93,7 @@ public class UserServiceImpl implements UserService {
 		return "deleteUserError";
 	}
 
+	//获取所有用户
 	@Override
 	public List<User> getAllUserData(int pageNow, int pageSize) {
 		List<User> list = this.userDao.getAllUserData(pageNow,pageSize);

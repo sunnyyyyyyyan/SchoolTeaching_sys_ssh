@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <script src="js/left_column_tab.js" type="text/javascript" ></script>
 </head>
 <body>
 <div id="page">
@@ -32,13 +33,21 @@
                 <font  style="font-size: 12px;" color="red"><s:property value="userId"/> <s:property value="#request.deleteUserMess"/> </font>
             </p>
             <form action="#" method="post">
-                <table class="table table-bordered" style="text-align: center">
+                <p align="center">
+                    可输入身份：管理员、教师、学生，进行筛选
+                    <input name="key" type="text" id="key" style="width: 80px" onkeydown="onSearch(this)" value="" />
+                </p>
+                <br>
+                <table id="store" class="table table-bordered" style="text-align: center">
                     <thead>
                         <tr >
                             <td>编号</td>
                             <td>姓名</td>
                             <td>密码</td>
-                            <td>身份</td>
+                            <td>
+                                身份
+
+                            </td>
                             <td>电话号码</td>
                             <td>邮箱</td>
                             <td>操作</td>
