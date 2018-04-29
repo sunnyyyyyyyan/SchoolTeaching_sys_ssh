@@ -1,6 +1,9 @@
-package com.po;
+package com.action;
 
-public class Test {
+import com.opensymphony.xwork2.ActionContext;
+import com.service.TestService;
+
+public class TestAction {
     private Integer testId;
     private String testName;
     private String subName;
@@ -10,67 +13,7 @@ public class Test {
     private String questionContent;
     private String answer;
     private String setGrade;
-
-    private Integer selectId;
-    private String selectA;
-    private String selectB;
-    private String selectC;
-    private String selectD;
-
-    @Override
-    public String toString() {
-        return "Test{" +
-                "testId=" + testId +
-                ", testName='" + testName + '\'' +
-                ", subName='" + subName + '\'' +
-                ", subNo='" + subNo + '\'' +
-                ", questionType='" + questionType + '\'' +
-                ", questionId='" + questionId + '\'' +
-                ", questionContent='" + questionContent + '\'' +
-                ", answer='" + answer + '\'' +
-                ", setGrade='" + setGrade + '\'' +
-                '}';
-    }
-
-    public Integer getSelectId() {
-        return selectId;
-    }
-
-    public void setSelectId(Integer selectId) {
-        this.selectId = selectId;
-    }
-
-    public String getSelectA() {
-        return selectA;
-    }
-
-    public void setSelectA(String selectA) {
-        this.selectA = selectA;
-    }
-
-    public String getSelectB() {
-        return selectB;
-    }
-
-    public void setSelectB(String selectB) {
-        this.selectB = selectB;
-    }
-
-    public String getSelectC() {
-        return selectC;
-    }
-
-    public void setSelectC(String selectC) {
-        this.selectC = selectC;
-    }
-
-    public String getSelectD() {
-        return selectD;
-    }
-
-    public void setSelectD(String selectD) {
-        this.selectD = selectD;
-    }
+    private TestService testService;
 
     public Integer getTestId() {
         return testId;
@@ -143,4 +86,22 @@ public class Test {
     public void setSetGrade(String setGrade) {
         this.setGrade = setGrade;
     }
+
+    public TestService getTestService() {
+        return testService;
+    }
+
+    public void setTestService(TestService testService) {
+        this.testService = testService;
+    }
+
+    //添加试题
+    public String addQuestion(){
+        if (this.getTestName()==null||this.getTestName().equals("")){
+            ActionContext.getContext().put("addQuestionMess","添加失败！");
+            return "addQuestionError";
+        }
+        return "addQuestionSuccess";
+    }
+
 }

@@ -31,7 +31,7 @@
             <p align="center" >
                 <font  style="font-size: 12px;" color="red"><s:property value="#request.addQuestionMess"/> </font>
             </p>
-            <form action="addQueAction.action" method="post">
+            <form action="addQuestionAction.action" method="post">
                 <table class="table table-bordered" style="margin: 0 auto; text-align: center;width: 500px">
                     <tr>
                         <td>试题名：</td>

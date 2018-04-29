@@ -1,3 +1,4 @@
+<%@ page import="com.opensymphony.xwork2.ActionContext" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%--
   Created by IntelliJ IDEA.

@@ -54,6 +54,31 @@
 			<ref bean="subjectService"/>
 		</property>
 	</bean>
+
+
+	<bean id="testDao" class="com.dao.impl.SubjectDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+	<bean id="selectionDao" class="com.dao.impl.SelectionDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+	<bean id="testService" class="com.service.impl.SubjectServiceImpl">
+		<property name="testDao">
+			<ref bean="testDao"/>
+		</property>
+		<property name="selectionDao">
+			<ref bean="selectionDao"/>
+		</property>
+	</bean>
+	<bean id="testAction" class="com.action.SubjectAction">
+		<property name="testService">
+			<ref bean="testService"/>
+		</property>
+	</bean>
 	
 
 	
@@ -79,6 +104,8 @@
 					<value>com/po/User.hbm.xml</value>
 					<value>com/po/Grade.hbm.xml</value>
 					<value>com/po/Subject.hbm.xml</value>
+					<value>com/po/Test.hbm.xml</value>
+					<value>com/po/Selection.hbm.xml</value>
 				</list>
 			</property>
 			

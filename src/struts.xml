@@ -80,6 +80,14 @@
             <result name="changeUserSubjectError">/checkSubject.jsp</result>
         </action>
 
+
+
+        <action name="addQuestionAction" class="com.action.TestAction" method="addQuestion">
+            <result name="addQuestionSuccess">/addQuestion.jsp</result>
+            <result name="addQuestionError">/addQuestion.jsp</result>
+        </action>
+
+
     </package>
 
 </struts>

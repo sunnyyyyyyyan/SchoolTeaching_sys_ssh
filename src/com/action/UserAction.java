@@ -139,6 +139,7 @@ public class UserAction {
 		String strMess = this.userService.loginService(user);
 		if (strMess.equals("loginSuccess")) {
 			ActionContext.getContext().getSession().put("userId",user.getUserId());
+			ActionContext.getContext().getSession().put("username",user.getUsername());
 			ActionContext.getContext().getSession().put("userType",user.getUserType());
 			return "loginSuccess";
 		}
