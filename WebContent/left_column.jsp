@@ -81,7 +81,7 @@
                             <ul class="tab" id="admin_tab_1_content">
                                 <li><a class="li_sort_content" href="addUser.jsp" target="_parent">添加用户</a></li>
                                 <li><a class="li_sort_content" href="allUserAction.action" target="_parent">用户列表</a></li>
-                                <li><a class="li_sort_content" href="getUserIdAction.action?userId=<%=userId%> " target="_parent">修改信息</a></li>
+                                <li><a class="li_sort_content" href="getUserByIdAction.action?userId=<%=userId%> " target="_parent">修改信息</a></li>
                             </ul>
                         </li>
                         <li class="list">
@@ -140,7 +140,7 @@
                                 <ul class="tab" id="teacher_tab_1_content">
                                     <li><a class="li_sort_content" href="addUser.jsp" target="_parent">添加用户</a></li>
                                     <li><a class="li_sort_content" href="allUserAction.action" target="_parent">用户列表</a></li>
-                                    <li><a class="li_sort_content" href="getUserIdAction.action?userId=<%=userId%> " target="_parent">修改信息</a></li>
+                                    <li><a class="li_sort_content" href="getUserByIdAction.action?userId=<%=userId%> " target="_parent">修改信息</a></li>
                                 </ul>
                             </li>
                             <li class="list">
@@ -197,7 +197,7 @@
                                     系统管理
                                 </a>
                                 <ul class="tab" id="student_tab_1_content">
-                                    <li><a class="li_sort_content" href="getUserIdAction.action?userId=<%=userId %> " target="_parent">修改信息</a></li>
+                                    <li><a class="li_sort_content" href="getUserByIdAction.action?userId=<%=userId %> " target="_parent">修改信息</a></li>
                                 </ul>
                             </li>
                             <li class="list">

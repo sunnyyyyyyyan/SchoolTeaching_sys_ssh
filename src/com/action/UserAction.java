@@ -200,10 +200,9 @@ public class UserAction {
 	}
 
     //根据用户id获取个人信息
-	public String getUserid(){
-		System.out.println(this.userId);
+	public String getUserById(){
 		List<User> list = this.userService.getUserId(this.userId);
-		ActionContext.getContext().put("user",list);
+		ActionContext.getContext().put("getUserById",list);
 		return "getUserIdSuccess";
 	}
 
@@ -223,6 +222,7 @@ public class UserAction {
 			return "updateUserError";
 		}
 		User user = new User();
+        user.setUserId(this.userId);
 		user.setUsername(this.username);
 		user.setPassword(this.password);
 		user.setPhone(this.phone);

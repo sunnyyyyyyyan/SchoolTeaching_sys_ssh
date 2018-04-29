@@ -29,7 +29,7 @@
             <result name="deleteUserError">/userList.jsp</result>
         </action>
 
-        <action name="getUserIdAction" class="com.action.UserAction" method="getUserid">
+        <action name="getUserByIdAction" class="com.action.UserAction" method="getUserById">
             <result name="getUserIdSuccess">/changeUser.jsp</result>
         </action>
 

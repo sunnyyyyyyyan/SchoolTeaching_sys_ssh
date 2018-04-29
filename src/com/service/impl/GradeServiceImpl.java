@@ -33,11 +33,10 @@ public class GradeServiceImpl implements GradeService {
     public String updateGrade(Grade grade) {
         String sql = "from Grade where studentId='"+grade.getStudentId()+"'";
         List<Grade> list = this.gradeDao.getGrade(sql);
-        if (list.size()>0) {
-            boolean mess = this.gradeDao.updateGrade(grade);
-            if (mess) {
-                return "changeScoreSuccess";
-            }
+        Grade grade1 = list.get(0);
+        grade1.setScore(grade.getChangeScore());
+        if (this.gradeDao.updateGrade(grade1)){
+            return "changeScoreSuccess";
         }
         return "changeScoreError";
     }

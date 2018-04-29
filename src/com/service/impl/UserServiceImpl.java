@@ -65,10 +65,14 @@ public class UserServiceImpl implements UserService {
     //修改用户信息
 	@Override
 	public String updateUser(User user) {
-		String sql = "update User set username="+user.getUsername()+",password="+user.getPassword()+",phone="+user.getPhone()+",email="+user.getEmail()+" where userId='"+user.getUserId()+"'";
+        String sql = "from User where userId='"+user.getUserId()+"'";
 		List<User> list = this.userDao.getData(sql);
-		if (list.size()>0){
-			this.userDao.updateUser(user);
+		User user1 = list.get(0);
+		user1.setUsername(user.getUsername());
+		user1.setPassword(user.getPassword());
+		user1.setPhone(user.getPhone());
+		user1.setEmail(user.getEmail());
+		if (this.userDao.updateUser(user1)){
 			return "updateUserSuccess";
 		}
 		return "updateUserError";

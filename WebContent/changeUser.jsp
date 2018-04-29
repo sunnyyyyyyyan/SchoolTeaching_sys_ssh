@@ -30,11 +30,13 @@
             <p align="center" >
                 <font color="red"><s:property value="#request.updateMess" /></font>
             </p>
-<s:iterator value="#request.user">
+            <%--<s:iterator value="#request.getUserById">--%>
             <table  class="table table-bordered" style="margin:0 auto;width: 350px">
                 <tr>
-                    <td colspan="2">
-                        学/编号：
+                    <td>
+                        编号：
+                    </td>
+                    <td>
                         <s:property value="userId"/>
                     </td>
                 </tr>
@@ -43,7 +45,7 @@
                         原用户名：
                     </td>
                     <td>
-                        <s:property value="username"/>
+                        <s:property value="#request.getUserById.username"/>
                     </td>
                 </tr>
                 <tr>
@@ -51,7 +53,7 @@
                         原密码：
                     </td>
                     <td>
-                        <s:property value="password"/>
+                        <s:property value="#request.getUserById.password"/>
                     </td>
                 </tr>
                 <tr>
@@ -59,7 +61,7 @@
                         原电话号码：
                     </td>
                     <td>
-                        <s:property value="phone"/>
+                        <s:property value="#request.getUserById.phone"/>
                     </td>
                 </tr>
                 <tr>
@@ -67,12 +69,12 @@
                         原邮箱：
                     </td>
                     <td>
-                        <s:property value="email"/>
+                        <s:property value="#request.getUserById.email"/>
                     </td>
                 </tr>
             </table>
-            </s:iterator>
-
+            <%--</s:iterator>--%>
+            <br><br>
             <form action="updateUserAction.action?userId=<s:property value="userId"/>" method="post">
 
                 <table  class="table table-bordered" style="margin:0 auto;width: 350px">

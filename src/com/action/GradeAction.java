@@ -154,7 +154,6 @@ public class GradeAction {
         }
         Grade grade = new Grade();
         grade.setStudentId(this.studentId);
-        grade.setGradeType(this.gradeType);
         grade.setChangeScore(this.changeScore);
         String strMess = this.gradeService.updateGrade(grade);
         if (strMess.equals("changeScoreSuccess")){
