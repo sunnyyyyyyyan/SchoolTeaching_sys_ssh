@@ -108,4 +108,9 @@ public class SubjectAction {
         checkSubjectData();
         return "changeUserSubjectError";
     }
+
+    //学生选课
+    public String chooseSubject(){
+        return "chooseSubjectSuccess";
+    }
 }

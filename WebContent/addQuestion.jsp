@@ -38,7 +38,7 @@
                         <td><input type="text" name="testName"></td>
                     </tr>
                     <tr>
-                        <td>科目：</td>
+                        <td>课程：</td>
                         <td><input type="radio" name="subName" value="软件工程">软件工程
                             <input type="radio" name="subName" value="Web">Web
                             <input type="radio" name="subName" value="java">java
@@ -51,14 +51,14 @@
                     <tr>
                         <td>题型：</td>
                         <td>
-                            <input type="radio" name="type" value="选择" onclick="clickType('select')">选择
-                            <input type="radio" name="type" value="判断" onclick="clickType('judge')">判断
+                            <input type="radio" name="questionType" value="选择" onclick="clickType('select')">选择
+                            <input type="radio" name="questionType" value="判断" onclick="clickType('judge')">判断
                         </td>
                     </tr>
                     <tr>
                         <td>题目：</td>
                         <td>
-                            <input type="text" name="concent">
+                            <input type="text" name="questionContent">
                         </td>
                     </tr>
                 </table>
@@ -88,8 +88,7 @@
                         <td><input type="text" name="answer"></td>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td>答案填A/B/C/D/T/F</td>
+                        <td colspan="2"><font color="red">选择题型答案填A/B/C/D，判断题型答案填T/F</font></td>
                     </tr>
                     <tr>
                         <td>分值：</td>
@@ -97,8 +96,8 @@
                     </tr>
                     <tr>
                         <td colspan="2" >
-                            <input type="submit" value="增加">&nbsp;
-                            <input type="reset" value="重置">
+                            <button type="submit">增加</button> &nbsp;&nbsp;
+                            <button type="reset">重置</button>
                         </td>
                     </tr>
                 </table>

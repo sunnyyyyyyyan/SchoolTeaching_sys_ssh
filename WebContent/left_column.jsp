@@ -98,7 +98,7 @@
                         <li class="list">
                             <a id="admin_tab_3" class="li_sort" href="#">
                                 <img src="./images/sort_menu.gif" width="26px" align="absmiddle" />
-                                教学评价
+                                教学管理
                             </a>
                             <ul class="tab" id="admin_tab_3_content">
                                 <li><a class="li_sort_content" href="teaching.jsp" target="_parent">教学评价</a></li>
@@ -112,7 +112,8 @@
                             </a>
                             <ul class="tab" id="admin_tab_4_content">
                                 <li><a class="li_sort_content" href="checkSubjectAction.action" target="_parent">查看课程</a></li>
-                                </ul>
+                                <li><a class="li_sort_content" href="addQuestion.jsp" target="_parent">添加题目</a></li>
+                            </ul>
                         </li>
                         <li class="list">
                             <a id="admin_tab_5" class="li_sort" href="#">
@@ -158,7 +159,7 @@
                             <li class="list">
                                 <a id="teacher_tab_3" class="li_sort" href="#">
                                     <img src="./images/sort_menu.gif" width="26px" align="absmiddle" />
-                                    教学评价
+                                    教学管理
                                 </a>
                                 <ul class="tab" id="teacher_tab_3_content">
                                     <li><a class="li_sort_content" href="teaching.jsp" target="_parent">教学评价</a></li>

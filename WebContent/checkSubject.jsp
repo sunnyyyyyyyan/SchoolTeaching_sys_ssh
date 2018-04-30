@@ -27,7 +27,7 @@
 
     <div id="center_column">
         <div class="addSubject">
-            <h3 align="center">添加课程</h3>
+            <h3 align="center">查看课程</h3>
             <br>
 
             <p align="center" >
@@ -69,7 +69,7 @@
                         </table>
                     <%
                         }
-                        if (userType.equals("教师")||userType.equals("学生"))
+                        if (userType.equals("教师"))
                         {
                     %>
                         <table class="table table-bordered" style="margin:0 auto;text-align: center; width: 400px;">
@@ -92,6 +92,38 @@
                                 </tr>
                             </s:iterator>
                         </table>
+                    <%
+                        }
+                        if (userType.equals("学生"))
+                        {
+                    %>
+                            <table class="table table-bordered" style="margin:0 auto;text-align: center; width: 400px;">
+                                <tr>
+                                    <td>
+                                        课程编号
+                                    </td>
+                                    <td>
+                                        课程名称
+                                    </td>
+                                    <td>
+                                        授课教师
+                                    </td>
+                                    <td>选课</td>
+                                </tr>
+                                <s:iterator value="#request.checkSubject">
+                                    <tr>
+                                        <td><s:property value="subjectNo"/> </td>
+                                        <td><s:property value="subjectName"/></td>
+                                        <td><s:property value="userId"/></td>
+                                        <td>
+                                            <form action="chooseSubjectAction.action?subjectNo=<s:property value="subjectNo"/> ">
+                                                <button type="submit">选择</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                </s:iterator>
+
+                            </table>
                     <%
                         }
                     %>

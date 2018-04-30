@@ -1,6 +1,8 @@
 package com.action;
 
 import com.opensymphony.xwork2.ActionContext;
+import com.po.Selection;
+import com.po.Test;
 import com.service.TestService;
 
 public class TestAction {
@@ -14,6 +16,52 @@ public class TestAction {
     private String answer;
     private String setGrade;
     private TestService testService;
+
+    private Integer selectId;
+    private String selectA;
+    private String selectB;
+    private String selectC;
+    private String selectD;
+
+    public Integer getSelectId() {
+        return selectId;
+    }
+
+    public void setSelectId(Integer selectId) {
+        this.selectId = selectId;
+    }
+
+    public String getSelectA() {
+        return selectA;
+    }
+
+    public void setSelectA(String selectA) {
+        this.selectA = selectA;
+    }
+
+    public String getSelectB() {
+        return selectB;
+    }
+
+    public void setSelectB(String selectB) {
+        this.selectB = selectB;
+    }
+
+    public String getSelectC() {
+        return selectC;
+    }
+
+    public void setSelectC(String selectC) {
+        this.selectC = selectC;
+    }
+
+    public String getSelectD() {
+        return selectD;
+    }
+
+    public void setSelectD(String selectD) {
+        this.selectD = selectD;
+    }
 
     public Integer getTestId() {
         return testId;
@@ -97,11 +145,61 @@ public class TestAction {
 
     //添加试题
     public String addQuestion(){
-        if (this.getTestName()==null||this.getTestName().equals("")){
-            ActionContext.getContext().put("addQuestionMess","添加失败！");
+        if (this.getTestName()==null||this.getTestName().equals("")||
+                this.getSubName()==null||this.getSubName().equals("")||
+                this.getQuestionId()==null||this.getQuestionId().equals("")||
+                this.getQuestionType()==null||this.getQuestionType().equals("")||
+                this.getQuestionContent()==null||this.getQuestionContent().equals("")||
+                this.getAnswer()==null||this.getAnswer().equals("")||
+                this.getSetGrade()==null||this.getSetGrade().equals("")){
+            ActionContext.getContext().put("addQuestionMess","不能为空！");
             return "addQuestionError";
         }
-        return "addQuestionSuccess";
+        String subNo = new String();
+        if(subName.equals("软件工程")){subNo="00";}
+        else if(subName.equals("Web")){subNo="01";}
+        else if(subName.equals("java")){subNo="02";}
+        Test test = new Test();
+        test.setTestName(this.testName);        //试题ming
+        test.setSubName(this.subName);          //课程
+        test.setSubNo(subNo);                  //课程编号
+        test.setQuestionId(this.questionId);    //题号
+        test.setQuestionContent(this.questionContent);  //题目
+        test.setQuestionType(this.questionType);    //题型
+        test.setAnswer(this.answer);            //答案
+        test.setSetGrade(this.setGrade);        //分值
+
+        if (this.questionType.equals("选择")){
+            if (this.getSelectA()==null||this.getSelectA().equals("")||
+                    this.getSelectB()==null||this.getSelectB().equals("")||
+                    this.getSelectC()==null||this.getSelectC().equals("")||
+                    this.getSelectD()==null||this.getSelectD().equals("")){
+                ActionContext.getContext().put("addQuestionMess","选项不能为空！");
+                return "addQuestionError";
+            }
+            Selection selection = new Selection();
+            selection.setSubNo(subNo);
+            selection.setSubName(this.subName);
+            selection.setQuestionId(this.questionId);
+            selection.setSelectA(this.selectA);
+            selection.setSelectB(this.selectB);
+            selection.setSelectC(this.selectC);
+            selection.setSelectD(this.selectD);
+            String strMess = this.testService.addTest(test,selection);
+            if (strMess.equals("addQuestionSuccess")){
+                    return "addQuestionSuccess";
+            }
+            return "addQuestionError";
+        }
+        if (this.questionType.equals("判断")){
+            String strMess = this.testService.addTest(test);
+            if (strMess.equals("addQuestionSuccess")){
+                return "addQuestionSuccess";
+            }
+            return "addQuestionError";
+        }
+        ActionContext.getContext().put("addQuestionMess","添加失败！");
+        return "addQuestionError";
     }
 
 }

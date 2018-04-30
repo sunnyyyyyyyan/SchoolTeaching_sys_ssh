@@ -11,6 +11,14 @@
         </webroots>
       </configuration>
     </facet>
+    <facet type="Spring" name="Spring">
+      <configuration>
+        <fileset id="fileset" name="Spring Application Context" removed="false">
+          <file>file://$MODULE_DIR$/src/applicationContext.xml</file>
+          <file>file://$MODULE_DIR$/build/classes/applicationContext.xml</file>
+        </fileset>
+      </configuration>
+    </facet>
   </component>
   <component name="NewModuleRootManager">
     <output url="file://$MODULE_DIR$/out/production/SchoolTeaching_sys_ssh" />

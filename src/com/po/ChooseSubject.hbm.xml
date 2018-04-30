@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-5-21 14:19:48 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.po.ChooseSubject" table="chooseSubject">
+        <id name="chooseId" type="java.lang.Integer">
+            <column name="chooseId" />
+            <generator class="increment" />
+        </id>
+        <property name="subjectNo" type="java.lang.String">
+            <column name="subjectNo" />
+        </property>
+        <property name="subjectName" type="java.lang.String">
+            <column name="subjectName" />
+        </property>
+        <property name="chooseUserId" type="java.lang.String">
+            <column name="chooseUserId" />
+        </property>
+    </class>
+</hibernate-mapping>

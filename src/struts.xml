@@ -88,6 +88,11 @@
         </action>
 
 
+        <action name="chooseSubjectAction" class="com.action.SubjectAction" method="chooseSubject">
+            <result name="chooseSubjectSuccess">/checkMessage.jsp</result>
+            <result name="chooseSubjectError">/checkMessage.jsp</result>
+        </action>
+
     </package>
 
 </struts>

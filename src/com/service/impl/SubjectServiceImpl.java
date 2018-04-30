@@ -1,5 +1,6 @@
 package com.service.impl;
 
+import com.dao.ChooseSubjectDao;
 import com.dao.SubjectDao;
 import com.opensymphony.xwork2.ActionContext;
 import com.po.Subject;
@@ -9,6 +10,15 @@ import java.util.List;
 
 public class SubjectServiceImpl implements SubjectService {
     private SubjectDao subjectDao;
+    private ChooseSubjectDao chooseSubjectDao;
+
+    public ChooseSubjectDao getChooseSubjectDao() {
+        return chooseSubjectDao;
+    }
+
+    public void setChooseSubjectDao(ChooseSubjectDao chooseSubjectDao) {
+        this.chooseSubjectDao = chooseSubjectDao;
+    }
 
     public SubjectDao getSubjectDao() {
         return subjectDao;

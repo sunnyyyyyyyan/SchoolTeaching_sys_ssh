@@ -1,8 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">	
-	
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+		<property name="url"  value="jdbc:mysql://localhost:3306/TESTDB?characterEncoding=utf-8"/>
+		<property name="username" value="root"/>
+		<property name="password" value="123456"/>
+	</bean>
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource"/>
+		</property>
+
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<!--org.hibernate.dialect.MySQL5InnoDBDialect-->
+				<prop key="show_sql">true</prop>
+			</props>
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>com/po/User.hbm.xml</value>
+				<value>com/po/Grade.hbm.xml</value>
+				<value>com/po/Subject.hbm.xml</value>
+				<value>com/po/Test.hbm.xml</value>
+				<value>com/po/Selection.hbm.xml</value>
+				<value>com/po/ChooseSubject.hbm.xml</value>
+			</list>
+		</property>
+	</bean>
+
+
 	<bean id="userDao" class="com.dao.impl.UserDaoImpl" >
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
@@ -44,9 +76,18 @@
 			<ref bean="sessionFactory"/>
 		</property>
 	</bean>
+	<bean id="chooseSubjectDao" class="com.dao.impl.ChooseSubjectDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+
 	<bean id="subjectService" class="com.service.impl.SubjectServiceImpl">
 		<property name="subjectDao">
 			<ref bean="subjectDao"/>
+		</property>
+		<property name="chooseSubjectDao">
+			<ref bean="chooseSubjectDao"/>
 		</property>
 	</bean>
 	<bean id="subjectAction" class="com.action.SubjectAction">
@@ -56,7 +97,24 @@
 	</bean>
 
 
-	<bean id="testDao" class="com.dao.impl.SubjectDaoImpl">
+<!--	<bean id="testDao" class="com.dao.impl.TestDaoImpl"/>
+	<bean id="selectionDao" class="com.dao.impl.SelectionDaoImpl"/>
+	<bean id="testService" class="com.service.impl.TestServiceImpl">
+		<property name="testDao">
+			<ref bean="testDao"/>
+		</property>
+		<property name="selectionDao">
+			<ref bean="selectionDao"/>
+		</property>
+	</bean>
+	<bean id="addQuestionAction" class="com.action.TestAction"> &lt;!&ndash; 给struts调用 &ndash;&gt;
+		<property name="testService">
+			<ref bean="testService"/>
+		</property>
+	</bean>-->
+
+
+	<bean id="testDao" class="com.dao.impl.TestDaoImpl">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory"/>
 		</property>
@@ -66,7 +124,7 @@
 			<ref bean="sessionFactory"/>
 		</property>
 	</bean>
-	<bean id="testService" class="com.service.impl.SubjectServiceImpl">
+	<bean id="testService" class="com.service.impl.TestServiceImpl">
 		<property name="testDao">
 			<ref bean="testDao"/>
 		</property>
@@ -74,7 +132,7 @@
 			<ref bean="selectionDao"/>
 		</property>
 	</bean>
-	<bean id="testAction" class="com.action.SubjectAction">
+	<bean id="testAction" class="com.action.TestAction">
 		<property name="testService">
 			<ref bean="testService"/>
 		</property>
@@ -82,33 +140,5 @@
 	
 
 	
-	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-			<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-			<property name="url"  value="jdbc:mysql://localhost:3306/TESTDB"/>
-			<property name="username" value="root"/>
-			<property name="password" value="123456"/>
-	</bean>
-	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-			<property name="dataSource">
-					<ref bean="dataSource"/>
-			</property>
-			
-			<property name="hibernateProperties">
-				<props>
-					<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</prop>
-					<prop key="show_sql">true</prop>
-				</props>
-			</property>
-			<property name="mappingResources">
-				<list>
-					<value>com/po/User.hbm.xml</value>
-					<value>com/po/Grade.hbm.xml</value>
-					<value>com/po/Subject.hbm.xml</value>
-					<value>com/po/Test.hbm.xml</value>
-					<value>com/po/Selection.hbm.xml</value>
-				</list>
-			</property>
-			
-	</bean>
-	
+
 </beans>

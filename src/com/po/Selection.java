@@ -3,11 +3,26 @@ package com.po;
 public class Selection {
     private Integer selectId;
     private String subNo;
+    private String subName;
     private String questionId;
     private String selectA;
     private String selectB;
     private String selectC;
     private String selectD;
+
+    @Override
+    public String toString() {
+        return "Selection{" +
+                "selectId=" + selectId +
+                ", subNo='" + subNo + '\'' +
+                ", subName='" + subName + '\'' +
+                ", questionId='" + questionId + '\'' +
+                ", selectA='" + selectA + '\'' +
+                ", selectB='" + selectB + '\'' +
+                ", selectC='" + selectC + '\'' +
+                ", selectD='" + selectD + '\'' +
+                '}';
+    }
 
     public Integer getSelectId() {
         return selectId;
@@ -23,6 +38,14 @@ public class Selection {
 
     public void setSubNo(String subNo) {
         this.subNo = subNo;
+    }
+
+    public String getSubName() {
+        return subName;
+    }
+
+    public void setSubName(String subName) {
+        this.subName = subName;
     }
 
     public String getQuestionId() {
