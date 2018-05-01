@@ -12,7 +12,6 @@
     <title>试题列表</title>
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <script src="js/left_column_tab.js" type="text/javascript"></script>
 </head>
 <body>
 <div id="page">
@@ -26,13 +25,11 @@
 
     <div id="center_column">
         <div class="questionList">
-            <h3 align="center">添加题目</h3>
+            <h3 align="center">试题库</h3>
             <br>
-            <p align="center" >
-                <font  style="font-size: 12px;" color="red"><s:property value="#request.questionListMess"/> </font>
-            </p>
                 <table class="table table-bordered" style="margin: 0 auto; text-align: center;">
                     <tr>
+                        <td>添加者</td>
                         <td>试题名</td>
                         <td>课程</td>
                         <td>题号</td>
@@ -47,6 +44,8 @@
                     </tr>
                     <s:iterator value="#request.questionList">
                         <tr>
+
+                            <td><s:property value="testAdder"/> </td>
                             <td><s:property value="testName"/> </td>
                             <td><s:property value="subName"/></td>
                             <td><s:property value="questionId"/></td>
@@ -58,6 +57,7 @@
                             <td><s:property value="selectD"/></td>
                             <td><s:property value="answer"/></td>
                             <td><s:property value="setGrade"/></td>
+
                         </tr>
                     </s:iterator>
                 </table>

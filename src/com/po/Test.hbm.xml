@@ -26,6 +26,18 @@
         <property name="questionContent" type="java.lang.String">
             <column name="questionContent" />
         </property>
+        <property name="selectA" type="java.lang.String">
+            <column name="selectA" />
+        </property>
+        <property name="selectB" type="java.lang.String">
+            <column name="selectB" />
+        </property>
+        <property name="selectC" type="java.lang.String">
+            <column name="selectC" />
+        </property>
+        <property name="selectD" type="java.lang.String">
+            <column name="selectD" />
+        </property>
         <property name="answer" type="java.lang.String">
             <column name="answer" />
         </property>

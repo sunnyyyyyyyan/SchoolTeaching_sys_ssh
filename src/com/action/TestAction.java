@@ -1,9 +1,10 @@
 package com.action;
 
 import com.opensymphony.xwork2.ActionContext;
-import com.po.Selection;
 import com.po.Test;
 import com.service.TestService;
+
+import java.util.List;
 
 public class TestAction {
     private Integer testId;
@@ -188,15 +189,11 @@ public class TestAction {
                 ActionContext.getContext().put("addQuestionMess","选项不能为空！");
                 return "addQuestionError";
             }
-            Selection selection = new Selection();
-            selection.setSubNo(subNo);
-            selection.setSubName(this.subName);
-            selection.setQuestionId(this.questionId);
-            selection.setSelectA(this.selectA);
-            selection.setSelectB(this.selectB);
-            selection.setSelectC(this.selectC);
-            selection.setSelectD(this.selectD);
-            String strMess = this.testService.addTest(test,selection);
+            test.setSelectA(this.selectA);
+            test.setSelectB(this.selectB);
+            test.setSelectC(this.selectC);
+            test.setSelectD(this.selectD);
+            String strMess = this.testService.addTest(test);
             if (strMess.equals("addQuestionSuccess")){
                     return "addQuestionSuccess";
             }
@@ -215,10 +212,18 @@ public class TestAction {
 
 
     //试题列表
-    public String QuestionList(){
+    public String questionList(){
+        List<Test> list = this.testService.showTest();
+        ActionContext.getContext().put("questionList",list);
+        return "questionListSuccess";
+    }
 
-        return "QuestionListSuccess";
-        //return "QuestionListError";
+    //获取考试试题
+    public String startTesting(){
+        List<Test> list = this.testService.showTest(this.subNo);
+        ActionContext.getContext().getSession().put("startTesting",list);
+        ActionContext.getContext().getSession().put("testSubName",subNo);
+        return "startTestingSuccess";
     }
 
 }

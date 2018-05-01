@@ -137,4 +137,11 @@ public class SubjectAction {
         checkSubjectData();
         return "showAllStudentBySubjectError";
     }
+
+    //根据userId获取课程信息进行考试
+    public String getSubjectByUserId(){
+        List<ChooseSubject> list = this.subjectService.showSubjectByUserId(this.userId);
+        ActionContext.getContext().put("showSubjectByUserId", list);
+        return "getSubjectByUserIdSuccess";
+    }
 }

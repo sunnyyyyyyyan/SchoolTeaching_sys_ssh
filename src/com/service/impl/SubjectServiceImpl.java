@@ -66,6 +66,14 @@ public class SubjectServiceImpl implements SubjectService {
         return "changeUserSubjectError";
     }
 
+    //根据userId获取课程信息
+    @Override
+    public List<ChooseSubject> showSubjectByUserId(String userId) {
+        String sql = "from ChooseSubject where chooseUserId='"+userId+"'";
+        List<ChooseSubject> list =this.chooseSubjectDao.getData(sql);
+        return list;
+    }
+
     @Override
     public String addChooseSubject(ChooseSubject chooseSubject) {
         String sql = "from ChooseSubject where subjectNo='"+chooseSubject.getSubjectNo()+"' and chooseUserId='"+chooseSubject.getChooseUserId()+"'";

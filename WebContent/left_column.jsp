@@ -113,6 +113,7 @@
                             <ul class="tab" id="admin_tab_4_content">
                                 <li><a class="li_sort_content" href="checkSubjectAction.action" target="_parent">课程与选课</a></li>
                                 <li><a class="li_sort_content" href="addQuestion.jsp" target="_parent">增加试题</a></li>
+                                <li><a class="li_sort_content" href="questionListAction.action" target="_parent">试题库</a></li>
                             </ul>
                         </li>
                         <%--<li class="list">
@@ -175,7 +176,7 @@
                                     <li><a class="li_sort_content" href="addSubject.jsp" target="_parent">添加课程</a></li>
                                     <li><a class="li_sort_content" href="checkSubjectAction.action " target="_parent">课程与选课</a></li>
                                     <li><a class="li_sort_content" href="addQuestion.jsp" target="_parent">增加试题</a></li>
-                                    <li><a class="li_sort_content" href="QuestionListAction.action" target="_parent">试题列表</a></li>
+                                    <li><a class="li_sort_content" href="questionListAction.action" target="_parent">试题库</a></li>
                                 </ul>
                             </li>
                             <%--<li class="list">
@@ -213,7 +214,7 @@
                                 </a>
                                     <ul class="tab" id="student_tab_2_content">
                                     <li><a class="li_sort_content" href="checkAllGradeByIdAction.action?userId=<%=userId %>" target="_parent">查看成绩</a></li>
-                                    <li><a class="li_sort_content" href="testOnline.jsp" target="_parent">在线测评</a></li>
+                                    <li><a class="li_sort_content" href="getSubjectByUserIdAction.action?userId=<%=userId %>" target="_parent">在线测评</a></li>
                                 </ul>
                             </li>
                             <li class="list">

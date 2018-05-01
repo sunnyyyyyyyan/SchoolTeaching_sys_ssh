@@ -28,7 +28,6 @@
 				<value>com/po/Grade.hbm.xml</value>
 				<value>com/po/Subject.hbm.xml</value>
 				<value>com/po/Test.hbm.xml</value>
-				<value>com/po/Selection.hbm.xml</value>
 				<value>com/po/ChooseSubject.hbm.xml</value>
 			</list>
 		</property>
@@ -119,17 +118,9 @@
 			<ref bean="sessionFactory"/>
 		</property>
 	</bean>
-	<bean id="selectionDao" class="com.dao.impl.SelectionDaoImpl">
-		<property name="sessionFactory">
-			<ref bean="sessionFactory"/>
-		</property>
-	</bean>
 	<bean id="testService" class="com.service.impl.TestServiceImpl">
 		<property name="testDao">
 			<ref bean="testDao"/>
-		</property>
-		<property name="selectionDao">
-			<ref bean="selectionDao"/>
 		</property>
 	</bean>
 	<bean id="testAction" class="com.action.TestAction">

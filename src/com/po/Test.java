@@ -18,6 +18,26 @@ public class Test {
     private String selectC;
     private String selectD;
 
+    public Test() {
+    }
+
+    public Test(String testAdder, String testName, String subName, String subNo, String questionType, String questionId, String questionContent, String answer, String setGrade, String selectA, String selectB, String selectC, String selectD) {
+        this.testAdder = testAdder;
+        this.testName = testName;
+        this.subName = subName;
+        this.subNo = subNo;
+        this.questionType = questionType;
+        this.questionId = questionId;
+        this.questionContent = questionContent;
+        this.answer = answer;
+        this.setGrade = setGrade;
+        this.selectId = selectId;
+        this.selectA = selectA;
+        this.selectB = selectB;
+        this.selectC = selectC;
+        this.selectD = selectD;
+    }
+
     @Override
     public String toString() {
         return "Test{" +

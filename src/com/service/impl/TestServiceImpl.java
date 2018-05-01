@@ -1,9 +1,7 @@
 package com.service.impl;
 
-import com.dao.SelectionDao;
 import com.dao.TestDao;
 import com.opensymphony.xwork2.ActionContext;
-import com.po.Selection;
 import com.po.Test;
 import com.service.TestService;
 
@@ -11,15 +9,6 @@ import java.util.List;
 
 public class TestServiceImpl implements TestService {
     private TestDao testDao;
-    private SelectionDao selectionDao;
-
-    public SelectionDao getSelectionDao() {
-        return selectionDao;
-    }
-
-    public void setSelectionDao(SelectionDao selectionDao) {
-        this.selectionDao = selectionDao;
-    }
 
     public TestDao getTestDao() {
         return testDao;
@@ -29,23 +18,6 @@ public class TestServiceImpl implements TestService {
         this.testDao = testDao;
     }
 
-    @Override
-    public String addTest(Test test, Selection selection) {
-        String sql = "from Test where testName = '"+test.getTestName()+"' and subName = '"+test.getSubName()+"' and questionId = '"+test.getQuestionId()+"'";
-        List<Test> list = this.testDao.getData(sql);
-        if (list.size()>0){
-            ActionContext.getContext().put("addQuestionMess","该题目已存在！");
-            return "addQuestionError";
-        }
-        boolean mess1 = this.testDao.addTest(test);
-        boolean mess2 = this.selectionDao.addSelection(selection);
-        if (mess1&&mess2){
-            ActionContext.getContext().put("addQuestionMess","添加成功！");
-            return "addQuestionSuccess";
-        }
-        ActionContext.getContext().put("addQuestionMess","添加失败！");
-        return "addQuestionError";
-    }
 
     @Override
     public String addTest(Test test) {
@@ -65,6 +37,24 @@ public class TestServiceImpl implements TestService {
 
     @Override
     public List<Test> showTest() {
-        return null;
+        String sql = "from Test";
+        List<Test> list = this.testDao.getData(sql);
+        /*for (int i = 0; i < list.size(); i++) {
+            Test test = list.get(i);
+            if (test.getQuestionType().equals("选择")){
+                String hql = "select new Test(t.testAdder, t.testName, t.subName, t.subNo, t.questionType, t.questionId, t.questionContent, t.answer, t.setGrade, s.selectA, s.selectB, s.selectC, s.selectD) from Test t,Selection s where t.subName=s.subName and t.subNo=s.subNo and t.questionId=s.questionId and t.testId='"+test.getTestId()+"'";
+                List<Test> list1 = this.testDao.getData(hql);
+                return list1;
+            }
+            return list;
+        }*/
+        return list;
+    }
+
+    @Override
+    public List<Test> showTest(String subNo) {
+        String sql = "from Test where subNo='"+subNo+"'";
+        List<Test> list = this.testDao.getData(sql);
+        return list;
     }
 }
