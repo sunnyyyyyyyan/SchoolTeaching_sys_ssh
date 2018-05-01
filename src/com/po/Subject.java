@@ -15,6 +15,9 @@ public class Subject {
         this.changeUserId = changeUserId;
     }
 
+    public Subject() {
+    }
+
 
     @Override
     public String toString() {

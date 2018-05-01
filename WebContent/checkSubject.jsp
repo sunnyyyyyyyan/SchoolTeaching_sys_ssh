@@ -29,15 +29,17 @@
         <div class="addSubject">
             <h3 align="center">查看课程</h3>
             <br>
-
-            <p align="center" >
-                <font  style="font-size: 12px;" color="red"><s:property value="#request.changeUserSubjectMess"/> </font>
-            </p>
                     <%
                         String userType = (String)ActionContext.getContext().getSession().get("userType");
                         if (userType.equals("管理员"))
                         {
                     %>
+                        <p align="center" >
+                            <font  style="font-size: 12px;" color="red"><s:property value="#request.changeUserSubjectMess"/> </font>
+                        </p>
+                        <p align="center" >
+                            <font  style="font-size: 12px;" color="red"><s:property value="subjectNo"/>&nbsp;<s:property value="#request.showAllStudentBySubjectMess"/> </font>
+                        </p>
                         <table class="table table-bordered" style="margin:0 auto;text-align: center; width: 600px;">
                             <tr>
                                 <td>
@@ -52,6 +54,9 @@
                                 <td>
                                     更改授课教师
                                 </td>
+                                <td>
+                                    已选学生
+                                </td>
                             </tr>
                             <s:iterator value="#request.checkSubject">
                                 <tr>
@@ -64,6 +69,9 @@
                                             <button type="submit">更改</button>
                                         </form>
                                     </td>
+                                    <td>
+                                        <a href="showAllStudentBySubjectAction.action?subjectNo=<s:property value="subjectNo"/>">查看</a>
+                                    </td>
                                 </tr>
                             </s:iterator>
                         </table>
@@ -72,6 +80,9 @@
                         if (userType.equals("教师"))
                         {
                     %>
+                        <p align="center" >
+                            <font  style="font-size: 12px;" color="red"><s:property value="subjectNo"/>&nbsp;<s:property value="#request.showAllStudentBySubjectMess"/> </font>
+                        </p>
                         <table class="table table-bordered" style="margin:0 auto;text-align: center; width: 400px;">
                             <tr>
                                 <td>
@@ -83,12 +94,18 @@
                                 <td>
                                     授课教师
                                 </td>
+                                <td>
+                                    已选学生
+                                </td>
                             </tr>
                             <s:iterator value="#request.checkSubject">
                                 <tr>
                                     <td><s:property value="subjectNo"/> </td>
                                     <td><s:property value="subjectName"/></td>
                                     <td><s:property value="userId"/></td>
+                                    <td>
+                                        <a href="showAllStudentBySubjectAction.action?subjectNo=<s:property value="subjectNo"/>&&subjectName=<s:property value="subjectName"/>">查看</a>
+                                    </td>
                                 </tr>
                             </s:iterator>
                         </table>
@@ -97,6 +114,9 @@
                         if (userType.equals("学生"))
                         {
                     %>
+                        <p align="center" >
+                            <font  style="font-size: 12px;" color="red"><s:property value="#request.chooseSubjectMess"/> </font>
+                        </p>
                             <table class="table table-bordered" style="margin:0 auto;text-align: center; width: 400px;">
                                 <tr>
                                     <td>
@@ -116,9 +136,9 @@
                                         <td><s:property value="subjectName"/></td>
                                         <td><s:property value="userId"/></td>
                                         <td>
-                                            <form action="chooseSubjectAction.action?subjectNo=<s:property value="subjectNo"/> ">
-                                                <button type="submit">选择</button>
-                                            </form>
+                                            <a href="chooseSubjectAction.action?subjectNo=<s:property value="subjectNo"/>&&subjectName=<s:property value="subjectName"/> ">
+                                                选择
+                                            </a>
                                         </td>
                                     </tr>
                                 </s:iterator>

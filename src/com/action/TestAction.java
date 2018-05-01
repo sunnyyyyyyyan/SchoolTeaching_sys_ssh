@@ -7,6 +7,7 @@ import com.service.TestService;
 
 public class TestAction {
     private Integer testId;
+    private String testAdder;
     private String testName;
     private String subName;
     private String subNo;
@@ -22,6 +23,14 @@ public class TestAction {
     private String selectB;
     private String selectC;
     private String selectD;
+
+    public String getTestAdder() {
+        return testAdder;
+    }
+
+    public void setTestAdder(String testAdder) {
+        this.testAdder = testAdder;
+    }
 
     public Integer getSelectId() {
         return selectId;
@@ -145,6 +154,7 @@ public class TestAction {
 
     //添加试题
     public String addQuestion(){
+        String user = (String)ActionContext.getContext().getSession().get("userId");
         if (this.getTestName()==null||this.getTestName().equals("")||
                 this.getSubName()==null||this.getSubName().equals("")||
                 this.getQuestionId()==null||this.getQuestionId().equals("")||
@@ -160,6 +170,7 @@ public class TestAction {
         else if(subName.equals("Web")){subNo="01";}
         else if(subName.equals("java")){subNo="02";}
         Test test = new Test();
+        test.setTestAdder(user);
         test.setTestName(this.testName);        //试题ming
         test.setSubName(this.subName);          //课程
         test.setSubNo(subNo);                  //课程编号
@@ -200,6 +211,14 @@ public class TestAction {
         }
         ActionContext.getContext().put("addQuestionMess","添加失败！");
         return "addQuestionError";
+    }
+
+
+    //试题列表
+    public String QuestionList(){
+
+        return "QuestionListSuccess";
+        //return "QuestionListError";
     }
 
 }

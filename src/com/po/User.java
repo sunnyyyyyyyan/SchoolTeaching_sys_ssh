@@ -8,7 +8,7 @@ public class User {
 	private String userType;
 	private String phone;
 	private String email;
-	
+
 	public Integer getId() {
 		return id;
 	}

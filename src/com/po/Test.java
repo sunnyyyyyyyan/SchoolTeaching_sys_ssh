@@ -2,6 +2,7 @@ package com.po;
 
 public class Test {
     private Integer testId;
+    private String testAdder;
     private String testName;
     private String subName;
     private String subNo;
@@ -21,6 +22,7 @@ public class Test {
     public String toString() {
         return "Test{" +
                 "testId=" + testId +
+                ", testAdder='" + testAdder + '\'' +
                 ", testName='" + testName + '\'' +
                 ", subName='" + subName + '\'' +
                 ", subNo='" + subNo + '\'' +
@@ -29,7 +31,20 @@ public class Test {
                 ", questionContent='" + questionContent + '\'' +
                 ", answer='" + answer + '\'' +
                 ", setGrade='" + setGrade + '\'' +
+                ", selectId=" + selectId +
+                ", selectA='" + selectA + '\'' +
+                ", selectB='" + selectB + '\'' +
+                ", selectC='" + selectC + '\'' +
+                ", selectD='" + selectD + '\'' +
                 '}';
+    }
+
+    public String getTestAdder() {
+        return testAdder;
+    }
+
+    public void setTestAdder(String testAdder) {
+        this.testAdder = testAdder;
     }
 
     public Integer getSelectId() {

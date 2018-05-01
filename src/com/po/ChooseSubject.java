@@ -6,6 +6,25 @@ public class ChooseSubject {
     private String subjectName;
     private String chooseUserId;
 
+    private String username;
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public ChooseSubject() {
+    }
+
+    public ChooseSubject(String subjectName, String chooseUserId, String username) {
+        this.subjectName = subjectName;
+        this.chooseUserId = chooseUserId;
+        this.username = username;
+    }
+
     @Override
     public String toString() {
         return "ChooseSubject{" +

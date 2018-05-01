@@ -111,11 +111,11 @@
                                 课程管理
                             </a>
                             <ul class="tab" id="admin_tab_4_content">
-                                <li><a class="li_sort_content" href="checkSubjectAction.action" target="_parent">查看课程</a></li>
-                                <li><a class="li_sort_content" href="addQuestion.jsp" target="_parent">添加题目</a></li>
+                                <li><a class="li_sort_content" href="checkSubjectAction.action" target="_parent">课程与选课</a></li>
+                                <li><a class="li_sort_content" href="addQuestion.jsp" target="_parent">增加试题</a></li>
                             </ul>
                         </li>
-                        <li class="list">
+                        <%--<li class="list">
                             <a id="admin_tab_5" class="li_sort" href="#">
                                 <img src="./images/sort_menu.gif" width="26px" align="absmiddle" />
                                 资源管理
@@ -126,7 +126,7 @@
                                 <li><a class="li_sort_content" href="uploadFile.jsp" target="_parent">上传文件</a></li>
                                 <li><a class="li_sort_content" href="checkFile.jsp" target="_parent">查看文件</a></li>
                             </ul>
-                        </li>
+                        </li>--%>
                     </ul>
                     <%
                         }
@@ -173,11 +173,12 @@
                                 </a>
                                 <ul class="tab" id="teacher_tab_4_content">
                                     <li><a class="li_sort_content" href="addSubject.jsp" target="_parent">添加课程</a></li>
-                                    <li><a class="li_sort_content" href="checkSubjectAction.action " target="_parent">查看课程</a></li>
-                                    <li><a class="li_sort_content" href="addQuestion.jsp" target="_parent">添加题目</a></li>
+                                    <li><a class="li_sort_content" href="checkSubjectAction.action " target="_parent">课程与选课</a></li>
+                                    <li><a class="li_sort_content" href="addQuestion.jsp" target="_parent">增加试题</a></li>
+                                    <li><a class="li_sort_content" href="QuestionListAction.action" target="_parent">试题列表</a></li>
                                 </ul>
                             </li>
-                            <li class="list">
+                            <%--<li class="list">
                                 <a id="teacher_tab_5" class="li_sort" href="#">
                                     <img src="./images/sort_menu.gif" width="26px" align="absmiddle" />
                                     资源管理
@@ -188,7 +189,7 @@
                                     <li><a class="li_sort_content" href="uploadFile.jsp" target="_parent">上传文件</a></li>
                                     <li><a class="li_sort_content" href="checkFile.jsp" target="_parent">查看文件</a></li>
                                 </ul>
-                            </li>
+                            </li>--%>
                         </ul>
                     <%
                         }
@@ -230,7 +231,7 @@
                                     课程管理
                                 </a>
                                 <ul class="tab" id="student_tab_4_content">
-                                    <li><a class="li_sort_content" href="checkSubjectAction.action" target="_parent">查看课程</a></li>
+                                    <li><a class="li_sort_content" href="checkSubjectAction.action" target="_parent">课程与选课</a></li>
                                 </ul>
                             </li>
                             <li class="list">

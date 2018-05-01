@@ -7,6 +7,9 @@ public class Grade {
     private String score;
     private String changeScore;
 
+    public Grade() {
+    }
+
     @Override
     public String toString() {
         return "Grade{" +

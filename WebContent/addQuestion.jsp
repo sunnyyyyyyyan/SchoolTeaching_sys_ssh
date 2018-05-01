@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.opensymphony.xwork2.ActionContext" %><%--
   Created by IntelliJ IDEA.
   User: Administrator
   Date: 2018/4/29 0029
@@ -9,7 +9,7 @@
 <%@taglib uri="/struts-tags" prefix="s"%>
 <html>
 <head>
-    <title>添加题目</title>
+    <title>添加试题</title>
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <script src="js/left_column_tab.js" type="text/javascript"></script>
@@ -26,7 +26,7 @@
 
     <div id="center_column">
         <div class="addQuestion">
-            <h3 align="center">添加题目</h3>
+            <h3 align="center">增加试题</h3>
             <br>
             <p align="center" >
                 <font  style="font-size: 12px;" color="red"><s:property value="#request.addQuestionMess"/> </font>

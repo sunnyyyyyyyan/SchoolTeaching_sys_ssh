@@ -3,6 +3,7 @@ package com.service.impl;
 import com.dao.ChooseSubjectDao;
 import com.dao.SubjectDao;
 import com.opensymphony.xwork2.ActionContext;
+import com.po.ChooseSubject;
 import com.po.Subject;
 import com.service.SubjectService;
 
@@ -63,5 +64,29 @@ public class SubjectServiceImpl implements SubjectService {
             return "changeUserSubjectSuccess";
         }
         return "changeUserSubjectError";
+    }
+
+    @Override
+    public String addChooseSubject(ChooseSubject chooseSubject) {
+        String sql = "from ChooseSubject where subjectNo='"+chooseSubject.getSubjectNo()+"' and chooseUserId='"+chooseSubject.getChooseUserId()+"'";
+        List<ChooseSubject> list = this.chooseSubjectDao.getData(sql);
+        if (list.size()>0){
+            ActionContext.getContext().put("chooseSubjectMess","你已选过此课程！");
+            return "chooseSubjectError";
+        }
+        if (this.chooseSubjectDao.addChooseSubject(chooseSubject)){
+            ActionContext.getContext().put("chooseSubjectMess","选课成功！");
+            return "chooseSubjectSuccess";
+        }
+        ActionContext.getContext().put("chooseSubjectMess","选课失败！");
+        return "chooseSubjectError";
+    }
+
+    @Override
+    public List<ChooseSubject> showAllChooseSubjectUserId(String subjectNo) {
+        String hql = "select new ChooseSubject(c.subjectName,c.chooseUserId,u.username) from User u,ChooseSubject c where u.userId=c.chooseUserId and c.subjectNo='"+subjectNo+"'";
+        //String sql = "from ChooseSubject where subjectNo='"+subjectNo+"'";
+        List<ChooseSubject> list = this.chooseSubjectDao.getData(hql);
+        return list;
     }
 }

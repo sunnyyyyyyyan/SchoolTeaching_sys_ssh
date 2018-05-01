@@ -87,10 +87,20 @@
             <result name="addQuestionError">/addQuestion.jsp</result>
         </action>
 
+        <action name="QuestionListAction" class="com.action.TestAction" method="QuestionList">
+            <result name="QuestionListSuccess">/questionList.jsp</result>
+            <result name="QuestionListError">/questionList.jsp</result>
+        </action>
+
 
         <action name="chooseSubjectAction" class="com.action.SubjectAction" method="chooseSubject">
-            <result name="chooseSubjectSuccess">/checkMessage.jsp</result>
-            <result name="chooseSubjectError">/checkMessage.jsp</result>
+            <result name="chooseSubjectSuccess">/checkSubject.jsp</result>
+            <result name="chooseSubjectError">/checkSubject.jsp</result>
+        </action>
+
+        <action name="showAllStudentBySubjectAction" class="com.action.SubjectAction" method="showAllStudentBySubject">
+            <result name="showAllStudentBySubjectSuccess">/showAllStudentBySubject.jsp</result>
+            <result name="showAllStudentBySubjectError">/checkSubject.jsp</result>
         </action>
 
     </package>

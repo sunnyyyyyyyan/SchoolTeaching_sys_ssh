@@ -1,6 +1,7 @@
 package com.action;
 
 import com.opensymphony.xwork2.ActionContext;
+import com.po.ChooseSubject;
 import com.po.Subject;
 import com.service.SubjectService;
 
@@ -111,6 +112,29 @@ public class SubjectAction {
 
     //学生选课
     public String chooseSubject(){
-        return "chooseSubjectSuccess";
+        String user = (String)ActionContext.getContext().getSession().get("userId");
+        ChooseSubject chooseSubject = new ChooseSubject();
+        chooseSubject.setSubjectNo(this.subjectNo);
+        chooseSubject.setSubjectName(this.subjectName);
+        chooseSubject.setChooseUserId(user);
+        String strMess = this.subjectService.addChooseSubject(chooseSubject);
+        if (strMess.equals("chooseSubjectSuccess")) {
+            checkSubjectData();
+            return "chooseSubjectSuccess";
+        }
+        checkSubjectData();
+        return "chooseSubjectError";
+    }
+
+    //查看已选课程的所有学生
+    public String showAllStudentBySubject(){
+        List<ChooseSubject> list = this.subjectService.showAllChooseSubjectUserId(this.subjectNo);
+        if (list.size()>0) {
+            ActionContext.getContext().put("showAllStudentBySubject",list);
+            return "showAllStudentBySubjectSuccess";
+        }
+        ActionContext.getContext().put("showAllStudentBySubjectMess","暂无学生选课！");
+        checkSubjectData();
+        return "showAllStudentBySubjectError";
     }
 }
