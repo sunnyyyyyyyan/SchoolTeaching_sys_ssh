@@ -11,7 +11,7 @@
 <%@taglib uri="/struts-tags" prefix="s" %>
 <html>
 <head>
-    <title>添加课程</title>
+    <title>课程与选课</title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/global.css">
 </head>
@@ -27,7 +27,7 @@
 
     <div id="center_column">
         <div class="addSubject">
-            <h3 align="center">查看课程</h3>
+            <h3 align="center">查看课程与选课</h3>
             <br>
                     <%
                         String userType = (String)ActionContext.getContext().getSession().get("userType");

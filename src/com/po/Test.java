@@ -5,7 +5,7 @@ public class Test {
     private String testAdder;
     private String testName;
     private String subName;
-    private String subNo;
+    private String subjectNo;
     private String questionType;
     private String questionId;
     private String questionContent;
@@ -21,11 +21,11 @@ public class Test {
     public Test() {
     }
 
-    public Test(String testAdder, String testName, String subName, String subNo, String questionType, String questionId, String questionContent, String answer, String setGrade, String selectA, String selectB, String selectC, String selectD) {
+    public Test(String testAdder, String testName, String subName, String subjectNo, String questionType, String questionId, String questionContent, String answer, String setGrade, String selectA, String selectB, String selectC, String selectD) {
         this.testAdder = testAdder;
         this.testName = testName;
         this.subName = subName;
-        this.subNo = subNo;
+        this.subjectNo = subjectNo;
         this.questionType = questionType;
         this.questionId = questionId;
         this.questionContent = questionContent;
@@ -38,25 +38,12 @@ public class Test {
         this.selectD = selectD;
     }
 
-    @Override
-    public String toString() {
-        return "Test{" +
-                "testId=" + testId +
-                ", testAdder='" + testAdder + '\'' +
-                ", testName='" + testName + '\'' +
-                ", subName='" + subName + '\'' +
-                ", subNo='" + subNo + '\'' +
-                ", questionType='" + questionType + '\'' +
-                ", questionId='" + questionId + '\'' +
-                ", questionContent='" + questionContent + '\'' +
-                ", answer='" + answer + '\'' +
-                ", setGrade='" + setGrade + '\'' +
-                ", selectId=" + selectId +
-                ", selectA='" + selectA + '\'' +
-                ", selectB='" + selectB + '\'' +
-                ", selectC='" + selectC + '\'' +
-                ", selectD='" + selectD + '\'' +
-                '}';
+    public Integer getTestId() {
+        return testId;
+    }
+
+    public void setTestId(Integer testId) {
+        this.testId = testId;
     }
 
     public String getTestAdder() {
@@ -65,54 +52,6 @@ public class Test {
 
     public void setTestAdder(String testAdder) {
         this.testAdder = testAdder;
-    }
-
-    public Integer getSelectId() {
-        return selectId;
-    }
-
-    public void setSelectId(Integer selectId) {
-        this.selectId = selectId;
-    }
-
-    public String getSelectA() {
-        return selectA;
-    }
-
-    public void setSelectA(String selectA) {
-        this.selectA = selectA;
-    }
-
-    public String getSelectB() {
-        return selectB;
-    }
-
-    public void setSelectB(String selectB) {
-        this.selectB = selectB;
-    }
-
-    public String getSelectC() {
-        return selectC;
-    }
-
-    public void setSelectC(String selectC) {
-        this.selectC = selectC;
-    }
-
-    public String getSelectD() {
-        return selectD;
-    }
-
-    public void setSelectD(String selectD) {
-        this.selectD = selectD;
-    }
-
-    public Integer getTestId() {
-        return testId;
-    }
-
-    public void setTestId(Integer testId) {
-        this.testId = testId;
     }
 
     public String getTestName() {
@@ -131,12 +70,12 @@ public class Test {
         this.subName = subName;
     }
 
-    public String getSubNo() {
-        return subNo;
+    public String getSubjectNo() {
+        return subjectNo;
     }
 
-    public void setSubNo(String subNo) {
-        this.subNo = subNo;
+    public void setSubjectNo(String subjectNo) {
+        this.subjectNo = subjectNo;
     }
 
     public String getQuestionType() {
@@ -177,5 +116,45 @@ public class Test {
 
     public void setSetGrade(String setGrade) {
         this.setGrade = setGrade;
+    }
+
+    public Integer getSelectId() {
+        return selectId;
+    }
+
+    public void setSelectId(Integer selectId) {
+        this.selectId = selectId;
+    }
+
+    public String getSelectA() {
+        return selectA;
+    }
+
+    public void setSelectA(String selectA) {
+        this.selectA = selectA;
+    }
+
+    public String getSelectB() {
+        return selectB;
+    }
+
+    public void setSelectB(String selectB) {
+        this.selectB = selectB;
+    }
+
+    public String getSelectC() {
+        return selectC;
+    }
+
+    public void setSelectC(String selectC) {
+        this.selectC = selectC;
+    }
+
+    public String getSelectD() {
+        return selectD;
+    }
+
+    public void setSelectD(String selectD) {
+        this.selectD = selectD;
     }
 }

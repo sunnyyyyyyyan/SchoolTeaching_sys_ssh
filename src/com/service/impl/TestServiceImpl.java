@@ -52,9 +52,15 @@ public class TestServiceImpl implements TestService {
     }
 
     @Override
-    public List<Test> showTest(String subNo) {
-        String sql = "from Test where subNo='"+subNo+"'";
+    public List<Test> showTest(String subjectNo) {
+        String sql = "from Test where subjectNo='"+subjectNo+"'";
         List<Test> list = this.testDao.getData(sql);
-        return list;
+        if (list.size()>0) {
+            Test test = list.get(0);
+            String subjectName = test.getSubName();
+            ActionContext.getContext().getSession().put("subjectName", subjectName);
+            return list;
+        }
+        return null;
     }
 }

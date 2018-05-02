@@ -14,8 +14,8 @@
         <property name="subName" type="java.lang.String">
             <column name="subName" />
         </property>
-        <property name="subNo" type="java.lang.String">
-            <column name="subNo" />
+        <property name="subjectNo" type="java.lang.String">
+            <column name="subjectNo" />
         </property>
         <property name="questionType" type="java.lang.String">
             <column name="questionType" />

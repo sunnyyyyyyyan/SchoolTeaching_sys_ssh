@@ -11,7 +11,7 @@
 <%@taglib uri="/struts-tags" prefix="s"%>
 <html>
 <head>
-    <title>开始考试</title>
+    <title>考试课程</title>
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 </head>
@@ -27,8 +27,11 @@
 
     <div id="center_column">
         <div class="testOnline">
-                <br>
-                <br>
+            <br>
+            <br>
+                <p align="center" >
+                    <font  style="font-size: 12px;" color="red"><s:property value="subjectNo"/>&nbsp;<s:property value="#request.startTestingMess"/> </font>
+                </p>
                 <table class="table table-bordered" style="margin: 0 auto;text-align: center;width: 350px">
                     <tr>
                         <td>课程编号</td>

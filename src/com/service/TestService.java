@@ -8,5 +8,5 @@ import java.util.List;
 public interface TestService {
     public String addTest(Test test);
     public List<Test> showTest();
-    public List<Test> showTest(String subNo);
+    public List<Test> showTest(String subjectNo);
 }

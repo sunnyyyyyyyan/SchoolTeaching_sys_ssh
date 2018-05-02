@@ -1,3 +1,13 @@
 #page_next{
     float: right;
 }
+.startTesting_left{
+    float: left;
+    margin: 10px 0 0 40px;
+    width: 250px;
+}
+.startTesting_right{
+    float: right;
+    width: 450px;
+    margin: 10px 0 0 10px ;
+}

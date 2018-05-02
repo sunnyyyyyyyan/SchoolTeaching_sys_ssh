@@ -11,7 +11,7 @@ public class TestAction {
     private String testAdder;
     private String testName;
     private String subName;
-    private String subNo;
+    private String subjectNo;
     private String questionType;
     private String questionId;
     private String questionContent;
@@ -25,60 +25,20 @@ public class TestAction {
     private String selectC;
     private String selectD;
 
-    public String getTestAdder() {
-        return testAdder;
-    }
-
-    public void setTestAdder(String testAdder) {
-        this.testAdder = testAdder;
-    }
-
-    public Integer getSelectId() {
-        return selectId;
-    }
-
-    public void setSelectId(Integer selectId) {
-        this.selectId = selectId;
-    }
-
-    public String getSelectA() {
-        return selectA;
-    }
-
-    public void setSelectA(String selectA) {
-        this.selectA = selectA;
-    }
-
-    public String getSelectB() {
-        return selectB;
-    }
-
-    public void setSelectB(String selectB) {
-        this.selectB = selectB;
-    }
-
-    public String getSelectC() {
-        return selectC;
-    }
-
-    public void setSelectC(String selectC) {
-        this.selectC = selectC;
-    }
-
-    public String getSelectD() {
-        return selectD;
-    }
-
-    public void setSelectD(String selectD) {
-        this.selectD = selectD;
-    }
-
     public Integer getTestId() {
         return testId;
     }
 
     public void setTestId(Integer testId) {
         this.testId = testId;
+    }
+
+    public String getTestAdder() {
+        return testAdder;
+    }
+
+    public void setTestAdder(String testAdder) {
+        this.testAdder = testAdder;
     }
 
     public String getTestName() {
@@ -97,12 +57,12 @@ public class TestAction {
         this.subName = subName;
     }
 
-    public String getSubNo() {
-        return subNo;
+    public String getSubjectNo() {
+        return subjectNo;
     }
 
-    public void setSubNo(String subNo) {
-        this.subNo = subNo;
+    public void setSubjectNo(String subjectNo) {
+        this.subjectNo = subjectNo;
     }
 
     public String getQuestionType() {
@@ -153,6 +113,46 @@ public class TestAction {
         this.testService = testService;
     }
 
+    public Integer getSelectId() {
+        return selectId;
+    }
+
+    public void setSelectId(Integer selectId) {
+        this.selectId = selectId;
+    }
+
+    public String getSelectA() {
+        return selectA;
+    }
+
+    public void setSelectA(String selectA) {
+        this.selectA = selectA;
+    }
+
+    public String getSelectB() {
+        return selectB;
+    }
+
+    public void setSelectB(String selectB) {
+        this.selectB = selectB;
+    }
+
+    public String getSelectC() {
+        return selectC;
+    }
+
+    public void setSelectC(String selectC) {
+        this.selectC = selectC;
+    }
+
+    public String getSelectD() {
+        return selectD;
+    }
+
+    public void setSelectD(String selectD) {
+        this.selectD = selectD;
+    }
+
     //添加试题
     public String addQuestion(){
         String user = (String)ActionContext.getContext().getSession().get("userId");
@@ -174,7 +174,7 @@ public class TestAction {
         test.setTestAdder(user);
         test.setTestName(this.testName);        //试题ming
         test.setSubName(this.subName);          //课程
-        test.setSubNo(subNo);                  //课程编号
+        test.setSubjectNo(subNo);                  //课程编号
         test.setQuestionId(this.questionId);    //题号
         test.setQuestionContent(this.questionContent);  //题目
         test.setQuestionType(this.questionType);    //题型
@@ -220,9 +220,8 @@ public class TestAction {
 
     //获取考试试题
     public String startTesting(){
-        List<Test> list = this.testService.showTest(this.subNo);
-        ActionContext.getContext().getSession().put("startTesting",list);
-        ActionContext.getContext().getSession().put("testSubName",subNo);
+        List<Test> list = this.testService.showTest(this.subjectNo);
+        ActionContext.getContext().put("startTesting", list);
         return "startTestingSuccess";
     }
 
