@@ -27,8 +27,9 @@
         <div class="getMessInChoose">
             <h3 align="center">教学评价</h3>
             <br>
+
             <p align="center" >
-                <font  style="font-size: 12px;" color="red"><s:property value="#request.getMessInChooseMess"/> </font>
+                <font  style="font-size: 12px;" color="red"><s:property value="#request.getEvaluateTestMess"/> </font>
             </p>
                 <table class="table table-bordered" style="width: 500px;margin: 0 auto;text-align: center">
                     <tr>
@@ -43,7 +44,7 @@
                         <td><s:property value="subjectName"/></td>
                         <td><s:property value="username"/></td>
                         <td>
-                            <a href="doEvaluateAction.action?">评教</a>
+                            <a href="getEvaluateTestAction.action?subjectNo=<s:property value="subjectNo"/>">评教</a>
                         </td>
                     </tr>
                     </s:iterator>

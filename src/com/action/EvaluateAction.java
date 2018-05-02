@@ -104,8 +104,14 @@ public class EvaluateAction {
     }
 
 
-    //学生获取教学评价题目
-    public String doEvaluate(){
-        return "doEvaluateSuccess";
+    //学生根据subjectNo获取教学评价题目
+    public String getEvaluateTest(){
+        List<Evaluate> list = this.evaluateService.getEvaluateData(this.subjectNo);
+        if (list.size()>0) {
+            ActionContext.getContext().put("getEvaluateTest", list);
+            return "getEvaluateTestSuccess";
+        }
+        ActionContext.getContext().put("getEvaluateTestMess", "暂无评教题目！");
+        return "getEvaluateTestError";
     }
 }

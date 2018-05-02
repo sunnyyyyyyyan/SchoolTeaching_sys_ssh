@@ -38,4 +38,11 @@ public class EvaluateServiceImpl implements EvaluateService {
         ActionContext.getContext().put("addEvaluateMess","添加失败！");
         return "addEvaluateError";
     }
+
+    @Override
+    public List<Evaluate> getEvaluateData(String subjectNo) {
+        String sql = "from Evaluate where subjectNo='"+subjectNo+"'";
+        List<Evaluate> list = this.evaluateDao.getData(sql);
+        return list;
+    }
 }

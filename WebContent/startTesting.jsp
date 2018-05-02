@@ -1,5 +1,4 @@
 <%@ page import="java.util.List" %>
-<%@ page import="com.po.ChooseSubject" %>
 <%@ page import="com.opensymphony.xwork2.ActionContext" %>
 <%@ page import="com.po.Test" %><%--
   Created by IntelliJ IDEA.
@@ -52,7 +51,7 @@
             if (list==null){
         %>
                 <p align="center" style="color: red;">
-                    <%=subjectName %> 暂无考试试题
+                    <%=subjectName %> 暂无考试试题！
                 </p>
         <%
             }

@@ -6,10 +6,12 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib uri="/struts-tags" prefix="s"%>
 <html>
 <head>
     <title>checkTeaching</title>
     <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 </head>
 <body>
 <div id="page">
@@ -22,7 +24,11 @@
     </div>
 
     <div id="center_column">
-        checkTeaching
+        <div class="checkTeaching">
+            <table class="table table-bordered">
+                checkTeaching
+            </table>
+        </div>
     </div>
 
     <div id="footer">

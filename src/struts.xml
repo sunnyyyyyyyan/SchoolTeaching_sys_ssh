@@ -124,14 +124,14 @@
             <result name="addEvaluateError">/addEvaluate.jsp</result>
         </action>
 
-        <action name="getEvaluateAction" class="com.action.EvaluateAction" method="addEvaluate">
-            <result name="addEvaluateSuccess">/addEvaluate.jsp</result>
-            <result name="addEvaluateError">/addEvaluate.jsp</result>
+        <action name="getEvaluateTestAction" class="com.action.EvaluateAction" method="getEvaluateTest">
+            <result name="getEvaluateTestSuccess">/doEvaluate.jsp</result>
+            <result name="getEvaluateTestError">/doEvaluate.jsp</result>
         </action>
 
         <action name="doEvaluateAction" class="com.action.EvaluateAction" method="doEvaluate">
-            <result name="doEvaluateSuccess">/addEvaluate.jsp</result>
-            <result name="doEvaluateError">/addEvaluate.jsp</result>
+            <result name="doEvaluateSuccess">/doEvaluate.jsp</result>
+            <result name="doEvaluateError">/doEvaluate.jsp</result>
         </action>
 
     </package>
