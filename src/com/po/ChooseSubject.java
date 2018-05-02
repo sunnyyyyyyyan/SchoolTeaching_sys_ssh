@@ -19,9 +19,16 @@ public class ChooseSubject {
     public ChooseSubject() {
     }
 
-    public ChooseSubject(String subjectName, String chooseUserId, String username) {
+    public ChooseSubject(String subjectNo, String subjectName, String chooseUserId, String username) {
+        this.subjectNo = subjectNo;
         this.subjectName = subjectName;
         this.chooseUserId = chooseUserId;
+        this.username = username;
+    }
+
+    public ChooseSubject(String subjectNo, String subjectName, String username) {
+        this.subjectNo = subjectNo;
+        this.subjectName = subjectName;
         this.username = username;
     }
 

@@ -40,7 +40,7 @@
                         <p align="center" >
                             <font  style="font-size: 12px;" color="red"><s:property value="subjectNo"/>&nbsp;<s:property value="#request.showAllStudentBySubjectMess"/> </font>
                         </p>
-                        <table class="table table-bordered" style="margin:0 auto;text-align: center; width: 600px;">
+                        <table class="table table-bordered" style="margin:0 auto;text-align: center;">
                             <tr>
                                 <td>
                                     课程编号
@@ -49,10 +49,13 @@
                                     课程名称
                                 </td>
                                 <td>
-                                    授课教师
+                                    授课教师编号
                                 </td>
                                 <td>
-                                    更改授课教师
+                                    授课教师姓名
+                                </td>
+                                <td>
+                                    更改授课教师(编号)
                                 </td>
                                 <td>
                                     已选学生
@@ -63,6 +66,7 @@
                                     <td><s:property value="subjectNo"/> </td>
                                     <td><s:property value="subjectName"/></td>
                                     <td><s:property value="userId"/></td>
+                                    <td><s:property value="username"/></td>
                                     <td>
                                         <form action="changeUserSubjectAction.action?subjectNo=<s:property value="subjectNo"/> " method="post">
                                             <input type="text" name="changeUserId">
@@ -83,7 +87,7 @@
                         <p align="center" >
                             <font  style="font-size: 12px;" color="red"><s:property value="subjectNo"/>&nbsp;<s:property value="#request.showAllStudentBySubjectMess"/> </font>
                         </p>
-                        <table class="table table-bordered" style="margin:0 auto;text-align: center; width: 400px;">
+                        <table class="table table-bordered" style="margin:0 auto;text-align: center; width: 600px;">
                             <tr>
                                 <td>
                                     课程编号
@@ -92,7 +96,10 @@
                                     课程名称
                                 </td>
                                 <td>
-                                    授课教师
+                                    授课教师编号
+                                </td>
+                                <td>
+                                    授课教师姓名
                                 </td>
                                 <td>
                                     已选学生
@@ -103,6 +110,7 @@
                                     <td><s:property value="subjectNo"/> </td>
                                     <td><s:property value="subjectName"/></td>
                                     <td><s:property value="userId"/></td>
+                                    <td><s:property value="username"/></td>
                                     <td>
                                         <a href="showAllStudentBySubjectAction.action?subjectNo=<s:property value="subjectNo"/>&&subjectName=<s:property value="subjectName"/>">查看</a>
                                     </td>
@@ -117,7 +125,7 @@
                         <p align="center" >
                             <font  style="font-size: 12px;" color="red"><s:property value="#request.chooseSubjectMess"/> </font>
                         </p>
-                            <table class="table table-bordered" style="margin:0 auto;text-align: center; width: 400px;">
+                            <table class="table table-bordered" style="margin:0 auto;text-align: center; width: 600px;">
                                 <tr>
                                     <td>
                                         课程编号
@@ -126,7 +134,7 @@
                                         课程名称
                                     </td>
                                     <td>
-                                        授课教师
+                                        授课教师姓名
                                     </td>
                                     <td>选课</td>
                                 </tr>
@@ -134,7 +142,7 @@
                                     <tr>
                                         <td><s:property value="subjectNo"/> </td>
                                         <td><s:property value="subjectName"/></td>
-                                        <td><s:property value="userId"/></td>
+                                        <td><s:property value="username"/></td>
                                         <td>
                                             <a href="chooseSubjectAction.action?subjectNo=<s:property value="subjectNo"/>&&subjectName=<s:property value="subjectName"/> ">
                                                 选择

@@ -29,6 +29,7 @@
 				<value>com/po/Subject.hbm.xml</value>
 				<value>com/po/Test.hbm.xml</value>
 				<value>com/po/ChooseSubject.hbm.xml</value>
+				<value>com/po/Evaluate.hbm.xml</value>
 			</list>
 		</property>
 	</bean>
@@ -95,6 +96,23 @@
 		</property>
 	</bean>
 
+
+	<bean id="evaluateDao" class="com.dao.impl.EvaluateDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+
+	<bean id="evaluateService" class="com.service.impl.EvaluateServiceImpl">
+		<property name="evaluateDao">
+			<ref bean="evaluateDao"/>
+		</property>
+	</bean>
+	<bean id="evaluateAction" class="com.action.EvaluateAction">
+		<property name="evaluateService">
+			<ref bean="evaluateService"/>
+		</property>
+	</bean>
 
 <!--	<bean id="testDao" class="com.dao.impl.TestDaoImpl"/>
 	<bean id="selectionDao" class="com.dao.impl.SelectionDaoImpl"/>

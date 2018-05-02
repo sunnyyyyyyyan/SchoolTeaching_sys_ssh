@@ -99,9 +99,7 @@
 
         <action name="startTestingAction" class="com.action.TestAction" method="startTesting">
             <result name="startTestingSuccess">/startTesting.jsp</result>
-<!--
             <result name="startTestingError">/testOnline.jsp</result>
--->
         </action>
 
 
@@ -113,6 +111,27 @@
         <action name="showAllStudentBySubjectAction" class="com.action.SubjectAction" method="showAllStudentBySubject">
             <result name="showAllStudentBySubjectSuccess">/showAllStudentBySubject.jsp</result>
             <result name="showAllStudentBySubjectError">/checkSubject.jsp</result>
+        </action>
+
+        <action name="getMessInChooseAction" class="com.action.SubjectAction" method="getMessInChoose">
+            <result name="getMessInChooseSuccess">/getMessInChoose.jsp</result>
+            <result name="getMessInChooseError">/getMessInChoose.jsp</result>
+        </action>
+
+
+        <action name="addEvaluateAction" class="com.action.EvaluateAction" method="addEvaluate">
+            <result name="addEvaluateSuccess">/addEvaluate.jsp</result>
+            <result name="addEvaluateError">/addEvaluate.jsp</result>
+        </action>
+
+        <action name="getEvaluateAction" class="com.action.EvaluateAction" method="addEvaluate">
+            <result name="addEvaluateSuccess">/addEvaluate.jsp</result>
+            <result name="addEvaluateError">/addEvaluate.jsp</result>
+        </action>
+
+        <action name="doEvaluateAction" class="com.action.EvaluateAction" method="doEvaluate">
+            <result name="doEvaluateSuccess">/addEvaluate.jsp</result>
+            <result name="doEvaluateError">/addEvaluate.jsp</result>
         </action>
 
     </package>

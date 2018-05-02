@@ -144,4 +144,15 @@ public class SubjectAction {
         ActionContext.getContext().put("showSubjectByUserId", list);
         return "getSubjectByUserIdSuccess";
     }
+
+    //根据当前userId获取课程、教师信息进行评教
+    public String getMessInChoose(){
+        List<ChooseSubject> list = this.subjectService.showChooseUser(this.userId);
+        if (list.size()>0) {
+            ActionContext.getContext().put("getMessInChoose", list);
+            return "getMessInChooseSuccess";
+        }
+        ActionContext.getContext().put("getMessInChooseMess", "暂无可评价课程！");
+        return "getMessInChooseError";
+    }
 }

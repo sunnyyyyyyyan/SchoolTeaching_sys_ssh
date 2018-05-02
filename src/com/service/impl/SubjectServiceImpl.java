@@ -49,11 +49,12 @@ public class SubjectServiceImpl implements SubjectService {
 
     @Override
     public List<Subject> showAllSubject() {
-        String sql = "from Subject";
+        String sql = "select new Subject(s.subjectNo, s.subjectName, s.userId, u.username) from Subject s,User u where s.userId=u.userId";
         List<Subject> list = this.subjectDao.getData(sql);
         return list;
     }
 
+    //修改
     @Override
     public String updateSubject(Subject subject) {
         String sql = "from Subject where subjectNo='"+subject.getSubjectNo()+"'";
@@ -75,6 +76,15 @@ public class SubjectServiceImpl implements SubjectService {
     }
 
     @Override
+    public List<ChooseSubject> showChooseUser(String userId) {
+        String sql = "select new ChooseSubject(c.subjectNo, c.subjectName, u.username) from ChooseSubject c, Subject s, User u where c.subjectNo=s.subjectNo and s.userId=u.userId and c.chooseUserId='"+userId+"'";
+        List<ChooseSubject> list = this.chooseSubjectDao.getData(sql);
+        return list;
+    }
+
+
+    //选课
+    @Override
     public String addChooseSubject(ChooseSubject chooseSubject) {
         String sql = "from ChooseSubject where subjectNo='"+chooseSubject.getSubjectNo()+"' and chooseUserId='"+chooseSubject.getChooseUserId()+"'";
         List<ChooseSubject> list = this.chooseSubjectDao.getData(sql);
@@ -90,9 +100,10 @@ public class SubjectServiceImpl implements SubjectService {
         return "chooseSubjectError";
     }
 
+    //根据subjectNo获取课程和教师信息
     @Override
     public List<ChooseSubject> showAllChooseSubjectUserId(String subjectNo) {
-        String hql = "select new ChooseSubject(c.subjectName,c.chooseUserId,u.username) from User u,ChooseSubject c where u.userId=c.chooseUserId and c.subjectNo='"+subjectNo+"'";
+        String hql = "select new ChooseSubject(c.subjectNo,c.subjectName,c.chooseUserId,u.username) from User u,ChooseSubject c where u.userId=c.chooseUserId and c.subjectNo='"+subjectNo+"'";
         //String sql = "from ChooseSubject where subjectNo='"+subjectNo+"'";
         List<ChooseSubject> list = this.chooseSubjectDao.getData(hql);
         return list;

@@ -7,15 +7,32 @@ public class Subject {
     private String userId;
     private String changeUserId;
 
+    private String username;
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public Subject() {
+    }
+
+    public Subject(String subjectNo, String subjectName, String userId, String username) {
+        this.subjectNo = subjectNo;
+        this.subjectName = subjectName;
+        this.userId = userId;
+        this.username = username;
+    }
+
     public String getChangeUserId() {
         return changeUserId;
     }
 
     public void setChangeUserId(String changeUserId) {
         this.changeUserId = changeUserId;
-    }
-
-    public Subject() {
     }
 
 

@@ -101,7 +101,7 @@
                                 教学管理
                             </a>
                             <ul class="tab" id="admin_tab_3_content">
-                                <li><a class="li_sort_content" href="teaching.jsp" target="_parent">教学评价</a></li>
+                                <li><a class="li_sort_content" href="addEvaluate.jsp" target="_parent">添加学评</a></li>
                                 <li><a class="li_sort_content" href="checkTeaching.jsp" target="_parent">查看评价</a></li>
                             </ul>
                         </li>
@@ -163,7 +163,6 @@
                                     教学管理
                                 </a>
                                 <ul class="tab" id="teacher_tab_3_content">
-                                    <li><a class="li_sort_content" href="teaching.jsp" target="_parent">教学评价</a></li>
                                     <li><a class="li_sort_content" href="checkTeaching.jsp" target="_parent">查看评价</a></li>
                                 </ul>
                             </li>
@@ -223,7 +222,7 @@
                                     教学评价
                                 </a>
                                 <ul class="tab" id="student_tab_3_content">
-                                    <li><a class="li_sort_content" href="teaching.jsp" target="_parent">教学评价</a></li>
+                                    <li><a class="li_sort_content" href="getMessInChooseAction.action?userId=<%=userId %>" target="_parent">教学评价</a></li>
                                 </ul>
                             </li>
                             <li class="list">

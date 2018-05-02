@@ -176,3 +176,28 @@ function clickType(type){
     }
 }
 
+
+function evaluateType(){
+
+    var show="";
+    var apm = document.getElementsByName("evaluateType");
+    for(var i=0;i<apm.length;i++){
+        if(apm[i].checked)
+            show = apm[i].value;
+    }
+
+    switch (show){
+        case '满意度':
+            document.getElementById("selection1").style.display="none";
+            document.getElementById("selection2").style.display="block";
+            break;
+        case '判断':
+            document.getElementById("selection1").style.display="block";
+            document.getElementById("selection2").style.display="none";
+            break;
+        default:
+            document.getElementById("selection1").style.display="none";
+            document.getElementById("selection2").style.display="none";
+            break;
+    }
+}
