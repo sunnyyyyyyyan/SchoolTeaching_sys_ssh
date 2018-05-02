@@ -175,3 +175,4 @@ function clickType(type){
         document.getElementById("selection").style.display="none";
     }
 }
+

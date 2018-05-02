@@ -16,6 +16,23 @@
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <script type="text/javascript">
+        var maxtime = 30 * 60; //一个小时，按秒计算，自己调整!
+        function CountDown() {
+            if (maxtime >= 0) {
+                minutes = Math.floor(maxtime / 60);
+                seconds = Math.floor(maxtime % 60);
+                msg = "距离考试结束还有" + minutes + "分" + seconds + "秒";
+                document.all["timer"].innerHTML = msg;
+                if (maxtime == 5 * 60)alert("还剩5分钟");
+                --maxtime;
+            } else{
+                clearInterval(timer);
+                alert("时间到，结束!");
+            }
+        }
+        timer = setInterval("CountDown()", 1000);
+    </script>
 </head>
 <body>
 <div id="page">
@@ -40,9 +57,13 @@
         <%
             }
             else {
+
         %>
             <div class="startTesting_left">
                 <table class="table table-bordered">
+                    <tr>
+                        <td colspan="2" id="timer" style="color:red"></td>
+                    </tr>
                     <tr>
                         <td>学号：</td>
                         <td><%=user %></td>
@@ -56,54 +77,51 @@
                         <td>30分钟</td>
                     </tr>
                     <tr>
-                        <td><font color="red"> 注意：</font></td>
-                        <td><font color="red"> 考试时不得退出</font></td>
+                        <td colspan="2"><font color="red"> 注意：考试时不得退出</font></td>
                     </tr>
                 </table>
             </div>
             <div class="startTesting_right">
                 <form action="checkTestingAction.action" method="post">
-                    <table class="table table-bordered" >
-                        <%
-                            for (int i = 0; i < list.size(); i++) {
-                                Test test = list.get(i);
-                                if (test.getQuestionType().equals("选择")){
-                        %>
-                                    <s:iterator value="#request.startTesting">
-                                        <tr>
-                                            <td>
-                                                <s:property value="questionId"/>. <s:property value="questionType"/>(<s:property value="setGrade"/>分)&nbsp;&nbsp;
-                                                <s:property value="questionContent"/> <br><br>
-                                                <input type="radio" name="nowAnswer<%=i %>" value="A">A: <s:property value="selectA"/>&nbsp;&nbsp;&nbsp;&nbsp;
-                                                <input type="radio" name="nowAnswer<%=i %>" value="B">B: <s:property value="selectB"/>&nbsp;&nbsp;&nbsp;&nbsp;
-                                                <input type="radio" name="nowAnswer<%=i %>" value="C">C: <s:property value="selectC"/>&nbsp;&nbsp;&nbsp;&nbsp;
-                                                <input type="radio" name="nowAnswer<%=i %>" value="D">D: <s:property value="selectD"/>
-                                            </td>
-                                        </tr>
-                                    </s:iterator>
-                        <%
+                        <table class="table table-bordered" >
+                            <%
+                                for (int i = 0; i < list.size(); i++)
+                                {
+                                    Test test = list.get(i);
+                            %>
+                            <tr>
+                                <td>
+                                    <%=test.getQuestionId()%>.【<%=test.getQuestionType()%>】(<%=test.getSetGrade()%>)&nbsp;
+                                    <%=test.getQuestionContent()%>
+                                    <br><br>
+                                    <%
+                                        if (test.getQuestionType().equals("选择"))
+                                        {
+                                    %>
+                                            <input type="radio" name="nowAnswer<%=i %>" value="A">A: <%=test.getSelectA()%>&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <input type="radio" name="nowAnswer<%=i %>" value="B">B: <%=test.getSelectB()%>&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <input type="radio" name="nowAnswer<%=i %>" value="C">C: <%=test.getSelectC()%>&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <input type="radio" name="nowAnswer<%=i %>" value="D">D: <%=test.getSelectD()%>
+                                    <%
+                                        }
+                                        if (test.getQuestionType().equals("判断"))
+                                        {
+                                    %>
+                                            <input type="radio" name="nowAnswer<%=i %>" value="T">T&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <input type="radio" name="nowAnswer<%=i %>" value="F">F
+                                    <%
+                                        }
+                                    %>
+                                </td>
+                            </tr>
+                            <%
                                 }
-                                if (test.getQuestionType().equals("判断")) {
-                        %>
-                                    <s:iterator value="#request.startTesting">
-                                        <tr>
-                                            <td>
-                                                <s:property value="questionId"/>. <s:property value="questionType"/>(<s:property value="setGrade"/>分)&nbsp;&nbsp;
-                                                <s:property value="questionContent"/> <br><br>
-                                                <input type="radio" name="nowAnswer<%=i %>" value="T">T&nbsp;&nbsp;&nbsp;&nbsp;
-                                                <input type="radio" name="nowAnswer<%=i %>" value="F">F
-                                            </td>
-                                        </tr>
-                                    </s:iterator>
-                        <%
-                                }
-                            }
-                        %>
-                        <tr>
-                            <td>
-                                <button type="submit">提交</button>
-                            </td>
-                        </tr>
+                            %>
+                            <tr>
+                                <td align="center">
+                                    <button type="submit">提交</button>
+                                </td>
+                            </tr>
                     </table>
                 </form>
             </div>
