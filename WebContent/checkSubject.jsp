@@ -27,7 +27,7 @@
 
     <div id="center_column">
         <div class="addSubject">
-            <h3 align="center">查看课程与选课</h3>
+            <h4 align="center">查看课程与选课</h4>
             <br>
                     <%
                         String userType = (String)ActionContext.getContext().getSession().get("userType");
@@ -69,7 +69,7 @@
                                     <td><s:property value="username"/></td>
                                     <td>
                                         <form action="changeUserSubjectAction.action?subjectNo=<s:property value="subjectNo"/> " method="post">
-                                            <input type="text" name="changeUserId">
+                                            <input type="text" name="changeUserId" required="required">
                                             <button type="submit">更改</button>
                                         </form>
                                     </td>
@@ -156,6 +156,28 @@
                         }
                     %>
         </div>
+        <br>
+        <div id='page_next' style="float: right">
+            当前是第<s:property value="#request.checkSubjectPage.pageNow" />页，共<s:property value="#request.checkSubjectPage.totalPage" />页
+            &nbsp;&nbsp;
+            <s:if test="#request.checkSubjectPage.hasFirst">
+                <a href="checkSubjectAction.action?pageNow=1" target="_parent">首页</a>
+            </s:if>
+            <s:if test="#request.checkSubjectPage.hasPre">
+                <a href="checkSubjectAction.action?pageNow=<s:property value="#request.checkSubjectPage.pageNow-1"/> "
+                   target="_parent">上一页</a>
+            </s:if>
+            <s:if test="#request.checkSubjectPage.hasNext">
+                <a href="checkSubjectAction.action?pageNow=<s:property value="#request.checkSubjectPage.pageNow+1" />"
+                   target="_parent">下一页</a>
+            </s:if>
+            <s:if test="#request.checkSubjectPage.hasLast">
+                <a href="checkSubjectAction.action?pageNow=<s:property value="#request.checkSubjectPage.totalPage"/>"
+                   target="_parent">尾页</a>
+            </s:if>
+        </div>
+
+
     </div>
 
     <div id="footer">

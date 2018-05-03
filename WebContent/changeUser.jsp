@@ -26,12 +26,12 @@
 
     <div id="center_column">
         <div class="changeUser">
-            <h3 align="center">修改用户</h3><br>
+            <h4 align="center">修改信息</h4><br>
             <p align="center" >
                 <font color="red"><s:property value="#request.updateMess" /></font>
             </p>
-            <%--<s:iterator value="#request.getUserById">--%>
             <table  class="table table-bordered" style="margin:0 auto;width: 350px">
+                <s:iterator value="#request.getUserById">
                 <tr>
                     <td>
                         编号：
@@ -45,7 +45,7 @@
                         原用户名：
                     </td>
                     <td>
-                        <s:property value="#request.getUserById.username"/>
+                        <s:property value="username"/>
                     </td>
                 </tr>
                 <tr>
@@ -53,7 +53,7 @@
                         原密码：
                     </td>
                     <td>
-                        <s:property value="#request.getUserById.password"/>
+                        <s:property value="password"/>
                     </td>
                 </tr>
                 <tr>
@@ -61,7 +61,7 @@
                         原电话号码：
                     </td>
                     <td>
-                        <s:property value="#request.getUserById.phone"/>
+                        <s:property value="phone"/>
                     </td>
                 </tr>
                 <tr>
@@ -69,11 +69,11 @@
                         原邮箱：
                     </td>
                     <td>
-                        <s:property value="#request.getUserById.email"/>
+                        <s:property value="email"/>
                     </td>
                 </tr>
+                </s:iterator>
             </table>
-            <%--</s:iterator>--%>
             <br><br>
             <form action="updateUserAction.action?userId=<s:property value="userId"/>" method="post">
 
@@ -81,28 +81,31 @@
 
                     <tr>
                         <td>
-                            新用户名：
+                            <font color="red">*</font>新用户名：
                         </td>
                         <td>
                             <input type="text" name="username" >
                         </td>
                     </tr>
+                    <tr><td></td></tr>
                     <tr>
                         <td>
-                            新密码：
+                            <font color="red">*</font>新密码：
                         </td>
                         <td>
                             <input type="password" name="password">
                         </td>
                     </tr>
+                    <tr><td></td></tr>
                     <tr>
                         <td>
-                            确认密码：
+                            <font color="red">*</font>确认密码：
                         </td>
                         <td>
                             <input type="password" name="password1">
                         </td>
                     </tr>
+                    <tr><td></td></tr>
                     <tr>
                           <td>
                             电话号码：
@@ -111,6 +114,7 @@
                             <input type="text" name="phone">
                         </td>
                     </tr>
+                    <tr><td></td></tr>
                     <tr>
                         <td>
                             邮箱：
@@ -119,6 +123,7 @@
                             <input type="text" name="email">
                         </td>
                     </tr>
+                    <tr><td></td></tr>
                     <tr align="center">
                         <td colspan="2">
                             <button type="submit">修改</button>&nbsp;&nbsp;&nbsp;

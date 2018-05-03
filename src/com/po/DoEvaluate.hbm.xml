@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-5-21 14:19:48 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.po.DoEvaluate" table="doEvaluate">
+        <id name="doEvaluateId" type="java.lang.Integer">
+            <column name="doEvaluateId" />
+            <generator class="increment" />
+        </id>
+        <property name="subjectNo" type="java.lang.String">
+            <column name="subjectNo" />
+        </property>
+        <property name="evaluateQuestionId" type="java.lang.String">
+            <column name="evaluateQuestionId" />
+        </property>
+        <property name="evaluateContent" type="java.lang.String">
+            <column name="evaluateContent" />
+        </property>
+        <property name="answer" type="java.lang.String">
+            <column name="answer" />
+        </property>
+        <property name="advise" type="java.lang.String">
+            <column name="advise" />
+        </property>
+        <property name="userId" type="java.lang.String">
+            <column name="userId" />
+        </property>
+    </class>
+</hibernate-mapping>

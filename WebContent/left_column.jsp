@@ -11,6 +11,7 @@
 <html>
 <head>
     <title>left_column</title>
+    <script src="js/left_column_tab.js" type="text/javascript"></script>
 </head>
 <body>
 <table>
@@ -87,30 +88,20 @@
                         <li class="list">
                             <a id="admin_tab_2" class="li_sort" href="#">
                                 <img src="./images/sort_menu.gif" width="26px" align="absmiddle" />
-                                成绩管理
-                            </a>
-                            <ul class="tab" id="admin_tab_2_content">
-                                <li><a class="li_sort_content" href="addGrade.jsp" target="_parent">录入成绩</a></li>
-                                <li><a class="li_sort_content" href="checkAllGradeAction.action" target="_parent">查看成绩</a></li>
-                                <li><a class="li_sort_content" href="testOnline.jsp" target="_parent">在线测评</a></li>
-                            </ul>
-                        </li>
-                        <li class="list">
-                            <a id="admin_tab_3" class="li_sort" href="#">
-                                <img src="./images/sort_menu.gif" width="26px" align="absmiddle" />
                                 教学管理
                             </a>
-                            <ul class="tab" id="admin_tab_3_content">
+                            <ul class="tab" id="admin_tab_2_content">
+                                <li><a class="li_sort_content" href="checkAllGradeAction.action" target="_parent">查看成绩</a></li>
                                 <li><a class="li_sort_content" href="addEvaluate.jsp" target="_parent">添加学评</a></li>
                                 <li><a class="li_sort_content" href="checkTeaching.jsp" target="_parent">查看评价</a></li>
                             </ul>
                         </li>
                         <li class="list">
-                            <a id="admin_tab_4" class="li_sort" href="#">
+                            <a id="admin_tab_3" class="li_sort" href="#">
                                 <img src="./images/sort_menu.gif" width="26px" align="absmiddle" />
                                 课程管理
                             </a>
-                            <ul class="tab" id="admin_tab_4_content">
+                            <ul class="tab" id="admin_tab_3_content">
                                 <li><a class="li_sort_content" href="checkSubjectAction.action" target="_parent">课程与选课</a></li>
                                 <li><a class="li_sort_content" href="addQuestion.jsp" target="_parent">增加试题</a></li>
                                 <li><a class="li_sort_content" href="questionListAction.action" target="_parent">试题库</a></li>
@@ -149,32 +140,23 @@
                             <li class="list">
                                 <a id="teacher_tab_2" class="li_sort" href="#">
                                     <img src="./images/sort_menu.gif" width="26px" align="absmiddle" />
-                                    成绩管理
+                                    教学管理
                                 </a>
                                 <ul class="tab" id="teacher_tab_2_content">
-                                    <li><a class="li_sort_content" href="addGrade.jsp" target="_parent">录入成绩</a></li>
-                                    <li><a class="li_sort_content" href="checkAllGradeAction.action" target="_parent">查看成绩</a></li>
-                                    <li><a class="li_sort_content" href="testOnline.jsp" target="_parent">在线测评</a></li>
+                                    <li><a class="li_sort_content" href="getSubjectNameByTeacherIdAction.action?userId=<%=userId %>" target="_parent">录入成绩</a></li>
+                                    <li><a class="li_sort_content" href="getAllGradeByTeacherIdAction.action?userId=<%=userId %>" target="_parent">查看成绩</a></li>
+                                    <li><a class="li_sort_content" href="checkTeaching.jsp" target="_parent">查看评价</a></li>
                                 </ul>
                             </li>
                             <li class="list">
                                 <a id="teacher_tab_3" class="li_sort" href="#">
                                     <img src="./images/sort_menu.gif" width="26px" align="absmiddle" />
-                                    教学管理
-                                </a>
-                                <ul class="tab" id="teacher_tab_3_content">
-                                    <li><a class="li_sort_content" href="checkTeaching.jsp" target="_parent">查看评价</a></li>
-                                </ul>
-                            </li>
-                            <li class="list">
-                                <a id="teacher_tab_4" class="li_sort" href="#">
-                                    <img src="./images/sort_menu.gif" width="26px" align="absmiddle" />
                                     课程管理
                                 </a>
-                                <ul class="tab" id="teacher_tab_4_content">
+                                <ul class="tab" id="teacher_tab_3_content">
                                     <li><a class="li_sort_content" href="addSubject.jsp" target="_parent">添加课程</a></li>
                                     <li><a class="li_sort_content" href="checkSubjectAction.action " target="_parent">课程与选课</a></li>
-                                    <li><a class="li_sort_content" href="addQuestion.jsp" target="_parent">增加试题</a></li>
+                                    <li><a class="li_sort_content" href="getSubjectNameByTeacherIdAction.action?userId=<%=userId %>" target="_parent">增加试题</a></li>
                                     <li><a class="li_sort_content" href="questionListAction.action" target="_parent">试题库</a></li>
                                 </ul>
                             </li>
@@ -209,28 +191,20 @@
                             <li class="list">
                                 <a id="student_tab_2" class="li_sort" href="#">
                                     <img src="./images/sort_menu.gif" width="26px" align="absmiddle" />
-                                    成绩管理
+                                    教学管理
                                 </a>
-                                    <ul class="tab" id="student_tab_2_content">
-                                    <li><a class="li_sort_content" href="checkAllGradeByIdAction.action?userId=<%=userId %>" target="_parent">查看成绩</a></li>
+                                <ul class="tab" id="student_tab_2_content">
+                                    <li><a class="li_sort_content" href="checkAllGradeByStudentIdAction.action?userId=<%=userId %>" target="_parent">查看成绩</a></li>
                                     <li><a class="li_sort_content" href="getSubjectByUserIdAction.action?userId=<%=userId %>" target="_parent">在线测评</a></li>
+                                    <li><a class="li_sort_content" href="getMessInChooseAction.action?userId=<%=userId %>" target="_parent">教学评价</a></li>
                                 </ul>
                             </li>
                             <li class="list">
                                 <a id="student_tab_3" class="li_sort" href="#">
                                     <img src="./images/sort_menu.gif" width="26px" align="absmiddle" />
-                                    教学评价
-                                </a>
-                                <ul class="tab" id="student_tab_3_content">
-                                    <li><a class="li_sort_content" href="getMessInChooseAction.action?userId=<%=userId %>" target="_parent">教学评价</a></li>
-                                </ul>
-                            </li>
-                            <li class="list">
-                                <a id="student_tab_4" class="li_sort" href="#">
-                                    <img src="./images/sort_menu.gif" width="26px" align="absmiddle" />
                                     课程管理
                                 </a>
-                                <ul class="tab" id="student_tab_4_content">
+                                <ul class="tab" id="student_tab_3_content">
                                     <li><a class="li_sort_content" href="checkSubjectAction.action" target="_parent">课程与选课</a></li>
                                 </ul>
                             </li>
@@ -256,6 +230,5 @@
 </table>
 
 
-<script src="js/left_column_tab.js" type="text/javascript"></script>
 </body>
 </html>

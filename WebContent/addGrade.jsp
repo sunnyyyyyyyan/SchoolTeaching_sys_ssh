@@ -31,14 +31,27 @@
             <p align="center" >
                 <font  style="font-size: 12px;" color="red"><s:property value="#request.addGradeMess"/> </font>
             </p>
-            <form action="addGradeAction.action" method="post">
-                <table class="table table-bordered" style="margin:0 auto;text-align: center; width: 400px;">
+            <p align="center" >
+                <font  style="font-size: 12px;" color="red"><s:property value="#request.getSubjectNameByTeacherIdMess"/> </font>
+            </p>
+            <form action="addGradeAction.action" method="post" >
+                <table class="table table-bordered" style="margin:0 auto;width: 400px;">
                     <tr>
                         <td>
                             学号：
                         </td>
                         <td>
-                            <input type="text" name="studentId">
+                            <input type="text" name="studentId" required="required">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>课程编号与名称：</td>
+                        <td>
+                            <select name="subjectNo" id="subjectNo">
+                                <s:iterator value="#request.getSubjectNameByTeacherId">
+                                <option name="subjectNo" value="<s:property value="subjectNo"/>"><s:property value="subjectNo"/>：<s:property value="subjectName"/> </option>
+                                </s:iterator>
+                            </select>
                         </td>
                     </tr>
                     <tr>
@@ -60,7 +73,7 @@
                             成绩：
                         </td>
                         <td>
-                            <input type="text" name="score">
+                            <input type="text" name="score"  required="required">
                         </td>
                     </tr>
                     <tr>

@@ -2,7 +2,7 @@ package com.po;
 
 public class Test {
     private Integer testId;
-    private String testAdder;
+    private String userId;
     private String testName;
     private String subName;
     private String subjectNo;
@@ -21,8 +21,8 @@ public class Test {
     public Test() {
     }
 
-    public Test(String testAdder, String testName, String subName, String subjectNo, String questionType, String questionId, String questionContent, String answer, String setGrade, String selectA, String selectB, String selectC, String selectD) {
-        this.testAdder = testAdder;
+    public Test(String userId, String testName, String subName, String subjectNo, String questionType, String questionId, String questionContent, String answer, String setGrade, String selectA, String selectB, String selectC, String selectD) {
+        this.userId = userId;
         this.testName = testName;
         this.subName = subName;
         this.subjectNo = subjectNo;
@@ -46,12 +46,12 @@ public class Test {
         this.testId = testId;
     }
 
-    public String getTestAdder() {
-        return testAdder;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setTestAdder(String testAdder) {
-        this.testAdder = testAdder;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getTestName() {

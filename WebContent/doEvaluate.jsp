@@ -45,6 +45,10 @@
                 else
                 {
             %>
+
+            <p align="center" >
+                <font  style="font-size: 12px;" color="red"><s:property value="#request.doEvaluateErrorMess"/> </font>
+            </p>
             <form action="doEvaluateAction.action" method="post">
                 <table class="table table-bordered" style="width: 500px;margin: 0 auto;">
             <%
@@ -66,6 +70,11 @@
             <%
                     }
             %>
+                    <tr>
+                        <td>
+                            <textarea name="advise" id="advise" cols="60" rows="5" placeholder="有意见尽管吐槽..."></textarea>
+                        </td>
+                    </tr>
                     <tr>
                         <td align="center">
                             <button type="submit">提交</button>

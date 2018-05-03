@@ -18,7 +18,7 @@ public class UserAction {
     private String email;
 
     private int pageNow=1;//当前页
-    private int pageSize=15;//总条数
+    private int pageSize=10;//总条数
     private int totalPage;//总页数
 	private UserService userService;
 
@@ -211,11 +211,9 @@ public class UserAction {
     //修改用户信息
     public String updateUser(){
 
-        if (this.getUsername()==null&&this.getUsername().equals("")&&
-                this.getPassword()==null&&this.getPassword().equals("")&&
-                this.getPhone()==null&&this.getPhone().equals("")&&
-                this.getEmail()==null&&this.getEmail().equals("")){
-            ActionContext.getContext().put("updateMess","无修改！");
+        if (this.getUsername()==null||this.getUsername().equals("")||
+                this.getPassword()==null&&this.getPassword().equals("")){
+            ActionContext.getContext().put("updateMess","*不能为空！");
             return "updateUserError";
         }
 		if(password.equals(password1)==false){
@@ -235,6 +233,18 @@ public class UserAction {
 		}
 		ActionContext.getContext().put("updateMess","修改失败！");
 		return "updateUserError";
+	}
+
+
+	//根据教师编号查询该教师添加的所有课程信息
+	public String getSubjectNameByTeacherId(){
+		List<User> list = this.userService.getSubjectNameByTeacherIdData(this.userId);
+		if (list.size()>0) {
+			ActionContext.getContext().put("getSubjectNameByTeacherId", list);
+			return "getSubjectNameByTeacherIdSuccess";
+		}
+		ActionContext.getContext().put("getSubjectNameByTeacherIdMess","查询失败！");
+		return "getSubjectNameByTeacherIdError";
 	}
 
 }

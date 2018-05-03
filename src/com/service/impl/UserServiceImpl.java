@@ -97,7 +97,15 @@ public class UserServiceImpl implements UserService {
 		return "deleteUserError";
 	}
 
-	//获取所有用户
+    @Override
+    public List<User> getSubjectNameByTeacherIdData(String userId) {
+	    String sql = "select new User(u.userId,u.username,s.subjectNo,s.subjectName) from User u, Subject s where u.userId=s.userId and u.userId='"+userId+"'";
+        List<User> list = this.userDao.getData(sql);
+	    return list;
+    }
+
+
+    //获取所有用户
 	@Override
 	public List<User> getAllUserData(int pageNow, int pageSize) {
 		List<User> list = this.userDao.getAllUserData(pageNow,pageSize);

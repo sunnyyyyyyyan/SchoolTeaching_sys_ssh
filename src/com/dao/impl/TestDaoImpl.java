@@ -2,6 +2,7 @@ package com.dao.impl;
 
 import com.dao.TestDao;
 import com.po.Test;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -88,5 +89,30 @@ public class TestDaoImpl implements TestDao {
             System.err.println(e);
         }
         return isSuccess;
+    }
+
+    @Override
+    public List<Test> getAllTestData(int pageNow, int pageSize) {
+        Session session = this.sessionFactory.openSession();
+        String sql = "from Test";
+        Query query = session.createQuery(sql);
+        query.setFirstResult((pageNow - 1) * pageSize);
+        query.setMaxResults(pageSize);
+        List list = query.list();
+        session.close();
+        session=null;
+        if (list.size() > 0) {
+            return list;
+        }
+        return null;
+    }
+
+    @Override
+    public int findAllTestSize() {
+        Session session = this.sessionFactory.openSession();
+        String sql = "from Test";
+        int size = session.createQuery(sql).list().size();
+        session.close();
+        return size;
     }
 }

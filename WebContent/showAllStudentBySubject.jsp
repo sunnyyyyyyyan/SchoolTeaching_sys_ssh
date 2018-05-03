@@ -28,7 +28,7 @@
 
         <h3 align="center">已选课程为：<s:property value="subjectName"/>&nbsp;的学生名单</h3>
         <br>
-        <table class="table table-bordered" style="width: 100px;margin: 0 auto;text-align: center">
+        <table class="table table-bordered" style="width: 300px;margin: 0 auto;text-align: center">
           <tr>
             <td></td>
             <td>学号</td>

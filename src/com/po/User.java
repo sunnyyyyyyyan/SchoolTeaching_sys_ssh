@@ -9,6 +9,35 @@ public class User {
 	private String phone;
 	private String email;
 
+	private String subjectNo;
+	private String subjectName;
+
+	public User() {
+	}
+
+	public User(String userId, String username, String subjectNo, String subjectName) {
+		this.userId = userId;
+		this.username = username;
+		this.subjectNo = subjectNo;
+		this.subjectName = subjectName;
+	}
+
+	public String getSubjectName() {
+		return subjectName;
+	}
+
+	public void setSubjectName(String subjectName) {
+		this.subjectName = subjectName;
+	}
+
+	public String getSubjectNo() {
+		return subjectNo;
+	}
+
+	public void setSubjectNo(String subjectNo) {
+		this.subjectNo = subjectNo;
+	}
+
 	public Integer getId() {
 		return id;
 	}

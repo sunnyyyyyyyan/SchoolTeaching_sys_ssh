@@ -1,6 +1,7 @@
 package com.action;
 
 import com.opensymphony.xwork2.ActionContext;
+import com.po.DoEvaluate;
 import com.po.Evaluate;
 import com.service.EvaluateService;
 
@@ -15,6 +16,35 @@ public class EvaluateAction {
     private String selectC;
     private String selectD;
     private EvaluateService evaluateService;
+
+
+    private String answer;
+    private String advise;
+    private String userId;
+
+    public String getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer;
+    }
+
+    public String getAdvise() {
+        return advise;
+    }
+
+    public void setAdvise(String advise) {
+        this.advise = advise;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 
     public String getSubjectNo() {
         return subjectNo;
@@ -113,5 +143,21 @@ public class EvaluateAction {
         }
         ActionContext.getContext().put("getEvaluateTestMess", "暂无评教题目！");
         return "getEvaluateTestError";
+    }
+
+    //保存学生的评价答案
+    public String doEvaluate(){
+        DoEvaluate doEvaluate = new DoEvaluate();
+        doEvaluate.setSubjectNo(this.subjectNo);
+        doEvaluate.setEvaluateQuestionId(this.evaluateQuestionId);
+        doEvaluate.setEvaluateContent(this.evaluateContent);
+        doEvaluate.setAnswer(this.answer);
+        doEvaluate.setAdvise(this.advise);
+        doEvaluate.setUserId(this.userId);
+        String strMess = this.evaluateService.addDoEvaluate(doEvaluate);
+        if (strMess.equals("doEvaluateSuccess")) {
+            return "doEvaluateSuccess";
+        }
+        return "doEvaluateError";
     }
 }

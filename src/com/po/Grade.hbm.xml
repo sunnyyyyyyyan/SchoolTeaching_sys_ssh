@@ -11,6 +11,9 @@
         <property name="studentId" type="java.lang.String">
             <column name="studentId" />
         </property>
+        <property name="subjectNo" type="java.lang.String">
+            <column name="subjectNo" />
+        </property>
         <property name="gradeType" type="java.lang.String">
             <column name="gradeType" />
         </property>

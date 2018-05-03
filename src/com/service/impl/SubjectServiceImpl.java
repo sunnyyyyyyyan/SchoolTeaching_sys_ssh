@@ -67,6 +67,13 @@ public class SubjectServiceImpl implements SubjectService {
         return "changeUserSubjectError";
     }
 
+    @Override
+    public List<Subject> showAllGradeByTeacherId(String userId) {
+        String sql = "select new Subject(s.subjectNo, s.subjectName, g.studentId, g.gradeType, g.score) from Subject s, Grade g where s.subjectNo=g.subjectNo and s.userId='"+userId+"'";
+        List<Subject> list = this.subjectDao.getData(sql);
+        return list;
+    }
+
     //根据userId获取课程信息
     @Override
     public List<ChooseSubject> showSubjectByUserId(String userId) {
@@ -80,6 +87,17 @@ public class SubjectServiceImpl implements SubjectService {
         String sql = "select new ChooseSubject(c.subjectNo, c.subjectName, u.username) from ChooseSubject c, Subject s, User u where c.subjectNo=s.subjectNo and s.userId=u.userId and c.chooseUserId='"+userId+"'";
         List<ChooseSubject> list = this.chooseSubjectDao.getData(sql);
         return list;
+    }
+
+    @Override
+    public List<Subject> showAllSubjectData(int pageNow, int pageSize) {
+        List<Subject> list = this.subjectDao.getAllSubjectData(pageNow,pageSize);
+        return list;
+    }
+
+    @Override
+    public int findAllSubjectSize() {
+        return this.subjectDao.findAllSubjectSize();
     }
 
 

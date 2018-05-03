@@ -25,7 +25,7 @@
 
     <div id="center_column">
         <div class="questionList">
-            <h3 align="center">试题库</h3>
+            <h4 align="center">试题库</h4>
             <br>
                 <table class="table table-bordered" style="margin: 0 auto; text-align: center;">
                     <tr>
@@ -45,7 +45,7 @@
                     <s:iterator value="#request.questionList">
                         <tr>
 
-                            <td><s:property value="testAdder"/> </td>
+                            <td><s:property value="userId"/> </td>
                             <td><s:property value="testName"/> </td>
                             <td><s:property value="subName"/></td>
                             <td><s:property value="questionId"/></td>
@@ -61,6 +61,27 @@
                         </tr>
                     </s:iterator>
                 </table>
+        </div>
+        <br>
+        <br>
+        <div id='page_next' style="float: right">
+            当前是第<s:property value="#request.questionPage.pageNow" />页，共<s:property value="#request.questionPage.totalPage" />页
+            &nbsp;&nbsp;
+            <s:if test="#request.questionPage.hasFirst">
+                <a href="questionListAction.action?pageNow=1" target="_parent">首页</a>
+            </s:if>
+            <s:if test="#request.questionPage.hasPre">
+                <a href="questionListAction.action?pageNow=<s:property value="#request.questionPage.pageNow-1"/> "
+                   target="_parent">上一页</a>
+            </s:if>
+            <s:if test="#request.questionPage.hasNext">
+                <a href="questionListAction.action?pageNow=<s:property value="#request.questionPage.pageNow+1" />"
+                   target="_parent">下一页</a>
+            </s:if>
+            <s:if test="#request.questionPage.hasLast">
+                <a href="questionListAction.action?pageNow=<s:property value="#request.questionPage.totalPage"/>"
+                   target="_parent">尾页</a>
+            </s:if>
         </div>
     </div>
 

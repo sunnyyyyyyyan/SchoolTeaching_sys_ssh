@@ -10,7 +10,7 @@ function Show_Hidden(obj)
     }
 }
 
-/*window.onload=function()
+window.onload=function()
 {
     //admin
     var admin_tab_1=document.getElementById("admin_tab_1");
@@ -32,20 +32,6 @@ function Show_Hidden(obj)
     admin_tab_3.onclick=function()
     {
         Show_Hidden(admin_tab_3_content);
-        return false;
-    };
-    var admin_tab_4=document.getElementById("admin_tab_4");
-    var admin_tab_4_content=document.getElementById("admin_tab_4_content");
-    admin_tab_4.onclick=function()
-    {
-        Show_Hidden(admin_tab_4_content);
-        return false;
-    };
-    var admin_tab_5=document.getElementById("admin_tab_5");
-    var admin_tab_5_content=document.getElementById("admin_tab_5_content");
-    admin_tab_5.onclick=function()
-    {
-        Show_Hidden(admin_tab_5_content);
         return false;
     };
 
@@ -73,20 +59,7 @@ function Show_Hidden(obj)
         Show_Hidden(teacher_tab_3_content);
         return false;
     };
-    var teacher_tab_4=document.getElementById("teacher_tab_4");
-    var teacher_tab_4_content=document.getElementById("teacher_tab_4_content");
-    teacher_tab_4.onclick=function()
-    {
-        Show_Hidden(teacher_tab_4_content);
-        return false;
-    };
-    var teacher_tab_5=document.getElementById("teacher_tab_5");
-    var teacher_tab_5_content=document.getElementById("teacher_tab_5_content");
-    teacher_tab_5.onclick=function()
-    {
-        Show_Hidden(teacher_tab_5_content);
-        return false;
-    };
+
 
 
     //student
@@ -111,21 +84,8 @@ function Show_Hidden(obj)
         Show_Hidden(student_tab_3_content);
         return false;
     };
-    var student_tab_4=document.getElementById("student_tab_4");
-    var student_tab_4_content=document.getElementById("student_tab_4_content");
-    student_tab_4.onclick=function()
-    {
-        Show_Hidden(student_tab_4_content);
-        return false;
-    };
-    var student_tab_5=document.getElementById("student_tab_5");
-    var student_tab_5_content=document.getElementById("student_tab_5_content");
-    student_tab_5.onclick=function()
-    {
-        Show_Hidden(student_tab_5_content);
-        return false;
-    };
-};*/
+
+};
 
 function onSearch(obj){//js函数开始
     setTimeout(function(){//因为是即时查询，需要用setTimeout进行延迟，让值写入到input内，再读取

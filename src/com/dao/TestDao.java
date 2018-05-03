@@ -9,4 +9,7 @@ public interface TestDao {
     public boolean addTest(Test test);
     public boolean delTest(Test test);
     public boolean updateTest(Test test);
+
+    public List<Test> getAllTestData(int pageNow, int pageSize);
+    public int findAllTestSize();
 }

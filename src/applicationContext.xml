@@ -102,10 +102,18 @@
 			<ref bean="sessionFactory"/>
 		</property>
 	</bean>
+	<bean id="doEvaluateDao" class="com.dao.impl.DoEvaluateDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
 
 	<bean id="evaluateService" class="com.service.impl.EvaluateServiceImpl">
 		<property name="evaluateDao">
 			<ref bean="evaluateDao"/>
+		</property>
+		<property name="doEvaluateDao">
+			<ref bean="doEvaluateDao"/>
 		</property>
 	</bean>
 	<bean id="evaluateAction" class="com.action.EvaluateAction">

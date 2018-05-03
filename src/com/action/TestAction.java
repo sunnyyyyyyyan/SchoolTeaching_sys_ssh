@@ -1,6 +1,7 @@
 package com.action;
 
 import com.opensymphony.xwork2.ActionContext;
+import com.po.PageShow;
 import com.po.Test;
 import com.service.TestService;
 
@@ -8,7 +9,7 @@ import java.util.List;
 
 public class TestAction {
     private Integer testId;
-    private String testAdder;
+    private String userId;
     private String testName;
     private String subName;
     private String subjectNo;
@@ -19,11 +20,39 @@ public class TestAction {
     private String setGrade;
     private TestService testService;
 
+    private int pageNow=1;//当前页
+    private int pageSize=10;//总条数
+    private int totalPage;//总页数
+
     private Integer selectId;
     private String selectA;
     private String selectB;
     private String selectC;
     private String selectD;
+
+    public int getPageNow() {
+        return pageNow;
+    }
+
+    public void setPageNow(int pageNow) {
+        this.pageNow = pageNow;
+    }
+
+    public int getPageSize() {
+        return pageSize;
+    }
+
+    public void setPageSize(int pageSize) {
+        this.pageSize = pageSize;
+    }
+
+    public int getTotalPage() {
+        return totalPage;
+    }
+
+    public void setTotalPage(int totalPage) {
+        this.totalPage = totalPage;
+    }
 
     public Integer getTestId() {
         return testId;
@@ -33,12 +62,12 @@ public class TestAction {
         this.testId = testId;
     }
 
-    public String getTestAdder() {
-        return testAdder;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setTestAdder(String testAdder) {
-        this.testAdder = testAdder;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getTestName() {
@@ -155,7 +184,8 @@ public class TestAction {
 
     //添加试题
     public String addQuestion(){
-        String user = (String)ActionContext.getContext().getSession().get("userId");
+        String userId = (String)ActionContext.getContext().getSession().get("userId");
+        System.out.println(userId);
         if (this.getTestName()==null||this.getTestName().equals("")||
                 this.getSubName()==null||this.getSubName().equals("")||
                 this.getQuestionId()==null||this.getQuestionId().equals("")||
@@ -171,7 +201,7 @@ public class TestAction {
         else if(subName.equals("Web")){subNo="01";}
         else if(subName.equals("java")){subNo="02";}
         Test test = new Test();
-        test.setTestAdder(user);
+        test.setUserId(userId);
         test.setTestName(this.testName);        //试题ming
         test.setSubName(this.subName);          //课程
         test.setSubjectNo(subNo);                  //课程编号
@@ -213,9 +243,14 @@ public class TestAction {
 
     //试题列表
     public String questionList(){
-        List<Test> list = this.testService.showTest();
-        ActionContext.getContext().put("questionList",list);
-        return "questionListSuccess";
+        List<Test> list = this.testService.showAllTestData(this.pageNow,this.pageSize);
+        if (list.size()>0) {
+            ActionContext.getContext().put("questionList", list);
+            PageShow page = new PageShow(pageNow, this.testService.findAllTestSize(), pageSize);
+            ActionContext.getContext().put("questionPage", page);
+            return "questionListSuccess";
+        }
+        return "questionListError";
     }
 
     //获取考试试题

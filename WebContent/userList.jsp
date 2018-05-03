@@ -27,15 +27,15 @@
 
     <div id="center_column">
         <div class="userList">
-            <h3 align="center">所有用户列表</h3>
+            <h4 align="center">所有用户列表</h4>
             <br>
             <p align="center" >
                 <font  style="font-size: 12px;" color="red"><s:property value="userId"/> <s:property value="#request.deleteUserMess"/> </font>
             </p>
             <form action="#" method="post">
                 <p align="center">
-                    可输入身份：管理员、教师、学生，进行筛选
-                    <input name="key" type="text" id="key" style="width: 80px" onkeydown="onSearch(this)" value="" />
+
+                    <input name="key" type="text" id="key" style="width: 300px" onkeydown="onSearch(this)" placeholder="可输入身份：管理员、教师、学生，进行筛选" />
                 </p>
                 <br>
                 <table id="store" class="table table-bordered" style="text-align: center">
@@ -66,12 +66,10 @@
                             </tr>
                         </s:iterator>
                     </tbody>
-
                 </table>
             </form>
-
         </div>
-
+        <br>
         <div id='page_next'>
         当前是第<s:property value="#request.userPage.pageNow" />页，共<s:property value="#request.userPage.totalPage" />页
         &nbsp;&nbsp;

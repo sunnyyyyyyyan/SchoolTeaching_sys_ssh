@@ -63,4 +63,15 @@ public class TestServiceImpl implements TestService {
         }
         return null;
     }
+
+    @Override
+    public List<Test> showAllTestData(int pageNow, int pageSize) {
+        List<Test> list = this.testDao.getAllTestData(pageNow,pageSize);
+        return list;
+    }
+
+    @Override
+    public int findAllTestSize() {
+        return this.testDao.findAllTestSize();
+    }
 }

@@ -2,6 +2,7 @@ package com.action;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.po.ChooseSubject;
+import com.po.PageShow;
 import com.po.Subject;
 import com.service.SubjectService;
 
@@ -14,6 +15,34 @@ public class SubjectAction {
     private String userId;
     private SubjectService subjectService;
     private String changeUserId;
+
+    private int pageNow=1;//当前页
+    private int pageSize=10;//总条数
+    private int totalPage;//总页数
+
+    public int getPageNow() {
+        return pageNow;
+    }
+
+    public void setPageNow(int pageNow) {
+        this.pageNow = pageNow;
+    }
+
+    public int getPageSize() {
+        return pageSize;
+    }
+
+    public void setPageSize(int pageSize) {
+        this.pageSize = pageSize;
+    }
+
+    public int getTotalPage() {
+        return totalPage;
+    }
+
+    public void setTotalPage(int totalPage) {
+        this.totalPage = totalPage;
+    }
 
     public String getChangeUserId() {
         return changeUserId;
@@ -84,18 +113,18 @@ public class SubjectAction {
 
     //查看所有课程
     public String checkSubjectData(){
-        List<Subject> list = this.subjectService.showAllSubject();
-        ActionContext.getContext().put("checkSubject",list);
-        return "checkSubjectSuccess";
+        List<Subject> list = this.subjectService.showAllSubjectData(this.pageNow,this.pageSize);
+        if (list.size()>0) {
+            ActionContext.getContext().put("checkSubject", list);
+            PageShow page = new PageShow(pageNow, this.subjectService.findAllSubjectSize(), pageSize);
+            ActionContext.getContext().put("checkSubjectPage", page);
+            return "checkSubjectSuccess";
+        }
+        return "checkSubjectError";
     }
 
     //修改授课教师
     public String changeUserSubjectData(){
-        if (this.getChangeUserId()==null||this.getChangeUserId().equals("")){
-            ActionContext.getContext().put("changeUserSubjectMess","更改内容不能为空！");
-            checkSubjectData();
-            return "changeUserSubjectError";
-        }
         Subject subject = new Subject();
         subject.setSubjectNo(this.subjectNo);
         subject.setChangeUserId(this.changeUserId);
@@ -136,6 +165,17 @@ public class SubjectAction {
         ActionContext.getContext().put("showAllStudentBySubjectMess","暂无学生选课！");
         checkSubjectData();
         return "showAllStudentBySubjectError";
+    }
+
+    //根据教师编号获取课程、成绩信息
+    public String getAllGradeByTeacherId(){
+        List<Subject> list = this.subjectService.showAllGradeByTeacherId(this.userId);
+        if (list.size()>0) {
+            ActionContext.getContext().put("getAllGradeByTeacherId",list);
+            return "getAllGradeByTeacherIdSuccess";
+        }
+        ActionContext.getContext().put("getAllGradeByTeacherIdMess","查询失败！");
+        return "getAllGradeByTeacherIdError";
     }
 
     //根据userId获取课程信息进行考试

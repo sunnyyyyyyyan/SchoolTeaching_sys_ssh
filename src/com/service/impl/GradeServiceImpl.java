@@ -55,8 +55,8 @@ public class GradeServiceImpl implements GradeService {
 
     //根据studentId获取成绩
     @Override
-    public List<Grade> getGradeByIdData(String studentId) {
-        String sql = "from Grade where studentId='"+studentId+"'";
+    public List<Grade> getGradeByStudentIdData(String userId) {
+        String sql = "select new Grade(g.gradeType, g.score, u.userId) from Grade g,User u where g.studentId=u.userId and userId='"+userId+"'";
         List<Grade> list = this.gradeDao.getGrade(sql);
         return list;
     }

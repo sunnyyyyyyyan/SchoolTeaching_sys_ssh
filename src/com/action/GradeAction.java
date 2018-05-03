@@ -10,14 +10,33 @@ import java.util.List;
 public class GradeAction {
     private String id;
     private String studentId;
+    private String subjectNo;
     private String gradeType;
     private String score;
     private String changeScore;
     private GradeService gradeService;
 
     private int pageNow=1;//当前页
-    private int pageSize=15;//总条数
+    private int pageSize=10;//总条数
     private int totalPage;//总页数
+
+    private String userId;
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getSubjectNo() {
+        return subjectNo;
+    }
+
+    public void setSubjectNo(String subjectNo) {
+        this.subjectNo = subjectNo;
+    }
 
     public String getId() {
         return id;
@@ -92,13 +111,9 @@ public class GradeAction {
     }
 
     public String addGrade(){
-        if (this.getStudentId()==null||this.getStudentId().equals("")||
-                this.getScore()==null||this.getScore().equals("")){
-            ActionContext.getContext().put("addGradeMess","学号和成绩不能为空！");
-            return "addGradeError";
-        }
         Grade grade = new Grade();
         grade.setStudentId(this.studentId);
+        grade.setSubjectNo(this.subjectNo);
         grade.setGradeType(this.gradeType);
         grade.setScore(this.score);
         String strMess = this.gradeService.addGrade(grade);
@@ -123,15 +138,16 @@ public class GradeAction {
     }
 
     //根据学生编号查询该学生所有成绩
-    public String checkAllGradeById(){
-        List<Grade> list = this.gradeService.getGradeByIdData(this.studentId);
+    public String checkAllGradeByStudentId(){
+        List<Grade> list = this.gradeService.getGradeByStudentIdData(this.userId);
         if (list.size()>0) {
-            ActionContext.getContext().put("checkAllGradeByIdMess", list);
-            return "checkAllGradeByIdSuccess";
+            ActionContext.getContext().put("checkAllGradeByStudentIdMess", list);
+            return "checkAllGradeByStudentIdSuccess";
         }
-        ActionContext.getContext().put("checkAllGradeByIdMess", "查询失败！");
-        return "checkAllGradeByIdError";
+        ActionContext.getContext().put("checkAllGradeByStudentIdMess", "查询失败！");
+        return "checkAllGradeByStudentIdError";
     }
+
 
     //删除单条成绩
     public String deleteScore(){
@@ -147,11 +163,6 @@ public class GradeAction {
 
     //修改成绩
     public String changeScore(){
-        if (this.getChangeScore()==null||this.getChangeScore().equals("")){
-            ActionContext.getContext().put("changeScoreMess","不能为空！");
-            checkAllGrade();
-            return "changeScoreError";
-        }
         Grade grade = new Grade();
         grade.setStudentId(this.studentId);
         grade.setChangeScore(this.changeScore);

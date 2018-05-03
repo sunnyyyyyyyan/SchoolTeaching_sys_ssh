@@ -8,14 +8,10 @@ public class Subject {
     private String changeUserId;
 
     private String username;
+    private String gradeType;
+    private String score;
+    private String studentId;
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
 
     public Subject() {
     }
@@ -24,6 +20,46 @@ public class Subject {
         this.subjectNo = subjectNo;
         this.subjectName = subjectName;
         this.userId = userId;
+        this.username = username;
+    }
+
+    public Subject(String subjectNo, String subjectName, String studentId, String gradeType, String score) {
+        this.subjectNo = subjectNo;
+        this.subjectName = subjectName;
+        this.studentId = studentId;
+        this.gradeType = gradeType;
+        this.score = score;
+    }
+
+    public String getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(String studentId) {
+        this.studentId = studentId;
+    }
+
+    public String getGradeType() {
+        return gradeType;
+    }
+
+    public void setGradeType(String gradeType) {
+        this.gradeType = gradeType;
+    }
+
+    public String getScore() {
+        return score;
+    }
+
+    public void setScore(String score) {
+        this.score = score;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
         this.username = username;
     }
 

@@ -10,8 +10,17 @@ public interface SubjectService {
     public List<Subject> showAllSubject();
     public String updateSubject(Subject subject);
 
+    public List<Subject> showAllGradeByTeacherId(String userId);
+
     public String addChooseSubject(ChooseSubject chooseSubject);
+
     public List<ChooseSubject> showAllChooseSubjectUserId(String subjectNo);
+
     public List<ChooseSubject> showSubjectByUserId(String userId);
+
     public List<ChooseSubject> showChooseUser(String userId);
+
+    public List<Subject> showAllSubjectData(int pageNow, int pageSize);
+
+    public int findAllSubjectSize();
 }
