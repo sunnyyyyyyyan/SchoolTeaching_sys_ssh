@@ -31,6 +31,9 @@
             <p align="center" >
                 <font  style="font-size: 12px;" color="red"><s:property value="#request.addQuestionMess"/> </font>
             </p>
+            <p align="center" >
+                <font  style="font-size: 12px;" color="red"><s:property value="#request.getSubjectNameByTeacherIdMess"/> </font>
+            </p>
             <form action="addQuestionAction.action" method="post">
                 <table class="table table-bordered" style="margin: 0 auto; text-align: center;width: 500px">
                     <tr>
@@ -38,10 +41,13 @@
                         <td><input type="text" name="testName"></td>
                     </tr>
                     <tr>
-                        <td>课程：</td>
-                        <td><input type="radio" name="subName" value="软件工程">软件工程
-                            <input type="radio" name="subName" value="Web">Web
-                            <input type="radio" name="subName" value="java">java
+                        <td>课程编号与名称：</td>
+                        <td>
+                            <select name="subjectNo" id="subjectNo">
+                                <s:iterator value="#request.getSubjectNameByTeacherId">
+                                    <option name="subjectNo" value="<s:property value="subjectNo"/>"><s:property value="subjectNo"/>：<s:property value="subjectName"/> </option>
+                                </s:iterator>
+                            </select>
                         </td>
                     </tr>
                     <tr>
@@ -63,7 +69,7 @@
                     </tr>
                 </table>
                 <br>
-                <table class="table table-bordered" id="selection"  style="margin: 0 auto; text-align: center;width: 500px">
+                <table class="table table-bordered" id="selection"  style="margin: 0 auto; text-align: center;width: 300px">
                     <tr>
                         <td>选项A：</td>
                         <td><input type="text" name="selectA"></td>

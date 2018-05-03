@@ -11,7 +11,6 @@ public class TestAction {
     private Integer testId;
     private String userId;
     private String testName;
-    private String subName;
     private String subjectNo;
     private String questionType;
     private String questionId;
@@ -24,7 +23,6 @@ public class TestAction {
     private int pageSize=10;//总条数
     private int totalPage;//总页数
 
-    private Integer selectId;
     private String selectA;
     private String selectB;
     private String selectC;
@@ -76,14 +74,6 @@ public class TestAction {
 
     public void setTestName(String testName) {
         this.testName = testName;
-    }
-
-    public String getSubName() {
-        return subName;
-    }
-
-    public void setSubName(String subName) {
-        this.subName = subName;
     }
 
     public String getSubjectNo() {
@@ -142,14 +132,6 @@ public class TestAction {
         this.testService = testService;
     }
 
-    public Integer getSelectId() {
-        return selectId;
-    }
-
-    public void setSelectId(Integer selectId) {
-        this.selectId = selectId;
-    }
-
     public String getSelectA() {
         return selectA;
     }
@@ -187,7 +169,6 @@ public class TestAction {
         String userId = (String)ActionContext.getContext().getSession().get("userId");
         System.out.println(userId);
         if (this.getTestName()==null||this.getTestName().equals("")||
-                this.getSubName()==null||this.getSubName().equals("")||
                 this.getQuestionId()==null||this.getQuestionId().equals("")||
                 this.getQuestionType()==null||this.getQuestionType().equals("")||
                 this.getQuestionContent()==null||this.getQuestionContent().equals("")||
@@ -196,15 +177,14 @@ public class TestAction {
             ActionContext.getContext().put("addQuestionMess","不能为空！");
             return "addQuestionError";
         }
-        String subNo = new String();
+        /*String subNo = new String();
         if(subName.equals("软件工程")){subNo="00";}
         else if(subName.equals("Web")){subNo="01";}
-        else if(subName.equals("java")){subNo="02";}
+        else if(subName.equals("java")){subNo="02";}*/
         Test test = new Test();
         test.setUserId(userId);
         test.setTestName(this.testName);        //试题ming
-        test.setSubName(this.subName);          //课程
-        test.setSubjectNo(subNo);                  //课程编号
+        test.setSubjectNo(this.subjectNo);                  //课程编号
         test.setQuestionId(this.questionId);    //题号
         test.setQuestionContent(this.questionContent);  //题目
         test.setQuestionType(this.questionType);    //题型

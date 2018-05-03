@@ -112,12 +112,6 @@ public class EvaluateAction {
 
     //添加学评
     public String addEvaluate(){
-        if (this.getSubjectNo()==null||this.getSubjectNo().equals("")||
-                this.getEvaluateQuestionId()==null||this.getEvaluateQuestionId().equals("")||
-                this.getEvaluateContent()==null||this.getEvaluateContent().equals("")){
-            ActionContext.getContext().put("addEvaluateMess","*不能为空！");
-            return "addEvaluateError";
-        }
         Evaluate evaluate = new Evaluate();
         evaluate.setSubjectNo(this.subjectNo);
         evaluate.setEvaluateQuestionId(this.evaluateQuestionId);
@@ -133,6 +127,12 @@ public class EvaluateAction {
         return "addEvaluateError";
     }
 
+    //学评题目列表
+    public String checkEvaluate(){
+        List<Evaluate> list = this.evaluateService.getEvaluateData();
+        ActionContext.getContext().put("checkEvaluate",list);
+        return "checkEvaluateSuccess";
+    }
 
     //学生根据subjectNo获取教学评价题目
     public String getEvaluateTest(){

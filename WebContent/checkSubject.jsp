@@ -31,6 +31,7 @@
             <br>
                     <%
                         String userType = (String)ActionContext.getContext().getSession().get("userType");
+                        int i = 1;
                         if (userType.equals("管理员"))
                         {
                     %>
@@ -42,6 +43,7 @@
                         </p>
                         <table class="table table-bordered" style="margin:0 auto;text-align: center;">
                             <tr>
+                                <td></td>
                                 <td>
                                     课程编号
                                 </td>
@@ -63,6 +65,7 @@
                             </tr>
                             <s:iterator value="#request.checkSubject">
                                 <tr>
+                                    <td><%=i++%></td>
                                     <td><s:property value="subjectNo"/> </td>
                                     <td><s:property value="subjectName"/></td>
                                     <td><s:property value="userId"/></td>
@@ -89,6 +92,7 @@
                         </p>
                         <table class="table table-bordered" style="margin:0 auto;text-align: center; width: 600px;">
                             <tr>
+                                <td></td>
                                 <td>
                                     课程编号
                                 </td>
@@ -107,6 +111,7 @@
                             </tr>
                             <s:iterator value="#request.checkSubject">
                                 <tr>
+                                    <td><%=i++%></td>
                                     <td><s:property value="subjectNo"/> </td>
                                     <td><s:property value="subjectName"/></td>
                                     <td><s:property value="userId"/></td>
@@ -127,6 +132,7 @@
                         </p>
                             <table class="table table-bordered" style="margin:0 auto;text-align: center; width: 600px;">
                                 <tr>
+                                    <td></td>
                                     <td>
                                         课程编号
                                     </td>
@@ -140,6 +146,7 @@
                                 </tr>
                                 <s:iterator value="#request.checkSubject">
                                     <tr>
+                                        <td><%=i++%></td>
                                         <td><s:property value="subjectNo"/> </td>
                                         <td><s:property value="subjectName"/></td>
                                         <td><s:property value="username"/></td>

@@ -239,8 +239,10 @@ public class UserAction {
 	//根据教师编号查询该教师添加的所有课程信息
 	public String getSubjectNameByTeacherId(){
 		List<User> list = this.userService.getSubjectNameByTeacherIdData(this.userId);
+		List<User> list1 = this.userService.getSubjectNoByTeacherIdData(this.userId);
 		if (list.size()>0) {
 			ActionContext.getContext().put("getSubjectNameByTeacherId", list);
+			ActionContext.getContext().put("getSubjectNameByTeacherId_1", list1);
 			return "getSubjectNameByTeacherIdSuccess";
 		}
 		ActionContext.getContext().put("getSubjectNameByTeacherIdMess","查询失败！");

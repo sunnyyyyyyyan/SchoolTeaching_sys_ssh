@@ -31,7 +31,9 @@ public class EvaluateServiceImpl implements EvaluateService {
 
     @Override
     public List<Evaluate> getEvaluateData() {
-        return null;
+        String sql = "from Evaluate";
+        List<Evaluate> list = this.evaluateDao.getData(sql);
+        return list;
     }
 
     @Override

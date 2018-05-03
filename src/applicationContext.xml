@@ -30,6 +30,7 @@
 				<value>com/po/Test.hbm.xml</value>
 				<value>com/po/ChooseSubject.hbm.xml</value>
 				<value>com/po/Evaluate.hbm.xml</value>
+				<value>com/po/GradeType.hbm.xml</value>
 			</list>
 		</property>
 	</bean>
@@ -59,9 +60,17 @@
 			<ref bean="sessionFactory"/>
 		</property>
 	</bean>
+	<bean id="gradeTypeDao" class="com.dao.impl.GradeTypeDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
 	<bean id="gradeService" class="com.service.impl.GradeServiceImpl">
 		<property name="gradeDao">
 			<ref bean="gradeDao"/>
+		</property>
+		<property name="gradeTypeDao">
+			<ref bean="gradeTypeDao"/>
 		</property>
 	</bean>
 	<bean id="gradeAction" class="com.action.GradeAction">

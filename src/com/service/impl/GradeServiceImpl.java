@@ -1,13 +1,25 @@
 package com.service.impl;
 
 import com.dao.GradeDao;
+import com.dao.GradeTypeDao;
+import com.opensymphony.xwork2.ActionContext;
 import com.po.Grade;
+import com.po.GradeType;
 import com.service.GradeService;
 
 import java.util.List;
 
 public class GradeServiceImpl implements GradeService {
     private GradeDao gradeDao;
+    private GradeTypeDao gradeTypeDao;
+
+    public GradeTypeDao getGradeTypeDao() {
+        return gradeTypeDao;
+    }
+
+    public void setGradeTypeDao(GradeTypeDao gradeTypeDao) {
+        this.gradeTypeDao = gradeTypeDao;
+    }
 
     public GradeDao getGradeDao() {
         return gradeDao;
@@ -71,5 +83,21 @@ public class GradeServiceImpl implements GradeService {
     @Override
     public int findAllGradeSize() {
         return this.gradeDao.findAllGradeSize();
+    }
+
+    @Override
+    public String addGradeTypeData(GradeType gradeType) {
+        String sql = "from GradeType where gradeTypeName='"+gradeType.getGradeTypeName()+"'";
+        List<GradeType> list = this.gradeTypeDao.getGradeTypeData(sql);
+        if (list.size()>0){
+            ActionContext.getContext().put("addGradeTypeMess","该考试类型已存在！");
+            return "addGradeTypeError";
+        }
+        if (this.gradeTypeDao.addGradeType(gradeType)){
+            ActionContext.getContext().put("addGradeTypeMess","添加成功！");
+            return "addGradeTypeSuccess";
+        }
+        ActionContext.getContext().put("addGradeTypeMess","添加失败！");
+        return "addGradeTypeError";
     }
 }

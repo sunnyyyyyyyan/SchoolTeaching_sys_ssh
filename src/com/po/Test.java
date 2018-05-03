@@ -4,7 +4,6 @@ public class Test {
     private Integer testId;
     private String userId;
     private String testName;
-    private String subName;
     private String subjectNo;
     private String questionType;
     private String questionId;
@@ -12,30 +11,12 @@ public class Test {
     private String answer;
     private String setGrade;
 
-    private Integer selectId;
     private String selectA;
     private String selectB;
     private String selectC;
     private String selectD;
 
     public Test() {
-    }
-
-    public Test(String userId, String testName, String subName, String subjectNo, String questionType, String questionId, String questionContent, String answer, String setGrade, String selectA, String selectB, String selectC, String selectD) {
-        this.userId = userId;
-        this.testName = testName;
-        this.subName = subName;
-        this.subjectNo = subjectNo;
-        this.questionType = questionType;
-        this.questionId = questionId;
-        this.questionContent = questionContent;
-        this.answer = answer;
-        this.setGrade = setGrade;
-        this.selectId = selectId;
-        this.selectA = selectA;
-        this.selectB = selectB;
-        this.selectC = selectC;
-        this.selectD = selectD;
     }
 
     public Integer getTestId() {
@@ -60,14 +41,6 @@ public class Test {
 
     public void setTestName(String testName) {
         this.testName = testName;
-    }
-
-    public String getSubName() {
-        return subName;
-    }
-
-    public void setSubName(String subName) {
-        this.subName = subName;
     }
 
     public String getSubjectNo() {
@@ -116,14 +89,6 @@ public class Test {
 
     public void setSetGrade(String setGrade) {
         this.setGrade = setGrade;
-    }
-
-    public Integer getSelectId() {
-        return selectId;
-    }
-
-    public void setSelectId(Integer selectId) {
-        this.selectId = selectId;
     }
 
     public String getSelectA() {

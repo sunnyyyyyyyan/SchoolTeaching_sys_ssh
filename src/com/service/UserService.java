@@ -18,6 +18,7 @@ public interface UserService {
 	public String deleteUser(String userId);	//根据userId删除一条
 
 	public List<User> getSubjectNameByTeacherIdData(String userId);
+	public List<User> getSubjectNoByTeacherIdData(String userId);
 
 	public List<User> getAllUserData(int pageNow, int pageSize);
 	public int findAllUserSize();

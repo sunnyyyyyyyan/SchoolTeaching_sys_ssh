@@ -27,7 +27,7 @@
         <div class="questionList">
             <h4 align="center">试题库</h4>
             <br>
-                <table class="table table-bordered" style="margin: 0 auto; text-align: center;">
+                <table class="table table-bordered" style="margin: 0 auto;">
                     <tr>
                         <td>添加者</td>
                         <td>试题名</td>
@@ -35,10 +35,10 @@
                         <td>题号</td>
                         <td>题型</td>
                         <td>题目</td>
-                        <td>选项A</td>
-                        <td>选项B</td>
-                        <td>选项C</td>
-                        <td>选项D</td>
+                        <td>A</td>
+                        <td>B</td>
+                        <td>C</td>
+                        <td>D</td>
                         <td>答案</td>
                         <td>分值</td>
                     </tr>

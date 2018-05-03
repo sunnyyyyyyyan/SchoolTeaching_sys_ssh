@@ -34,39 +34,52 @@
                 <table class="table table-bordered" style="width: 500px;margin: 0 auto;">
                     <tr>
                         <td>
-                            <font color="red">*</font>课程编号
+                            <font color="red">*</font>课程编号与名称：
                         </td>
                         <td>
-                            <input type="text" name="subjectNo">
+                            <select name="subjectNo" id="subjectNo">
+                                <s:iterator value="#request.selectAllSubject">
+                                    <option name="subjectNo" value="<s:property value="subjectNo"/>"><s:property value="subjectNo"/>：<s:property value="subjectName"/></option>
+                                </s:iterator>
+                            </select>
                         </td>
                     </tr>
+                    <tr><td></td></tr>
                     <tr>
                         <td>
                             <font color="red">*</font>学评题号：
                         </td>
                         <td>
-                            <input type="text" name="evaluateQuestionId">
+                            <input type="text" name="evaluateQuestionId" required="required">
                         </td>
                     </tr>
+                    <tr><td></td></tr>
                     <tr>
                         <td>
-                            <font color="red">*</font>学评题目
+                            <font color="red">*</font>学评题目：
                         </td>
                         <td>
-                            <input type="text" name="evaluateContent">
+                            <input type="text" name="evaluateContent" required="required">
                         </td>
+                    </tr>
+                    <tr><td></td></tr>
+                    <tr>
+                        <td>选项A：</td>
+                        <td><input type="text" name="selectA" required="required"></td>
                     </tr>
                     <tr>
-                        <td>
-                            满意度选项
-                        </td>
-                        <td>
-                            <input type="checkbox" name="selectA" value="非常满意">&nbsp;非常满意&nbsp;&nbsp;&nbsp;
-                            <input type="checkbox" name="selectB" value="较满意">&nbsp;较满意&nbsp;&nbsp;&nbsp;
-                            <input type="checkbox" name="selectC" value="满意">&nbsp;满意&nbsp;&nbsp;&nbsp;
-                            <input type="checkbox" name="selectD" value="不满意">&nbsp;不满意
-                        </td>
+                        <td>选项B：</td>
+                        <td><input type="text" name="selectB" required="required"></td>
                     </tr>
+                    <tr>
+                        <td>选项C：</td>
+                        <td><input type="text" name="selectC" required="required"></td>
+                    </tr>
+                    <tr>
+                        <td>选项D：</td>
+                        <td><input type="text" name="selectD" required="required"></td>
+                    </tr>
+                    <tr><td></td></tr>
                     <tr>
                         <td colspan="2" align="center">
                             <button type="submit">提交</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

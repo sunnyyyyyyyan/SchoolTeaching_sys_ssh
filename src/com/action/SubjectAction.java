@@ -123,6 +123,13 @@ public class SubjectAction {
         return "checkSubjectError";
     }
 
+    //添加学评里的课程信息
+    public String selectAllSubject(){
+        List<Subject> list = this.subjectService.showAllSubject();
+        ActionContext.getContext().put("selectAllSubject", list);
+        return "selectAllSubjectSuccess";
+    }
+
     //修改授课教师
     public String changeUserSubjectData(){
         Subject subject = new Subject();

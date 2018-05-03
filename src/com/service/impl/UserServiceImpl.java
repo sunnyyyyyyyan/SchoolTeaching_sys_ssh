@@ -104,6 +104,13 @@ public class UserServiceImpl implements UserService {
 	    return list;
     }
 
+    @Override
+    public List<User> getSubjectNoByTeacherIdData(String userId) {
+	    String sql = "select new User(u.userId, u.username, g.gradeTypeName) from User u,GradeType g where u.userId=g.userId and u.userId='"+userId+"'";
+        List<User> list = this.userDao.getData(sql);
+	    return list;
+    }
+
 
     //获取所有用户
 	@Override

@@ -38,11 +38,15 @@
             <result name="updateUserError">/changeUser.jsp</result>
         </action>
 
-        <action name="getSubjectNameByTeacherIdAction" class="com.action.UserAction" method="getSubjectNameByTeacherId">
+        <action name="getSubjectNoByTeacherIdAction" class="com.action.UserAction" method="getSubjectNameByTeacherId">
             <result name="getSubjectNameByTeacherIdSuccess">/addGrade.jsp</result>
             <result name="getSubjectNameByTeacherIdError">/addGrade.jsp</result>
         </action>
 
+        <action name="getSubjectNameByTeacherIdAction" class="com.action.UserAction" method="getSubjectNameByTeacherId">
+            <result name="getSubjectNameByTeacherIdSuccess">/addQuestion.jsp</result>
+            <result name="getSubjectNameByTeacherIdError">/addQuestion.jsp</result>
+        </action>
 
         <action name="addGradeAction" class="com.action.GradeAction" method="addGrade">
             <result name="addGradeSuccess">/addGrade.jsp</result>
@@ -69,6 +73,11 @@
             <result name="changeScoreError">/checkGrade.jsp</result>
         </action>
 
+        <action name="addGradeTypeAction" class="com.action.GradeAction" method="addGradeType">
+            <result name="addGradeTypeSuccess">/addGradeType.jsp</result>
+            <result name="addGradeTypeError">/addGradeType.jsp</result>
+        </action>
+
 
         <action name="addSubjectAction" class="com.action.SubjectAction" method="addSubjectData">
             <result name="addSubjectSuccess">/addSubject.jsp</result>
@@ -78,6 +87,11 @@
         <action name="checkSubjectAction" class="com.action.SubjectAction" method="checkSubjectData">
             <result name="checkSubjectSuccess">/checkSubject.jsp</result>
             <result name="checkSubjectError">/checkSubject.jsp</result>
+        </action>
+
+        <action name="selectAllSubjectAction" class="com.action.SubjectAction" method="selectAllSubject">
+            <result name="selectAllSubjectSuccess">/addEvaluate.jsp</result>
+            <result name="selectAllSubjectError">/addEvaluate.jsp</result>
         </action>
 
         <action name="changeUserSubjectAction" class="com.action.SubjectAction" method="changeUserSubjectData">
@@ -94,6 +108,7 @@
             <result name="getAllGradeByTeacherIdSuccess">/checkGrade.jsp</result>
             <result name="getAllGradeByTeacherIdError">/checkGrade.jsp</result>
         </action>
+
 
 
 
@@ -132,6 +147,10 @@
         <action name="addEvaluateAction" class="com.action.EvaluateAction" method="addEvaluate">
             <result name="addEvaluateSuccess">/addEvaluate.jsp</result>
             <result name="addEvaluateError">/addEvaluate.jsp</result>
+        </action>
+
+        <action name="checkEvaluateAction" class="com.action.EvaluateAction" method="checkEvaluate">
+            <result name="checkEvaluateSuccess">/checkEvaluate.jsp</result>
         </action>
 
         <action name="getEvaluateTestAction" class="com.action.EvaluateAction" method="getEvaluateTest">

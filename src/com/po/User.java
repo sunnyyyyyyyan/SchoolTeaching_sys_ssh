@@ -11,7 +11,7 @@ public class User {
 
 	private String subjectNo;
 	private String subjectName;
-
+	private String gradeTypeName;
 	public User() {
 	}
 
@@ -20,6 +20,20 @@ public class User {
 		this.username = username;
 		this.subjectNo = subjectNo;
 		this.subjectName = subjectName;
+	}
+
+	public User(String userId, String username, String gradeTypeName) {
+		this.userId = userId;
+		this.username = username;
+		this.gradeTypeName = gradeTypeName;
+	}
+
+	public String getGradeTypeName() {
+		return gradeTypeName;
+	}
+
+	public void setGradeTypeName(String gradeTypeName) {
+		this.gradeTypeName = gradeTypeName;
 	}
 
 	public String getSubjectName() {

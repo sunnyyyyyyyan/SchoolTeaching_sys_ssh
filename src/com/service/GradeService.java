@@ -1,6 +1,7 @@
 package com.service;
 
 import com.po.Grade;
+import com.po.GradeType;
 
 import java.util.List;
 
@@ -12,4 +13,6 @@ public interface GradeService {
 
     public List<Grade> getAllGradeData(int pageNow, int pageSize);
     public int findAllGradeSize();
+
+    public String addGradeTypeData(GradeType gradeType);    //添加考试类型
 }

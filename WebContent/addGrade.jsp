@@ -60,11 +60,9 @@
                         </td>
                         <td>
                             <select name="gradeType" id="gradeType">
-                                <option value="大作业">大作业</option>
-                                <option value="报告">报告</option>
-                                <option value="课堂互动">课堂互动</option>
-                                <option value="期中考试">期中考试</option>
-                                <option value="期末考试">期末考试</option>
+                                <s:iterator value="#request.getSubjectNameByTeacherId_1">
+                                    <option name="gradeType" value="<s:property value="gradeTypeName"/>"><s:property value="gradeTypeName"/></option>
+                                </s:iterator>
                             </select>
                         </td>
                     </tr>

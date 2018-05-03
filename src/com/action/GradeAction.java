@@ -2,6 +2,7 @@ package com.action;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.po.Grade;
+import com.po.GradeType;
 import com.po.PageShow;
 import com.service.GradeService;
 
@@ -21,6 +22,15 @@ public class GradeAction {
     private int totalPage;//总页数
 
     private String userId;
+    private String gradeTypeName;
+
+    public String getGradeTypeName() {
+        return gradeTypeName;
+    }
+
+    public void setGradeTypeName(String gradeTypeName) {
+        this.gradeTypeName = gradeTypeName;
+    }
 
     public String getUserId() {
         return userId;
@@ -175,6 +185,19 @@ public class GradeAction {
         ActionContext.getContext().put("changeScoreMess","修改失败！");
         checkAllGrade();
         return "changeScoreError";
+    }
+
+    //增加考试类型
+    public String addGradeType(){
+        String user = (String) ActionContext.getContext().getSession().get("userId");
+        GradeType gradeType = new GradeType();
+        gradeType.setGradeTypeName(this.gradeTypeName);
+        gradeType.setUserId(user);
+        String strMess = this.gradeService.addGradeTypeData(gradeType);
+        if (strMess.equals("addGradeTypeSuccess")) {
+            return "addGradeTypeSuccess";
+        }
+        return "addGradeTypeError";
     }
 
 }
