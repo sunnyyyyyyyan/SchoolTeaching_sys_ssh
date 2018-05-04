@@ -37,8 +37,14 @@
             <form action="addQuestionAction.action" method="post">
                 <table class="table table-bordered" style="margin: 0 auto; text-align: center;width: 500px">
                     <tr>
-                        <td>试题名：</td>
-                        <td><input type="text" name="testName"></td>
+                        <td>考试类型：</td>
+                        <td>
+                            <select name="testName" id="testName">
+                                <s:iterator value="#request.getSubjectNameByTeacherId_1">
+                                    <option name="testName" value="<s:property value="gradeTypeName"/>"><s:property value="gradeTypeName"/></option>
+                                </s:iterator>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
                         <td>课程编号与名称：</td>
@@ -52,7 +58,7 @@
                     </tr>
                     <tr>
                         <td>题号：</td>
-                        <td><input type="text" name="questionId"></td>
+                        <td><input type="text" name="questionId" required="required"></td>
                     </tr>
                     <tr>
                         <td>题型：</td>
@@ -64,7 +70,7 @@
                     <tr>
                         <td>题目：</td>
                         <td>
-                            <input type="text" name="questionContent">
+                            <input type="text" name="questionContent" required="required">
                         </td>
                     </tr>
                 </table>

@@ -33,17 +33,17 @@ public class SubjectServiceImpl implements SubjectService {
     //添加课程
     @Override
     public String addSubject(Subject subject) {
-        String sql = "from Subject where subjectNo='"+subject.getSubjectNo()+"'";
+        String sql = "from Subject where subjectNo='" + subject.getSubjectNo() + "'";
         List<Subject> list = this.subjectDao.getData(sql);
-        if (list.size()>0){
-            ActionContext.getContext().put("addSubjectMess","课程已存在！");
+        if (list.size() > 0) {
+            ActionContext.getContext().put("addSubjectMess", "课程已存在！");
             return "addSubjectError";
         }
-        if (this.subjectDao.addSubject(subject)){
-            ActionContext.getContext().put("addSubjectMess","添加成功！");
+        if (this.subjectDao.addSubject(subject)) {
+            ActionContext.getContext().put("addSubjectMess", "添加成功！");
             return "addSubjectSuccess";
         }
-        ActionContext.getContext().put("addSubjectMess","添加失败！");
+        ActionContext.getContext().put("addSubjectMess", "添加失败！");
         return "addSubjectError";
     }
 
@@ -57,11 +57,11 @@ public class SubjectServiceImpl implements SubjectService {
     //修改
     @Override
     public String updateSubject(Subject subject) {
-        String sql = "from Subject where subjectNo='"+subject.getSubjectNo()+"'";
+        String sql = "from Subject where subjectNo='" + subject.getSubjectNo() + "'";
         List<Subject> list = this.subjectDao.getData(sql);
         Subject subject1 = list.get(0);
         subject1.setUserId(subject.getChangeUserId());
-        if (this.subjectDao.updateSubject(subject1)){
+        if (this.subjectDao.updateSubject(subject1)) {
             return "changeUserSubjectSuccess";
         }
         return "changeUserSubjectError";
@@ -69,29 +69,43 @@ public class SubjectServiceImpl implements SubjectService {
 
     @Override
     public List<Subject> showAllGradeByTeacherId(String userId) {
-        String sql = "select new Subject(s.subjectNo, s.subjectName, g.studentId, g.gradeType, g.score) from Subject s, Grade g where s.subjectNo=g.subjectNo and s.userId='"+userId+"'";
+        String sql = "select new Subject(s.subjectNo, s.subjectName, g.studentId, g.gradeType, g.score) from Subject s, Grade g where s.subjectNo=g.subjectNo and s.userId='" + userId + "'";
         List<Subject> list = this.subjectDao.getData(sql);
         return list;
     }
 
     //根据userId获取课程信息
     @Override
+    public List<ChooseSubject> showSubjectBySubjectNoTestName(String subjectNo) {
+        String sql = "select new ChooseSubject(c.subjectNo, c.subjectName, t.testName) from ChooseSubject c, Test t where c.subjectNo=t.subjectNo and c.subjectNo='" + subjectNo + "'";
+        List<ChooseSubject> list = this.chooseSubjectDao.getData(sql);
+        if (list.size()>0) {
+            ChooseSubject chooseSubject = list.get(0);
+            String subjectName = chooseSubject.getSubjectName();
+            ActionContext.getContext().getSession().put("subjectName", subjectName);
+            ActionContext.getContext().put("showSubjectByUserIdTestName", list);
+            return list;
+        }
+        return null;
+    }
+
+    @Override
     public List<ChooseSubject> showSubjectByUserId(String userId) {
-        String sql = "from ChooseSubject where chooseUserId='"+userId+"'";
-        List<ChooseSubject> list =this.chooseSubjectDao.getData(sql);
+        String sql = "from ChooseSubject where chooseUserId='" + userId + "'";
+        List<ChooseSubject> list = this.chooseSubjectDao.getData(sql);
         return list;
     }
 
     @Override
     public List<ChooseSubject> showChooseUser(String userId) {
-        String sql = "select new ChooseSubject(c.subjectNo, c.subjectName, u.username) from ChooseSubject c, Subject s, User u where c.subjectNo=s.subjectNo and s.userId=u.userId and c.chooseUserId='"+userId+"'";
+        String sql = "select new ChooseSubject(c.subjectNo, c.subjectName, u.username) from ChooseSubject c, Subject s, User u where c.subjectNo=s.subjectNo and s.userId=u.userId and c.chooseUserId='" + userId + "'";
         List<ChooseSubject> list = this.chooseSubjectDao.getData(sql);
         return list;
     }
 
     @Override
     public List<Subject> showAllSubjectData(int pageNow, int pageSize) {
-        List<Subject> list = this.subjectDao.getAllSubjectData(pageNow,pageSize);
+        List<Subject> list = this.subjectDao.getAllSubjectData(pageNow, pageSize);
         return list;
     }
 
@@ -104,26 +118,27 @@ public class SubjectServiceImpl implements SubjectService {
     //选课
     @Override
     public String addChooseSubject(ChooseSubject chooseSubject) {
-        String sql = "from ChooseSubject where subjectNo='"+chooseSubject.getSubjectNo()+"' and chooseUserId='"+chooseSubject.getChooseUserId()+"'";
+        String sql = "from ChooseSubject where subjectNo='" + chooseSubject.getSubjectNo() + "' and chooseUserId='" + chooseSubject.getChooseUserId() + "'";
         List<ChooseSubject> list = this.chooseSubjectDao.getData(sql);
-        if (list.size()>0){
-            ActionContext.getContext().put("chooseSubjectMess","你已选过此课程！");
+        if (list.size() > 0) {
+            ActionContext.getContext().put("chooseSubjectMess", "你已选过此课程！");
             return "chooseSubjectError";
         }
-        if (this.chooseSubjectDao.addChooseSubject(chooseSubject)){
-            ActionContext.getContext().put("chooseSubjectMess","选课成功！");
+        if (this.chooseSubjectDao.addChooseSubject(chooseSubject)) {
+            ActionContext.getContext().put("chooseSubjectMess", "选课成功！");
             return "chooseSubjectSuccess";
         }
-        ActionContext.getContext().put("chooseSubjectMess","选课失败！");
+        ActionContext.getContext().put("chooseSubjectMess", "选课失败！");
         return "chooseSubjectError";
     }
 
     //根据subjectNo获取课程和教师信息
     @Override
     public List<ChooseSubject> showAllChooseSubjectUserId(String subjectNo) {
-        String hql = "select new ChooseSubject(c.subjectNo,c.subjectName,c.chooseUserId,u.username) from User u,ChooseSubject c where u.userId=c.chooseUserId and c.subjectNo='"+subjectNo+"'";
+        String hql = "select new ChooseSubject(c.subjectNo,c.subjectName,c.chooseUserId,u.username) from User u,ChooseSubject c where u.userId=c.chooseUserId and c.subjectNo='" + subjectNo + "'";
         //String sql = "from ChooseSubject where subjectNo='"+subjectNo+"'";
         List<ChooseSubject> list = this.chooseSubjectDao.getData(hql);
         return list;
     }
+
 }

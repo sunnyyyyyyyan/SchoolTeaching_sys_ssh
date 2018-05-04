@@ -27,7 +27,9 @@
 
     <div id="center_column">
         <div class="doEvaluate">
-            <h3 align="center">教学评价</h3>
+            <button type="button" class="btn btn-default" name="Submit" style="float: right;width:50px;" onclick="javascript:history.back(-1);" value="返回" >返回</button>
+            <br>
+            <h4 align="center">教学评价</h4>
             <br>
             <p align="center" >
                 <font  style="font-size: 12px;" color="red"><s:property value="subjectNo"/><s:property value="#request.getMessInChooseMess"/> </font>

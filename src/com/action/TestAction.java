@@ -20,7 +20,7 @@ public class TestAction {
     private TestService testService;
 
     private int pageNow=1;//当前页
-    private int pageSize=10;//总条数
+    private int pageSize=15;//总条数
     private int totalPage;//总页数
 
     private String selectA;
@@ -177,10 +177,6 @@ public class TestAction {
             ActionContext.getContext().put("addQuestionMess","不能为空！");
             return "addQuestionError";
         }
-        /*String subNo = new String();
-        if(subName.equals("软件工程")){subNo="00";}
-        else if(subName.equals("Web")){subNo="01";}
-        else if(subName.equals("java")){subNo="02";}*/
         Test test = new Test();
         test.setUserId(userId);
         test.setTestName(this.testName);        //试题ming
@@ -234,10 +230,19 @@ public class TestAction {
     }
 
     //获取考试试题
-    public String startTesting(){
-        List<Test> list = this.testService.showTest(this.subjectNo);
-        ActionContext.getContext().put("startTesting", list);
-        return "startTestingSuccess";
+    public String getTestingList(){
+        Test test = new Test();
+        test.setSubjectNo(this.subjectNo);
+        test.setTestName(this.testName);
+        System.out.println(this.testName);
+
+        List<Test> list = this.testService.showTest(test);
+        if (list.size()>0) {
+            ActionContext.getContext().put("getTestingList", list);
+            return "getTestingListSuccess";
+        }
+        ActionContext.getContext().put("getTestingListMess", "暂无考试试题！");
+        return "getTestingListError";
     }
 
 }

@@ -9,7 +9,7 @@
 <%@taglib uri="/struts-tags" prefix="s"%>
 <html>
 <head>
-    <title>试题列表</title>
+    <title>试题库</title>
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 </head>
@@ -30,7 +30,7 @@
                 <table class="table table-bordered" style="margin: 0 auto;">
                     <tr>
                         <td>添加者</td>
-                        <td>试题名</td>
+                        <td>考试类型</td>
                         <td>课程</td>
                         <td>题号</td>
                         <td>题型</td>
@@ -47,7 +47,7 @@
 
                             <td><s:property value="userId"/> </td>
                             <td><s:property value="testName"/> </td>
-                            <td><s:property value="subName"/></td>
+                            <td><s:property value="subjectNo"/></td>
                             <td><s:property value="questionId"/></td>
                             <td><s:property value="questionType"/></td>
                             <td><s:property value="questionContent"/></td>

@@ -43,8 +43,8 @@ public class TestServiceImpl implements TestService {
     }
 
     @Override
-    public List<Test> showTest(String subjectNo) {
-        String sql = "from Test where subjectNo='"+subjectNo+"'";
+    public List<Test> showTest(Test test) {
+        String sql = "from Test where subjectNo='"+test.getSubjectNo()+"' and testName='"+test.getTestName()+"'";
         List<Test> list = this.testDao.getData(sql);
         return list;
     }

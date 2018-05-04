@@ -56,7 +56,7 @@
                     </tr>
                     <tr>
                         <td>
-                            成绩类型：
+                            考试类型：
                         </td>
                         <td>
                             <select name="gradeType" id="gradeType">

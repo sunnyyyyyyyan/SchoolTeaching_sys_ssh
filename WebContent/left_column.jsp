@@ -195,7 +195,7 @@
                                 </a>
                                 <ul class="tab" id="student_tab_2_content">
                                     <li><a class="li_sort_content" href="checkAllGradeByStudentIdAction.action?userId=<%=userId %>" target="_parent">查看成绩</a></li>
-                                    <li><a class="li_sort_content" href="getSubjectByUserIdAction.action?userId=<%=userId %>" target="_parent">在线测评</a></li>
+                                    <li><a class="li_sort_content" href="getSubjectByUserIdAction.action?userId=<%=userId %>" target="_parent">已选课程</a></li>
                                     <li><a class="li_sort_content" href="getMessInChooseAction.action?userId=<%=userId %>" target="_parent">教学评价</a></li>
                                 </ul>
                             </li>

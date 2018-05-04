@@ -17,7 +17,7 @@ public class SubjectAction {
     private String changeUserId;
 
     private int pageNow=1;//当前页
-    private int pageSize=10;//总条数
+    private int pageSize=15;//总条数
     private int totalPage;//总页数
 
     public int getPageNow() {
@@ -188,8 +188,15 @@ public class SubjectAction {
     //根据userId获取课程信息进行考试
     public String getSubjectByUserId(){
         List<ChooseSubject> list = this.subjectService.showSubjectByUserId(this.userId);
-        ActionContext.getContext().put("showSubjectByUserId", list);
+        ActionContext.getContext().put("getSubjectByUserId", list);
         return "getSubjectByUserIdSuccess";
+    }
+
+    //根据课程编号获取考试类型
+    public String getTestingName(){
+        List<ChooseSubject> list = this.subjectService.showSubjectBySubjectNoTestName(this.subjectNo);
+        ActionContext.getContext().put("showSubjectByUserIdTestName", list);
+        return "getTestingNameSuccess";
     }
 
     //根据当前userId获取课程、教师信息进行评教

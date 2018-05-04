@@ -18,7 +18,7 @@ public class GradeAction {
     private GradeService gradeService;
 
     private int pageNow=1;//当前页
-    private int pageSize=10;//总条数
+    private int pageSize=15;//总条数
     private int totalPage;//总页数
 
     private String userId;

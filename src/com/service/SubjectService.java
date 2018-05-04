@@ -17,6 +17,7 @@ public interface SubjectService {
     public List<ChooseSubject> showAllChooseSubjectUserId(String subjectNo);
 
     public List<ChooseSubject> showSubjectByUserId(String userId);
+    public List<ChooseSubject> showSubjectBySubjectNoTestName(String subjectNo);
 
     public List<ChooseSubject> showChooseUser(String userId);
 

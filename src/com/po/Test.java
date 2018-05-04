@@ -16,7 +16,32 @@ public class Test {
     private String selectC;
     private String selectD;
 
+    private String subjectName;
+
     public Test() {
+    }
+
+    public Test(String userId, String testName, String subjectNo, String questionType, String questionId, String questionContent, String setGrade, String selectA, String selectB, String selectC, String selectD, String subjectName) {
+        this.userId = userId;
+        this.testName = testName;
+        this.subjectNo = subjectNo;
+        this.questionType = questionType;
+        this.questionId = questionId;
+        this.questionContent = questionContent;
+        this.setGrade = setGrade;
+        this.selectA = selectA;
+        this.selectB = selectB;
+        this.selectC = selectC;
+        this.selectD = selectD;
+        this.subjectName = subjectName;
+    }
+
+    public String getSubjectName() {
+        return subjectName;
+    }
+
+    public void setSubjectName(String subjectName) {
+        this.subjectName = subjectName;
     }
 
     public Integer getTestId() {

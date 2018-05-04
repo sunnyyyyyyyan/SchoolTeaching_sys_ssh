@@ -49,7 +49,7 @@
                 <table id="store" class="table table-bordered" style="text-align: center;margin:0 auto;width: 600px">
                     <tr>
                         <td>学号</td>
-                        <td>成绩类型</td>
+                        <td>考试类型</td>
                         <td>成绩</td>
                         <td>修改成绩</td>
                         <td>操作</td>
@@ -112,7 +112,7 @@
                         <tr>
                             <td>学号</td>
                             <td>课程名称</td>
-                            <td>成绩类型</td>
+                            <td>考试类型</td>
                             <td>成绩</td>
                             <td>修改成绩</td>
                             <td>操作</td>
@@ -147,7 +147,7 @@
             <table class="table table-bordered" style="text-align: center;margin:0 auto;width: 600px">
                         <tr>
                             <td>学号</td>
-                            <td>成绩类型</td>
+                            <td>考试类型</td>
                             <td>成绩</td>
                         </tr>
                         <s:iterator value="#request.checkAllGradeByStudentIdMess">

@@ -25,8 +25,10 @@
 
     <div id="center_column">
       <div class="showAllStudentBySubject">
-
-        <h3 align="center">已选课程为：<s:property value="subjectName"/>&nbsp;的学生名单</h3>
+        <button type="button" class="btn btn-default" name="Submit" style="float: right;width:50px;" onclick="javascript:history.back(-1);" value="返回" >返回</button>
+        <br>
+        <br>
+        <h4 align="center">已选课程为：<s:property value="subjectName"/>&nbsp;的学生名单</h4>
         <br>
         <table class="table table-bordered" style="width: 300px;margin: 0 auto;text-align: center">
           <tr>

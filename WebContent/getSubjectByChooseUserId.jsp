@@ -11,7 +11,7 @@
 <%@taglib uri="/struts-tags" prefix="s"%>
 <html>
 <head>
-    <title>考试课程</title>
+    <title>已选课程</title>
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 </head>
@@ -27,23 +27,22 @@
 
     <div id="center_column">
         <div class="testOnline">
+            <h4 align="center">已选课程</h4>
             <br>
+
             <br>
-                <p align="center" >
-                    <font  style="font-size: 12px;" color="red"><s:property value="subjectNo"/>&nbsp;<s:property value="#request.startTestingMess"/> </font>
-                </p>
                 <table class="table table-bordered" style="margin: 0 auto;text-align: center;width: 350px">
                     <tr>
                         <td>课程编号</td>
                         <td>课程名称</td>
-                        <td>考试</td>
+                        <td>考试类型</td>
                     </tr>
-                    <s:iterator value="#request.showSubjectByUserId">
+                    <s:iterator value="#request.getSubjectByUserId">
                     <tr>
                         <td><s:property value="subjectNo"/> </td>
                         <td><s:property value="subjectName"/> </td>
                         <td>
-                            <a href="startTestingAction.action?subjectNo=<s:property value="subjectNo"/>">开始考试</a>
+                            <a href="getTestingNameAction.action?subjectNo=<s:property value="subjectNo"/>">查看</a>
                         </td>
                     </tr>
                     </s:iterator>

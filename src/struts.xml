@@ -100,8 +100,13 @@
         </action>
 
         <action name="getSubjectByUserIdAction" class="com.action.SubjectAction" method="getSubjectByUserId">
-            <result name="getSubjectByUserIdSuccess">/testOnline.jsp</result>
-            <result name="getSubjectByUserIdError">/testOnline.jsp</result>
+            <result name="getSubjectByUserIdSuccess">/getSubjectByChooseUserId.jsp</result>
+            <result name="getSubjectByUserIdError">/getSubjectByChooseUserId.jsp</result>
+        </action>
+
+        <action name="getTestingNameAction" class="com.action.SubjectAction" method="getTestingName">
+            <result name="getTestingNameSuccess">/checkTestingName.jsp</result>
+            <result name="getTestingNameError">/getSubjectByChooseUserId.jsp</result>
         </action>
 
         <action name="getAllGradeByTeacherIdAction" class="com.action.SubjectAction" method="getAllGradeByTeacherId">
@@ -122,9 +127,13 @@
             <result name="questionListError">/questionList.jsp</result>
         </action>
 
-        <action name="startTestingAction" class="com.action.TestAction" method="startTesting">
+        <!--<action name="getTestingListAction" class="com.action.TestAction" method="startTesting">
             <result name="startTestingSuccess">/startTesting.jsp</result>
-            <result name="startTestingError">/testOnline.jsp</result>
+            <result name="startTestingError">/startTesting.jsp</result>
+        </action>-->
+        <action name="getTestingListAction" class="com.action.TestAction" method="getTestingList">
+            <result name="getTestingListSuccess">/checkTestingName.jsp</result>
+            <result name="getTestingListError">/checkTestingName.jsp</result>
         </action>
 
 

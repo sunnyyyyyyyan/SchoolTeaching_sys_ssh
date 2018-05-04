@@ -46,12 +46,11 @@
     <div id="center_column">
         <%
             String user = (String)ActionContext.getContext().getSession().get("userId");
-            String subjectName = (String)ActionContext.getContext().getSession().get("subjectName");
             List<Test> list = (List<Test>)ActionContext.getContext().get("startTesting");
             if (list==null){
         %>
                 <p align="center" style="color: red;">
-                    <%=subjectName %> 暂无考试试题！
+                    <font  style="font-size: 12px;" color="red"><s:property value="subjectNo"/>&nbsp;<s:property value="#request.startTestingMess"/> </font>
                 </p>
         <%
             }
@@ -68,8 +67,8 @@
                         <td><%=user %></td>
                     </tr>
                     <tr>
-                        <td>考试课程：</td>
-                        <td><%=subjectName %></td>
+                        <td>课程编号：</td>
+                        <td><s:property value="subjectNo"/></td>
                     </tr>
                     <tr>
                         <td>考试时间：</td>
