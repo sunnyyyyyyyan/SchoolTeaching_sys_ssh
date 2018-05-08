@@ -40,6 +40,7 @@ public class UserDaoImpl implements UserDao{
 		return null;
 	}
 
+
 	@Override
 	public int findAllUserSize() {
 		Session session = this.sessionFactory.openSession();
@@ -117,6 +118,11 @@ public class UserDaoImpl implements UserDao{
 			System.err.println(e);	
 		}
 		return isSuccess;
+	}
+
+	@Override
+	public List<User> getAllUserByTeacherData(String userId, int pageNow, int pageSize) {
+		return null;
 	}
 
 }

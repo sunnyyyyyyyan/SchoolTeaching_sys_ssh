@@ -48,6 +48,8 @@
             <result name="getSubjectNameByTeacherIdError">/addQuestion.jsp</result>
         </action>
 
+
+
         <action name="addGradeAction" class="com.action.GradeAction" method="addGrade">
             <result name="addGradeSuccess">/addGrade.jsp</result>
             <result name="addGradeError">/addGrade.jsp</result>
@@ -127,10 +129,6 @@
             <result name="questionListError">/questionList.jsp</result>
         </action>
 
-        <!--<action name="getTestingListAction" class="com.action.TestAction" method="startTesting">
-            <result name="startTestingSuccess">/startTesting.jsp</result>
-            <result name="startTestingError">/startTesting.jsp</result>
-        </action>-->
         <action name="getTestingListAction" class="com.action.TestAction" method="getTestingList">
             <result name="getTestingListSuccess">/checkTestingName.jsp</result>
             <result name="getTestingListError">/checkTestingName.jsp</result>

@@ -94,9 +94,12 @@ public class SubjectAction {
 
     public String addSubjectData(){
         String user = (String)ActionContext.getContext().getSession().get("userId");
-        if (this.getSubjectNo()==null||this.getSubjectNo().equals("")||
-                this.getSubjectName()==null||this.getSubjectName().equals("")){
-            ActionContext.getContext().put("addSubjectMess","课程编号和名称均不能为空！");
+        if (this.getSubjectNo()==null||this.getSubjectNo().equals("")){
+            ActionContext.getContext().put("addSubjectMess","课程编号不能为空！");
+            return "addSubjectError";
+        }
+        if (this.getSubjectName()==null||this.getSubjectName().equals("")){
+            ActionContext.getContext().put("addSubjectMess","课程名称不能为空！");
             return "addSubjectError";
         }
         Subject subject = new Subject();

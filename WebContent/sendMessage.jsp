@@ -25,10 +25,11 @@
 
     <div id="center_column">
         <div class="sendMessage">
+            <br>
             <h4 align="center">发布通知</h4>
             <br>
             <form action="#">
-                <table class="table table-bordered">
+                <table class="table table-bordered" style="width: 600px;margin: 0 auto;margin-top: 40px">
                     <tr>
                         <td>发布者：</td>
                         <td>
@@ -49,15 +50,19 @@
                             <font size="2" color="red">最多可输入100字</font>
                         </td>
                     </tr>
+
                     <tr>
-                        <td>操作：&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                        <td>
+                        <td colspan="2">
+                            <textarea name="content" id="editor"  Style="width: 600px;height: 200px;padding-left: 30px" placeholder="请输入通知内容！"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center">
                             <input type="submit" value="保存并发布">
                             <font size="2" color="red">在下方输入通知内容点击发布</font>
                         </td>
                     </tr>
                 </table>
-                <textarea name="content" id="editor"  Style="height:40%;width:99.9%" placeholder="请输入通知内容！"></textarea>
             </form>
         </div>
     </div>

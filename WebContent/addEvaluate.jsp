@@ -25,7 +25,7 @@
 
     <div id="center_column">
         <div class="addEvaluate">
-            <h3 align="center">添加学评</h3>
+            <h3 align="center">添加学评题目</h3>
             <br>
             <p align="center" >
                 <font  style="font-size: 12px;" color="red"><s:property value="#request.addEvaluateMess"/> </font>

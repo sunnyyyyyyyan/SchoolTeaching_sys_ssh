@@ -24,15 +24,15 @@
         <div class="carousel-inner">
             <div class="item active">
                 <img src="./images/sky.jpg" alt="First slide" width="600px">
-                <div class="carousel-caption"> 1</div>
+                <div class="carousel-caption">关于发布新学期放假日程安排通知</div>
             </div>
             <div class="item">
                 <img src="./images/sky.jpg" alt="Second slide" width="600px">
-                <div class="carousel-caption"> 2</div>
+                <div class="carousel-caption"> 关于发布新学期放假日程安排通知</div>
             </div>
             <div class="item">
                 <img src="./images/sky.jpg" alt="Third slide" width="600px">
-                <div class="carousel-caption"> 3</div>
+                <div class="carousel-caption"> 关于发布新学期放假日程安排通知</div>
             </div>
         </div>
         <!-- 轮播（Carousel）导航 -->

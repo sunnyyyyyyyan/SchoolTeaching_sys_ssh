@@ -25,9 +25,10 @@
 
     <div id="center_column">
         <div class="checkMessage">
-            <h2 align="center">通知列表</h2>
             <br>
-            <table class="table table-bordered">
+            <h4 align="center">通知列表</h4>
+            <br>
+            <table class="table table-bordered" style="margin:0 auto;width: 600px">
                 <thead>
                     <tr>
                         <td>标题</td>

@@ -84,7 +84,7 @@ body {
     text-decoration: none;
 }
 .tab{
-    margin-left: 60px;
+    margin-left: 30px;
     font-size: 14px;
 }
 ul,li{
@@ -109,6 +109,7 @@ a:active{
 }
 .top{
     padding-left: 80px;
+    padding-top: 100px;
 }
 #myCarousel{
     width: 600px;

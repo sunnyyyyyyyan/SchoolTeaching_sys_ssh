@@ -11,6 +11,8 @@ public interface UserDao {
 	public boolean delUser(User user);
 	public boolean updateUser(User user);
 
+	public List<User> getAllUserByTeacherData(String userId,int pageNow, int pageSize);
+
 	//查询所有用户列表
 	public List<User> getAllUserData(int pageNow, int pageSize);
 	public int findAllUserSize();

@@ -86,24 +86,26 @@
                             </ul>
                         </li>
                         <li class="list">
+                            <a id="admin_tab_3" class="li_sort" href="#">
+                                <img src="./images/sort_menu.gif" width="26px" align="absmiddle" />
+                                课程管理
+                            </a>
+                            <ul class="tab" id="admin_tab_3_content">
+                                <li><a class="li_sort_content" href="addSubject.jsp" target="_parent">添加课程</a></li>
+                                <li><a class="li_sort_content" href="checkSubjectAction.action" target="_parent">课程与选课</a></li>
+                                <li><a class="li_sort_content" href="getSubjectNameByTeacherIdAction.action?userId=<%=userId %>" target="_parent">增加试题</a></li>
+                                <li><a class="li_sort_content" href="questionListAction.action" target="_parent">试题库</a></li>
+                            </ul>
+                        </li>
+                        <li class="list">
                             <a id="admin_tab_2" class="li_sort" href="#">
                                 <img src="./images/sort_menu.gif" width="26px" align="absmiddle" />
                                 教学管理
                             </a>
                             <ul class="tab" id="admin_tab_2_content">
                                 <li><a class="li_sort_content" href="checkAllGradeAction.action" target="_parent">查看成绩</a></li>
-                                <li><a class="li_sort_content" href="selectAllSubjectAction.action" target="_parent">学评题目</a></li>
+                                <li><a class="li_sort_content" href="selectAllSubjectAction.action" target="_parent">添加学评题目</a></li>
                                 <li><a class="li_sort_content" href="checkEvaluateAction.action" target="_parent">学评题目列表</a></li>
-                            </ul>
-                        </li>
-                        <li class="list">
-                            <a id="admin_tab_3" class="li_sort" href="#">
-                                <img src="./images/sort_menu.gif" width="26px" align="absmiddle" />
-                                课程管理
-                            </a>
-                            <ul class="tab" id="admin_tab_3_content">
-                                <li><a class="li_sort_content" href="checkSubjectAction.action" target="_parent">课程与选课</a></li>
-                                <li><a class="li_sort_content" href="questionListAction.action" target="_parent">试题库</a></li>
                             </ul>
                         </li>
                         <%--<li class="list">
@@ -131,9 +133,22 @@
                                     系统管理
                                 </a>
                                 <ul class="tab" id="teacher_tab_1_content">
-                                    <li><a class="li_sort_content" href="addUser.jsp" target="_parent">添加用户</a></li>
+                                    <li><a class="li_sort_content" href="addUser.jsp" target="_parent">添加学生</a></li>
                                     <li><a class="li_sort_content" href="allUserAction.action" target="_parent">用户列表</a></li>
                                     <li><a class="li_sort_content" href="getUserByIdAction.action?userId=<%=userId%> " target="_parent">修改信息</a></li>
+                                </ul>
+                            </li>
+                            <li class="list">
+                                <a id="teacher_tab_3" class="li_sort" href="#">
+                                    <img src="./images/sort_menu.gif" width="26px" align="absmiddle" />
+                                    课程管理
+                                </a>
+                                <ul class="tab" id="teacher_tab_3_content">
+                                    <li><a class="li_sort_content" href="addSubject.jsp" target="_parent">添加课程</a></li>
+                                    <li><a class="li_sort_content" href="addGradeType.jsp" target="_parent">添加考试类型</a></li>
+                                    <li><a class="li_sort_content" href="checkSubjectAction.action " target="_parent">课程与选课学生</a></li>
+                                    <li><a class="li_sort_content" href="getSubjectNameByTeacherIdAction.action?userId=<%=userId %>" target="_parent">增加试题</a></li>
+                                    <li><a class="li_sort_content" href="questionListAction.action" target="_parent">试题库</a></li>
                                 </ul>
                             </li>
                             <li class="list">
@@ -145,19 +160,6 @@
                                     <li><a class="li_sort_content" href="getSubjectNoByTeacherIdAction.action?userId=<%=userId %>" target="_parent">录入成绩</a></li>
                                     <li><a class="li_sort_content" href="getAllGradeByTeacherIdAction.action?userId=<%=userId %>" target="_parent">查看成绩</a></li>
                                     <li><a class="li_sort_content" href="checkTeaching.jsp" target="_parent">查看评价</a></li>
-                                </ul>
-                            </li>
-                            <li class="list">
-                                <a id="teacher_tab_3" class="li_sort" href="#">
-                                    <img src="./images/sort_menu.gif" width="26px" align="absmiddle" />
-                                    课程管理
-                                </a>
-                                <ul class="tab" id="teacher_tab_3_content">
-                                    <li><a class="li_sort_content" href="addSubject.jsp" target="_parent">添加课程</a></li>
-                                    <li><a class="li_sort_content" href="addGradeType.jsp" target="_parent">添加考试类型</a></li>
-                                    <li><a class="li_sort_content" href="checkSubjectAction.action " target="_parent">课程与选课</a></li>
-                                    <li><a class="li_sort_content" href="getSubjectNameByTeacherIdAction.action?userId=<%=userId %>" target="_parent">增加试题</a></li>
-                                    <li><a class="li_sort_content" href="questionListAction.action" target="_parent">试题库</a></li>
                                 </ul>
                             </li>
                             <%--<li class="list">
@@ -189,6 +191,15 @@
                                 </ul>
                             </li>
                             <li class="list">
+                                <a id="student_tab_3" class="li_sort" href="#">
+                                    <img src="./images/sort_menu.gif" width="26px" align="absmiddle" />
+                                    课程管理
+                                </a>
+                                <ul class="tab" id="student_tab_3_content">
+                                    <li><a class="li_sort_content" href="checkSubjectAction.action" target="_parent">课程与选课</a></li>
+                                </ul>
+                            </li>
+                            <li class="list">
                                 <a id="student_tab_2" class="li_sort" href="#">
                                     <img src="./images/sort_menu.gif" width="26px" align="absmiddle" />
                                     教学管理
@@ -197,15 +208,6 @@
                                     <li><a class="li_sort_content" href="checkAllGradeByStudentIdAction.action?userId=<%=userId %>" target="_parent">查看成绩</a></li>
                                     <li><a class="li_sort_content" href="getSubjectByUserIdAction.action?userId=<%=userId %>" target="_parent">已选课程</a></li>
                                     <li><a class="li_sort_content" href="getMessInChooseAction.action?userId=<%=userId %>" target="_parent">教学评价</a></li>
-                                </ul>
-                            </li>
-                            <li class="list">
-                                <a id="student_tab_3" class="li_sort" href="#">
-                                    <img src="./images/sort_menu.gif" width="26px" align="absmiddle" />
-                                    课程管理
-                                </a>
-                                <ul class="tab" id="student_tab_3_content">
-                                    <li><a class="li_sort_content" href="checkSubjectAction.action" target="_parent">课程与选课</a></li>
                                 </ul>
                             </li>
                             <%--<li class="list">
