@@ -26,7 +26,7 @@
 
     <div id="center_column">
         <div class="addUser">
-                <h3 align="center">添加用户</h3>
+                <h4 align="center" style="padding-top: 100px">添加用户</h4>
             <br>
             <p align="center">
                     <font  style="font-size: 12px;" color="red"><s:property value="#request.addMess" /></font>
@@ -123,7 +123,7 @@
                                     <font color="red">*</font>类型：
                                 </td>
                                 <td>
-                                    <select name="userType" id="userType">
+                                    <select name="userType" id="userType"  style="height: 30px">
                                         <option value="学生">学生</option>
                                     </select>
                                     <%--<input type="text" name="userType" value="学生"/>--%>

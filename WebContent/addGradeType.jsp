@@ -27,7 +27,7 @@
 
     <div id="center_column">
         <div class="addSubject">
-            <h3 align="center">添加考试类型</h3>
+            <h3 align="center" style="padding-top: 140px">添加考试类型</h3>
             <br>
             <p align="center" >
                 <font  style="font-size: 12px;" color="red"><s:property value="#request.addGradeTypeMess"/> </font>
@@ -45,7 +45,7 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <button type="submit">提交</button>
+                            <button type="submit">提交</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <button type="reset" >重置</button>
                         </td>
                     </tr>

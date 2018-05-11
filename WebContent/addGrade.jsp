@@ -26,7 +26,7 @@
 
     <div id="center_column">
         <div class="enterScore">
-            <h3 align="center">录入成绩</h3>
+            <h3 align="center" style="padding-top: 120px">录入成绩</h3>
             <br>
             <p align="center" >
                 <font  style="font-size: 12px;" color="red"><s:property value="#request.addGradeMess"/> </font>
@@ -47,7 +47,7 @@
                     <tr>
                         <td>课程编号与名称：</td>
                         <td>
-                            <select name="subjectNo" id="subjectNo">
+                            <select name="subjectNo" id="subjectNo" style="height: 30px">
                                 <s:iterator value="#request.getSubjectNameByTeacherId">
                                 <option name="subjectNo" value="<s:property value="subjectNo"/>"><s:property value="subjectNo"/>：<s:property value="subjectName"/> </option>
                                 </s:iterator>
@@ -59,7 +59,7 @@
                             考试类型：
                         </td>
                         <td>
-                            <select name="gradeType" id="gradeType">
+                            <select name="gradeType" id="gradeType" style="height: 30px">
                                 <s:iterator value="#request.getSubjectNameByTeacherId_1">
                                     <option name="gradeType" value="<s:property value="gradeTypeName"/>"><s:property value="gradeTypeName"/></option>
                                 </s:iterator>

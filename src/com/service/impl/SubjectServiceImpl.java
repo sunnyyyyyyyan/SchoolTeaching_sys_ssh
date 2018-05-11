@@ -83,7 +83,6 @@ public class SubjectServiceImpl implements SubjectService {
             ChooseSubject chooseSubject = list.get(0);
             String subjectName = chooseSubject.getSubjectName();
             ActionContext.getContext().getSession().put("subjectName", subjectName);
-            ActionContext.getContext().put("showSubjectByUserIdTestName", list);
             return list;
         }
         return null;

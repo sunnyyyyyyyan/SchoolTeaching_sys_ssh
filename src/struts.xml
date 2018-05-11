@@ -5,7 +5,7 @@
 
 <struts>   
 
-    <package name="default" extends="struts-default">        
+    <package name="default" extends="struts-default">
      	<action name="loginAction" class="com.action.UserAction" method="login">
             <result name="loginSuccess">/main_index.jsp</result>
             <result name="loginError">/index.jsp</result>          
@@ -166,8 +166,8 @@
         </action>
 
         <action name="doEvaluateAction" class="com.action.EvaluateAction" method="doEvaluate">
-            <result name="doEvaluateSuccess">/index.jsp</result>
-            <result name="doEvaluateError">/doEvaluate.jsp</result>
+            <result name="doEvaluateSuccess">/getMessInChoose.jsp</result>
+            <result name="doEvaluateError">/getMessInChoose.jsp</result>
         </action>
 
     </package>

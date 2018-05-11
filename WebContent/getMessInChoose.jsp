@@ -31,6 +31,9 @@
             <p align="center" >
                 <font  style="font-size: 12px;" color="red"><s:property value="#request.getEvaluateTestMess"/> </font>
             </p>
+            <p align="center" >
+                <font  style="font-size: 12px;" color="red"><s:property value="#request.doEvaluateMess"/> </font>
+            </p>
                 <table class="table table-bordered" style="width: 500px;margin: 0 auto;text-align: center">
                     <tr>
                         <td>课程编号</td>

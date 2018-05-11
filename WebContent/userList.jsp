@@ -27,7 +27,7 @@
 
     <div id="center_column">
         <div class="userList">
-            <h4 align="center">所有用户列表</h4>
+            <h4 align="center" style="padding-top: 40px">所有用户列表</h4>
             <br>
             <p align="center" >
                 <font  style="font-size: 12px;" color="red"><s:property value="userId"/> <s:property value="#request.deleteUserMess"/> </font>

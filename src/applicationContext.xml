@@ -31,6 +31,7 @@
 				<value>com/po/ChooseSubject.hbm.xml</value>
 				<value>com/po/Evaluate.hbm.xml</value>
 				<value>com/po/GradeType.hbm.xml</value>
+				<value>com/po/DoEvaluate.hbm.xml</value>
 			</list>
 		</property>
 	</bean>

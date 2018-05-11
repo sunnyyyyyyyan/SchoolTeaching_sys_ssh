@@ -25,7 +25,7 @@
 
     <div id="center_column">
         <div class="addEvaluate">
-            <h3 align="center">添加学评题目</h3>
+            <h4 align="center" style="padding-top: 50px">添加学评题目</h4>
             <br>
             <p align="center" >
                 <font  style="font-size: 12px;" color="red"><s:property value="#request.addEvaluateMess"/> </font>
@@ -37,7 +37,7 @@
                             <font color="red">*</font>课程编号与名称：
                         </td>
                         <td>
-                            <select name="subjectNo" id="subjectNo">
+                            <select name="subjectNo" id="subjectNo" style="height: 30px">
                                 <s:iterator value="#request.selectAllSubject">
                                     <option name="subjectNo" value="<s:property value="subjectNo"/>"><s:property value="subjectNo"/>：<s:property value="subjectName"/></option>
                                 </s:iterator>

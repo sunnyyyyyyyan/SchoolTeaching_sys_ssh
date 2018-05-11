@@ -27,7 +27,7 @@
 
     <div id="center_column">
         <div class="checkScore">
-            <h4 align="center">成绩列表</h4>
+            <h4 align="center" style="padding-top: 50px">成绩列表</h4>
             <br>
 
 

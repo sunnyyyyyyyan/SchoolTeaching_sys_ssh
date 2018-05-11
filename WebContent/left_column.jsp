@@ -36,17 +36,17 @@
                     Calendar cal = Calendar.getInstance();
                     int hour = cal.get(Calendar.HOUR_OF_DAY);
                     if (hour >= 5 && hour < 8) {
-                        out.print("<span style='color:red;font-size:12px;'>早上好，"+userId +"</span>");
+                        out.print("<span style='color:red;font-size:12px;margin-left: 20px'>早上好，"+userId +"</span>");
                     }else if (hour >= 8 && hour < 11) {
-                        out.print("<span style='color:red;font-size:12px;'>上午好，"+userId+"</span>");
+                        out.print("<span style='color:red;font-size:12px;margin-left: 20px'>上午好，"+userId+"</span>");
                     }else if (hour >= 11 && hour < 13) {
-                        out.print("<span style='color:red;font-size:12px;'>中午好，"+userId+"</span>");
+                        out.print("<span style='color:red;font-size:12px;margin-left: 20px'>中午好，"+userId+"</span>");
                     }else if (hour >= 13 && hour < 18) {
-                        out.print("<span style='color:red;font-size:12px;'>下午好，"+userId+"</span>");
+                        out.print("<span style='color:red;font-size:12px;margin-left: 20px'>下午好，"+userId+"</span>");
                     }else if (hour >= 18 && hour < 23) {
-                        out.print("<span style='color:red;font-size:12px;'>晚上好，"+userId+"</span>");
+                        out.print("<span style='color:red;font-size:12px;margin-left: 20px'>晚上好，"+userId+"</span>");
                     }else {
-                        out.print("<span style='color:red;font-size:12px;'>夜深啦，"+userId+"</span>");
+                        out.print("<span style='color:red;font-size:12px;margin-left: 20px'>夜深啦，"+userId+"</span>");
                     }
                 %>
                 <br><br>
@@ -91,9 +91,7 @@
                                 课程管理
                             </a>
                             <ul class="tab" id="admin_tab_3_content">
-                                <li><a class="li_sort_content" href="addSubject.jsp" target="_parent">添加课程</a></li>
                                 <li><a class="li_sort_content" href="checkSubjectAction.action" target="_parent">课程与选课</a></li>
-                                <li><a class="li_sort_content" href="getSubjectNameByTeacherIdAction.action?userId=<%=userId %>" target="_parent">增加试题</a></li>
                                 <li><a class="li_sort_content" href="questionListAction.action" target="_parent">试题库</a></li>
                             </ul>
                         </li>
@@ -108,18 +106,6 @@
                                 <li><a class="li_sort_content" href="checkEvaluateAction.action" target="_parent">学评题目列表</a></li>
                             </ul>
                         </li>
-                        <%--<li class="list">
-                            <a id="admin_tab_5" class="li_sort" href="#">
-                                <img src="./images/sort_menu.gif" width="26px" align="absmiddle" />
-                                资源管理
-                            </a>
-                            <ul class="tab" id="admin_tab_5_content">
-                                <li><a class="li_sort_content" href="sendMessage.jsp" target="_parent">发布通知</a></li>
-                                <li><a class="li_sort_content" href="checkMessage.jsp" target="_parent">查看通知</a></li>
-                                <li><a class="li_sort_content" href="checkEvaluate.jsp" target="_parent">上传文件</a></li>
-                                <li><a class="li_sort_content" href="checkFile.jsp" target="_parent">查看文件</a></li>
-                            </ul>
-                        </li>--%>
                     </ul>
                     <%
                         }
@@ -159,21 +145,11 @@
                                 <ul class="tab" id="teacher_tab_2_content">
                                     <li><a class="li_sort_content" href="getSubjectNoByTeacherIdAction.action?userId=<%=userId %>" target="_parent">录入成绩</a></li>
                                     <li><a class="li_sort_content" href="getAllGradeByTeacherIdAction.action?userId=<%=userId %>" target="_parent">查看成绩</a></li>
+<%--
                                     <li><a class="li_sort_content" href="checkTeaching.jsp" target="_parent">查看评价</a></li>
+--%>
                                 </ul>
                             </li>
-                            <%--<li class="list">
-                                <a id="teacher_tab_5" class="li_sort" href="#">
-                                    <img src="./images/sort_menu.gif" width="26px" align="absmiddle" />
-                                    资源管理
-                                </a>
-                                <ul class="tab" id="teacher_tab_5_content">
-                                    <li><a class="li_sort_content" href="sendMessage.jsp" target="_parent">发布通知</a></li>
-                                    <li><a class="li_sort_content" href="checkMessage.jsp" target="_parent">查看通知</a></li>
-                                    <li><a class="li_sort_content" href="checkEvaluate.jsp" target="_parent">上传文件</a></li>
-                                    <li><a class="li_sort_content" href="checkFile.jsp" target="_parent">查看文件</a></li>
-                                </ul>
-                            </li>--%>
                         </ul>
                     <%
                         }
@@ -210,17 +186,6 @@
                                     <li><a class="li_sort_content" href="getMessInChooseAction.action?userId=<%=userId %>" target="_parent">教学评价</a></li>
                                 </ul>
                             </li>
-                            <%--<li class="list">
-                                <a id="student_tab_5" class="li_sort" href="#">
-                                    <img src="./images/sort_menu.gif" width="26px" align="absmiddle" />
-                                    资源管理
-                                </a>
-                                <ul class="tab" id="student_tab_5_content">
-                                    <li><a class="li_sort_content" href="checkMessage.jsp" target="_parent">查看通知</a></li>
-                                    <li><a class="li_sort_content" href="checkEvaluate.jsp" target="_parent">上传文件</a></li>
-                                    <li><a class="li_sort_content" href="checkFile.jsp" target="_parent">查看文件</a></li>
-                                </ul>
-                            </li>--%>
                         </ul>
                     <%
                         }

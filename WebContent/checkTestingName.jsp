@@ -48,7 +48,7 @@
         <div class="checkTeachingName_top">
                 <button type="button" class="btn btn-default" name="Submit" style="float: right;width:50px;" onclick="javascript:history.back(-1);" value="返回" >返回</button>
             <br>
-            <h4 align="center">考试类型</h4>
+            <h4 align="center" style="padding-top: 50px">考试类型</h4>
             <br>
             <%
                 String subjectName = (String)ActionContext.getContext().getSession().get("subjectName");
@@ -77,7 +77,7 @@
                         <td><s:property value="subjectNo"/></td>
                         <td><%=subjectName%></td>
                         <td>
-                            <select name="testName" id="testName">
+                            <select name="testName" id="testName" style="height: 30px">
                                 <s:iterator value="#request.showSubjectByUserIdTestName">
                                     <option name="testName" value="<s:property value="username"/>"><s:property value="username"/></option>
                                 </s:iterator>

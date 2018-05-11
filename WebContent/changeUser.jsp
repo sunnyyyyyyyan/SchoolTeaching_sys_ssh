@@ -26,20 +26,13 @@
 
     <div id="center_column">
         <div class="changeUser">
-            <h4 align="center">修改信息</h4><br>
+            <h4 align="center" style="padding-top: 50px">修改信息</h4><br>
             <p align="center" >
                 <font color="red"><s:property value="#request.updateMess" /></font>
             </p>
-            <table  class="table table-bordered" style="margin:0 auto;width: 350px">
+            <%--<table  class="table table-bordered" style="margin:0 auto;width: 350px;">
                 <s:iterator value="#request.getUserById">
-                <tr>
-                    <td>
-                        编号：
-                    </td>
-                    <td>
-                        <s:property value="userId"/>
-                    </td>
-                </tr>
+
                 <tr>
                     <td>
                         原用户名：
@@ -74,7 +67,7 @@
                 </tr>
                 </s:iterator>
             </table>
-            <br><br>
+            <br><br>--%>
             <form action="updateUserAction.action?userId=<s:property value="userId"/>" method="post">
 
                 <table  class="table table-bordered" style="margin:0 auto;width: 350px">

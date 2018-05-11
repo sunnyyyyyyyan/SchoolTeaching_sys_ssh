@@ -61,17 +61,17 @@ public class EvaluateServiceImpl implements EvaluateService {
 
     @Override
     public String addDoEvaluate(DoEvaluate doEvaluate) {
-        String sql = "from DoEvaluate where subjectNo='"+doEvaluate.getSubjectNo()+"' and evaluateQuestionId='"+doEvaluate.getEvaluateQuestionId()+"' and userId='"+doEvaluate.getUserId()+"'";
+        String sql = "from DoEvaluate where subjectNo='"+doEvaluate.getSubjectNo()+"' and userId='"+doEvaluate.getUserId()+"'";
         List<DoEvaluate> list = this.doEvaluateDao.getData(sql);
         if (list.size()>0){
-            ActionContext.getContext().put("doEvaluateErrorMess","已评教！");
+            ActionContext.getContext().put("doEvaluateMess","已评教！");
             return "doEvaluateError";
         }
-        if (this.doEvaluateDao.updateDoEvaluate(doEvaluate)){
-            ActionContext.getContext().put("doEvaluateErrorMess","评教成功！");
+        if (this.doEvaluateDao.addDoEvaluate(doEvaluate)){
+            ActionContext.getContext().put("doEvaluateMess","评教成功！");
             return "doEvaluateSuccess";
         }
-        ActionContext.getContext().put("doEvaluateErrorMess","评教失败！");
+        ActionContext.getContext().put("doEvaluateMess","评教失败！");
         return "doEvaluateError";
     }
 

@@ -3,7 +3,9 @@ package com.action;
 import com.opensymphony.xwork2.ActionContext;
 import com.po.DoEvaluate;
 import com.po.Evaluate;
+import com.po.User;
 import com.service.EvaluateService;
+import net.sf.json.JSONArray;
 
 import java.util.List;
 
@@ -17,6 +19,17 @@ public class EvaluateAction {
     private String selectD;
     private EvaluateService evaluateService;
 
+    private List<DoEvaluate> doEvaluateList;
+
+    public List<DoEvaluate> getDoEvaluateList() {
+        return doEvaluateList;
+    }
+
+    public void setDoEvaluateList(String orderString) {
+        JSONArray json = JSONArray.fromObject(orderString);
+        doEvaluateList = (List<DoEvaluate>)JSONArray.toCollection(json, DoEvaluate.class);//转换成list
+        this.doEvaluateList = doEvaluateList;
+    }
 
     private String answer;
     private String advise;
@@ -112,6 +125,7 @@ public class EvaluateAction {
 
     //添加学评
     public String addEvaluate(){
+
         Evaluate evaluate = new Evaluate();
         evaluate.setSubjectNo(this.subjectNo);
         evaluate.setEvaluateQuestionId(this.evaluateQuestionId);
@@ -147,17 +161,19 @@ public class EvaluateAction {
 
     //保存学生的评价答案
     public String doEvaluate(){
-        DoEvaluate doEvaluate = new DoEvaluate();
-        doEvaluate.setSubjectNo(this.subjectNo);
-        doEvaluate.setEvaluateQuestionId(this.evaluateQuestionId);
-        doEvaluate.setEvaluateContent(this.evaluateContent);
-        doEvaluate.setAnswer(this.answer);
-        doEvaluate.setAdvise(this.advise);
-        doEvaluate.setUserId(this.userId);
-        String strMess = this.evaluateService.addDoEvaluate(doEvaluate);
+
+        List<DoEvaluate> doEvaluates=this.getDoEvaluateList();
+        String userId= (String) ActionContext.getContext().getSession().get("userId");
+        String strMess="";
+        for(int i=0;i<doEvaluates.size();i++){
+            doEvaluates.get(i).setUserId(userId);
+            strMess=this.evaluateService.addDoEvaluate(doEvaluates.get(i));
+        }
         if (strMess.equals("doEvaluateSuccess")) {
+            getEvaluateTest();
             return "doEvaluateSuccess";
         }
+        getEvaluateTest();
         return "doEvaluateError";
     }
 }

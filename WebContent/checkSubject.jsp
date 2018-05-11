@@ -27,7 +27,7 @@
 
     <div id="center_column">
         <div class="addSubject">
-            <h4 align="center">查看课程与选课</h4>
+            <h4 align="center" style="padding-top: 50px">查看课程与选课</h4>
             <br>
                     <%
                         String userType = (String)ActionContext.getContext().getSession().get("userType");
